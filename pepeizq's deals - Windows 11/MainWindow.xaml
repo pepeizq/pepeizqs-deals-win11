@@ -1,0 +1,46 @@
+﻿<Window
+    x:Class="Principal.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Principal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" x:Name="ventana">
+
+    <Grid>
+        <NavigationView x:Name="nvPrincipal" PaneDisplayMode="Top" IsBackButtonVisible="Collapsed" 
+                        Loaded="nvPrincipal_Loaded" ItemInvoked="nvPrincipal_ItemInvoked">
+            <Grid>
+                <Grid x:Name="gridCarga" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Uid="Loading" Grid.Row="0" Foreground="White" Margin="0,0,0,30" HorizontalAlignment="Center"/>
+                    <ProgressRing Grid.Row="1" IsActive="True" Foreground="White" HorizontalAlignment="Center"/>
+                </Grid>
+
+                <Grid x:Name="gridEntradasTodo" Visibility="Collapsed">
+                    <ListView x:Name="lvEntradasTodo"/>
+                </Grid>
+
+                <Grid x:Name="gridEntradasOfertas" Visibility="Collapsed">
+                    <ListView x:Name="lvEntradasOfertas"/>
+                </Grid>
+
+                <Grid x:Name="gridEntradasBundles" Visibility="Collapsed">
+                    <ListView x:Name="lvEntradasBundles"/>
+                </Grid>
+
+                <Grid x:Name="gridEntradasGratis" Visibility="Collapsed">
+                    <ListView x:Name="lvEntradasGratis"/>
+                </Grid>
+
+                <Grid x:Name="gridEntradasSuscripciones" Visibility="Collapsed">
+                    <ListView x:Name="lvEntradasSuscripciones"/>
+                </Grid>
+            </Grid>
+        </NavigationView>
+    </Grid> 
+</Window>
