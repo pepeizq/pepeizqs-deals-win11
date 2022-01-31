@@ -18,7 +18,7 @@ public static class Wordpress
         public string rendered;
     }
 
-    public static async void Inicio()
+    public static async void Cargar()
     {
         Pestañas.Visibilidad(ObjetosVentana.gridCarga);
 
@@ -27,7 +27,7 @@ public static class Wordpress
             AuthMethod = WordPressPCL.Models.AuthMethod.JWT
         };
 
-        var entradas = await cliente.CustomRequest.Get<IEnumerable<Entrada>>("wp/v2/posts");
+        var entradas = await cliente.CustomRequest.Get<IEnumerable<Entrada>>("wp/v2/posts?per_page=100&categories=3,4,12,13,1208");
        
 
         foreach (Entrada entrada in entradas)
@@ -37,6 +37,18 @@ public static class Wordpress
             if (entrada.categories[0] == 3)
             {
                 ObjetosVentana.lvEntradasOfertas.Items.Add(GenerarEntrada(entrada));
+            }
+            else if (entrada.categories[0] == 4)
+            {
+                ObjetosVentana.lvEntradasBundles.Items.Add(GenerarEntrada(entrada));
+            }
+            else if (entrada.categories[0] == 12)
+            {
+                ObjetosVentana.lvEntradasGratis.Items.Add(GenerarEntrada(entrada));
+            }
+            else if (entrada.categories[0] == 13)
+            {
+                ObjetosVentana.lvEntradasSuscripciones.Items.Add(GenerarEntrada(entrada));
             }
         }
 

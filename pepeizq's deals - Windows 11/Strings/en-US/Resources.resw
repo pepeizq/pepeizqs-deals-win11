@@ -120,10 +120,19 @@
   <data name="All" xml:space="preserve">
     <value>All</value>
   </data>
+  <data name="Bundles" xml:space="preserve">
+    <value>Bundles</value>
+  </data>
   <data name="Deals" xml:space="preserve">
     <value>Deals</value>
   </data>
+  <data name="Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
   <data name="Loading.Text" xml:space="preserve">
     <value>Loading</value>
+  </data>
+  <data name="Subscriptions" xml:space="preserve">
+    <value>Subscriptions</value>
   </data>
 </root>

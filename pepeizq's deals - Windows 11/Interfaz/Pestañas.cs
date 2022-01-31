@@ -1,5 +1,7 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Windows.UI;
 using static Principal.MainWindow;
 
 namespace Interfaz
@@ -22,10 +24,16 @@ namespace Interfaz
         {
             TextBlock tb = new TextBlock
             {
-                Text = nombre
+                Text = nombre,
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])
             };
+
+            tb.PointerEntered += Animaciones.EntraRaton;
+            tb.PointerExited += Animaciones.SaleRaton;
 
             ObjetosVentana.nvPrincipal.MenuItems.Add(tb);
         }
+
+
     }
 }
