@@ -132,6 +132,12 @@
   <data name="Loading.Text" xml:space="preserve">
     <value>Loading</value>
   </data>
+  <data name="Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Subscriptions</value>
   </data>

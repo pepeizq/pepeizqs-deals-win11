@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     
     mc:Ignorable="d" x:Name="ventana">
@@ -23,10 +23,21 @@
             <TextBlock x:Name="tbTitulo" Margin="15,0,0,0" FontSize="12" Foreground="White" VerticalAlignment="Center"/>
         </Grid>
 
+        <Grid x:Name="gridCarga" Grid.Row="1" Visibility="Collapsed">
+            <Grid.Background>
+                <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.9"/>
+            </Grid.Background>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Uid="Loading" Foreground="White" Margin="0,0,0,30" HorizontalAlignment="Center"/>
+                <ProgressRing IsActive="True" Foreground="White" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
         <NavigationView x:Name="nvPrincipal" Grid.Row="1" PaneDisplayMode="Top" IsBackButtonVisible="Collapsed" 
                         Loaded="nvPrincipal_Loaded" ItemInvoked="nvPrincipal_ItemInvoked" IsSettingsVisible="False">
             <NavigationView.Background>
-                <SolidColorBrush Color="{StaticResource ColorPrimario}"/>
+                <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="1"/>
             </NavigationView.Background>
 
             <NavigationView.Foreground>
@@ -35,12 +46,17 @@
 
             <NavigationView.Resources>
                 <SolidColorBrush x:Key="NavigationViewTopPaneBackground" Color="{StaticResource ColorPrimario}"/>
-
+                <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="{StaticResource ColorFuente}" />
             </NavigationView.Resources>
 
             <NavigationView.FooterMenuItems>
-                <NavigationViewItem>
-                    <NavigationViewItem.Icon>
+                <NavigationViewItem x:Name="nvItemActualizar">
+                    <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
+                        <FontIcon Glyph="&#xE149;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
+                    </Grid>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="nvItemOpciones">
+                    <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
                         <AnimatedIcon Foreground="{StaticResource ColorFuente}">
                             <AnimatedIcon.Source>
                                 <animatedvisuals:AnimatedSettingsVisualSource/>
@@ -49,23 +65,19 @@
                                 <SymbolIconSource Symbol="Setting"/>
                             </AnimatedIcon.FallbackIconSource>
                         </AnimatedIcon>
-                    </NavigationViewItem.Icon>
+                    </Grid>
                 </NavigationViewItem>
             </NavigationView.FooterMenuItems>
-            
-            <Grid>
-                <Grid x:Name="gridCarga" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
 
-                    <TextBlock x:Uid="Loading" Grid.Row="0" Foreground="White" Margin="0,0,0,30" HorizontalAlignment="Center"/>
-                    <ProgressRing Grid.Row="1" IsActive="True" Foreground="White" HorizontalAlignment="Center"/>
-                </Grid>
+            <Grid>
+                <Grid.Background>
+                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.8"/>
+                </Grid.Background>
 
                 <Grid x:Name="gridEntradasTodo" Visibility="Collapsed">
-                    <ListView x:Name="lvEntradasTodo"/>
+                    <ScrollViewer x:Name="svEntradasTodo" VerticalScrollBarVisibility="Visible" Padding="0,0,25,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spEntradasTodo" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
                 </Grid>
 
                 <Grid x:Name="gridEntradasOfertas" Visibility="Collapsed">
@@ -82,6 +94,10 @@
 
                 <Grid x:Name="gridEntradasSuscripciones" Visibility="Collapsed">
                     <ListView x:Name="lvEntradasSuscripciones"/>
+                </Grid>
+
+                <Grid x:Name="gridOpciones" Visibility="Collapsed">
+                   
                 </Grid>
             </Grid>
         </NavigationView>

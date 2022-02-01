@@ -1,9 +1,7 @@
 ﻿using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Input;
 using Microsoft.Windows.ApplicationModel.Resources;
-using Windows.UI.Core;
 
 //https://blogs.windows.com/windowsdeveloper/2022/01/28/build-your-first-winui-3-app-part-1/
 
@@ -22,7 +20,9 @@ namespace Principal
 
             BarraTitulo.Generar(this);
             BarraTitulo.CambiarTitulo(null);
+            Pestañas.Cargar();
             Wordpress.Cargar();
+
 
         }
 
@@ -31,14 +31,19 @@ namespace Principal
             ObjetosVentana.ventana = ventana;
             ObjetosVentana.gridTitulo = gridTitulo;
             ObjetosVentana.tbTitulo = tbTitulo;
-            ObjetosVentana.nvPrincipal = nvPrincipal;
             ObjetosVentana.gridCarga = gridCarga;
+            ObjetosVentana.nvPrincipal = nvPrincipal;
+            ObjetosVentana.nvItemActualizar = nvItemActualizar;
+            ObjetosVentana.nvItemOpciones = nvItemOpciones;
             ObjetosVentana.gridEntradasTodo = gridEntradasTodo;
+            ObjetosVentana.svEntradasTodo = svEntradasTodo;
+            ObjetosVentana.spEntradasTodo = spEntradasTodo;
             ObjetosVentana.gridEntradasOfertas = gridEntradasOfertas;
             ObjetosVentana.gridEntradasBundles = gridEntradasBundles;
             ObjetosVentana.gridEntradasGratis = gridEntradasGratis;
             ObjetosVentana.gridEntradasSuscripciones = gridEntradasSuscripciones;
-            ObjetosVentana.lvEntradasTodo = lvEntradasTodo;
+            ObjetosVentana.gridOpciones = gridOpciones;
+           
             ObjetosVentana.lvEntradasOfertas = lvEntradasOfertas;
             ObjetosVentana.lvEntradasBundles = lvEntradasBundles;
             ObjetosVentana.lvEntradasGratis = lvEntradasGratis;
@@ -50,14 +55,19 @@ namespace Principal
             public static Window ventana { get; set; }
             public static Grid gridTitulo { get; set; }
             public static TextBlock tbTitulo { get; set; }
-            public static NavigationView nvPrincipal { get; set; }
             public static Grid gridCarga { get; set; }
+            public static NavigationView nvPrincipal { get; set; }
+            public static NavigationViewItem nvItemActualizar { get; set; }
+            public static NavigationViewItem nvItemOpciones { get; set; }
             public static Grid gridEntradasTodo { get; set; }
+            public static ScrollViewer svEntradasTodo { get; set; }
+            public static StackPanel spEntradasTodo { get; set; }
             public static Grid gridEntradasOfertas { get; set; }
             public static Grid gridEntradasBundles { get; set; }
             public static Grid gridEntradasGratis { get; set; }
             public static Grid gridEntradasSuscripciones { get; set; }
-            public static ListView lvEntradasTodo { get; set; }
+            public static Grid gridOpciones { get; set; }
+
             public static ListView lvEntradasOfertas { get; set; }
             public static ListView lvEntradasBundles { get; set; }
             public static ListView lvEntradasGratis { get; set; }
@@ -68,58 +78,77 @@ namespace Principal
         {
             ResourceLoader recursos = new ResourceLoader();
 
-            Pestañas.CreadorItems(recursos.GetString("All"));
-            Pestañas.CreadorItems(recursos.GetString("Deals"));
-            Pestañas.CreadorItems(recursos.GetString("Bundles"));
-            Pestañas.CreadorItems(recursos.GetString("Free"));
-            Pestañas.CreadorItems(recursos.GetString("Subscriptions"));
+            Pestañas.CreadorItems(recursos.GetString("All"), null);
+            Pestañas.CreadorItems(recursos.GetString("Deals"), null);
+            Pestañas.CreadorItems(recursos.GetString("Bundles"), null);
+            Pestañas.CreadorItems(recursos.GetString("Free"), null);
+            Pestañas.CreadorItems(recursos.GetString("Subscriptions"), null);
         }
 
         private void nvPrincipal_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
             ResourceLoader recursos = new ResourceLoader();
 
-            if (args.IsSettingsInvoked == true)
+            if (args.InvokedItemContainer != null)
             {
-                //gridOpciones
-            }
-            else
-            {
-                if (args.InvokedItem != null)
+                if (args.InvokedItemContainer.GetType() == typeof(NavigationViewItem))
                 {
-                    if (args.InvokedItem.GetType() == typeof(TextBlock))
-                    {
-                        TextBlock tb = args.InvokedItem as TextBlock;
+                    NavigationViewItem item = args.InvokedItemContainer as NavigationViewItem;
 
-                        if (tb.Text == recursos.GetString("All"))
-                        {
-                            Pestañas.Visibilidad(gridEntradasTodo);
-                            BarraTitulo.CambiarTitulo(null);
-                        }
-                        else if (tb.Text == recursos.GetString("Deals"))
-                        {
-                            Pestañas.Visibilidad(gridEntradasOfertas);
-                            BarraTitulo.CambiarTitulo(recursos.GetString("Deals"));
-                        }
-                        else if (tb.Text == recursos.GetString("Bundles"))
-                        {
-                            Pestañas.Visibilidad(gridEntradasBundles);
-                            BarraTitulo.CambiarTitulo(recursos.GetString("Bundles"));
-                        }
-                        else if (tb.Text == recursos.GetString("Free"))
-                        {
-                            Pestañas.Visibilidad(gridEntradasGratis);
-                            BarraTitulo.CambiarTitulo(recursos.GetString("Free"));
-                        }
-                        else if (tb.Text == recursos.GetString("Subscriptions"))
-                        {
-                            Pestañas.Visibilidad(gridEntradasSuscripciones);
-                            BarraTitulo.CambiarTitulo(recursos.GetString("Subscriptions"));
-                        }
+                    if (item.Name == "nvItemActualizar")
+                    {
+                        Wordpress.Cargar();
+                        BarraTitulo.CambiarTitulo(null);
                     }
-                }               
+                    else if (item.Name == "nvItemOpciones")
+                    {
+                        Pestañas.Visibilidad(gridOpciones, true);
+                        BarraTitulo.CambiarTitulo(recursos.GetString("Options"));
+                    }
+                }
+            }
+                
+            if (args.InvokedItem != null)
+            {                           
+                if (args.InvokedItem.GetType() == typeof(Grid))
+                {
+                    Grid grid = (Grid)args.InvokedItem;
+
+                    if (grid.Children[0] != null)
+                    {
+                        if (grid.Children[0].GetType() == typeof(TextBlock))
+                        {
+                            TextBlock tb = grid.Children[0] as TextBlock;
+
+                            if (tb.Text == recursos.GetString("All"))
+                            {
+                                Pestañas.Visibilidad(gridEntradasTodo, true);
+                                BarraTitulo.CambiarTitulo(null);
+                            }
+                            else if (tb.Text == recursos.GetString("Deals"))
+                            {
+                                Pestañas.Visibilidad(gridEntradasOfertas, true);
+                                BarraTitulo.CambiarTitulo(recursos.GetString("Deals"));
+                            }
+                            else if (tb.Text == recursos.GetString("Bundles"))
+                            {
+                                Pestañas.Visibilidad(gridEntradasBundles, true);
+                                BarraTitulo.CambiarTitulo(recursos.GetString("Bundles"));
+                            }
+                            else if (tb.Text == recursos.GetString("Free"))
+                            {
+                                Pestañas.Visibilidad(gridEntradasGratis, true);
+                                BarraTitulo.CambiarTitulo(recursos.GetString("Free"));
+                            }
+                            else if (tb.Text == recursos.GetString("Subscriptions"))
+                            {
+                                Pestañas.Visibilidad(gridEntradasSuscripciones, true);
+                                BarraTitulo.CambiarTitulo(recursos.GetString("Subscriptions"));
+                            }
+                        }
+                    }                    
+                }
             }
         }
-
     }
 }
