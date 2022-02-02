@@ -56,7 +56,7 @@ public static class Wordpress
             }
         }
 
-        ObjetosVentana.nvPrincipal.SelectedItem = ObjetosVentana.nvPrincipal.MenuItems[0];
+        ObjetosVentana.nvPrincipal.SelectedItem = ObjetosVentana.nvPrincipal.MenuItems[1];
         Pestañas.Visibilidad(ObjetosVentana.gridEntradasTodo, true);
     }
 

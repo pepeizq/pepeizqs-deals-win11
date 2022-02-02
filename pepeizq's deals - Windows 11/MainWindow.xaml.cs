@@ -33,6 +33,7 @@ namespace Principal
             ObjetosVentana.tbTitulo = tbTitulo;
             ObjetosVentana.gridCarga = gridCarga;
             ObjetosVentana.nvPrincipal = nvPrincipal;
+            ObjetosVentana.nvItemMenu = nvItemMenu;
             ObjetosVentana.nvItemActualizar = nvItemActualizar;
             ObjetosVentana.nvItemOpciones = nvItemOpciones;
             ObjetosVentana.gridEntradasTodo = gridEntradasTodo;
@@ -43,7 +44,8 @@ namespace Principal
             ObjetosVentana.gridEntradasGratis = gridEntradasGratis;
             ObjetosVentana.gridEntradasSuscripciones = gridEntradasSuscripciones;
             ObjetosVentana.gridOpciones = gridOpciones;
-           
+            ObjetosVentana.gridOfertasExpandida = gridOfertasExpandida;
+
             ObjetosVentana.lvEntradasOfertas = lvEntradasOfertas;
             ObjetosVentana.lvEntradasBundles = lvEntradasBundles;
             ObjetosVentana.lvEntradasGratis = lvEntradasGratis;
@@ -57,6 +59,7 @@ namespace Principal
             public static TextBlock tbTitulo { get; set; }
             public static Grid gridCarga { get; set; }
             public static NavigationView nvPrincipal { get; set; }
+            public static NavigationViewItem nvItemMenu { get; set; }
             public static NavigationViewItem nvItemActualizar { get; set; }
             public static NavigationViewItem nvItemOpciones { get; set; }
             public static Grid gridEntradasTodo { get; set; }
@@ -67,6 +70,7 @@ namespace Principal
             public static Grid gridEntradasGratis { get; set; }
             public static Grid gridEntradasSuscripciones { get; set; }
             public static Grid gridOpciones { get; set; }
+            public static Grid gridOfertasExpandida { get; set; }
 
             public static ListView lvEntradasOfertas { get; set; }
             public static ListView lvEntradasBundles { get; set; }
@@ -77,12 +81,12 @@ namespace Principal
         private void nvPrincipal_Loaded(object sender, RoutedEventArgs e)
         {
             ResourceLoader recursos = new ResourceLoader();
-
-            Pestañas.CreadorItems(recursos.GetString("All"), null);
-            Pestañas.CreadorItems(recursos.GetString("Deals"), null);
-            Pestañas.CreadorItems(recursos.GetString("Bundles"), null);
-            Pestañas.CreadorItems(recursos.GetString("Free"), null);
+           
             Pestañas.CreadorItems(recursos.GetString("Subscriptions"), null);
+            Pestañas.CreadorItems(recursos.GetString("Free"), null);
+            Pestañas.CreadorItems(recursos.GetString("Bundles"), null);
+            Pestañas.CreadorItems(recursos.GetString("Deals"), null);
+            Pestañas.CreadorItems(recursos.GetString("All"), null);
         }
 
         private void nvPrincipal_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
@@ -128,22 +132,22 @@ namespace Principal
                             else if (tb.Text == recursos.GetString("Deals"))
                             {
                                 Pestañas.Visibilidad(gridEntradasOfertas, true);
-                                BarraTitulo.CambiarTitulo(recursos.GetString("Deals"));
+                                BarraTitulo.CambiarTitulo(tb.Text);
                             }
                             else if (tb.Text == recursos.GetString("Bundles"))
                             {
                                 Pestañas.Visibilidad(gridEntradasBundles, true);
-                                BarraTitulo.CambiarTitulo(recursos.GetString("Bundles"));
+                                BarraTitulo.CambiarTitulo(tb.Text);
                             }
                             else if (tb.Text == recursos.GetString("Free"))
                             {
                                 Pestañas.Visibilidad(gridEntradasGratis, true);
-                                BarraTitulo.CambiarTitulo(recursos.GetString("Free"));
+                                BarraTitulo.CambiarTitulo(tb.Text);
                             }
                             else if (tb.Text == recursos.GetString("Subscriptions"))
                             {
                                 Pestañas.Visibilidad(gridEntradasSuscripciones, true);
-                                BarraTitulo.CambiarTitulo(recursos.GetString("Subscriptions"));
+                                BarraTitulo.CambiarTitulo(tb.Text);
                             }
                         }
                     }                    

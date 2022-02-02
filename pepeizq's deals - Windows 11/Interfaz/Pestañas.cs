@@ -14,6 +14,11 @@ namespace Interfaz
         {
             ResourceLoader recursos = new ResourceLoader();
 
+            ObjetosVentana.nvPrincipal.MenuItems.RemoveAt(0);
+            ObjetosVentana.nvPrincipal.MenuItems.Insert(0, ObjetosVentana.nvItemMenu);
+            ObjetosVentana.nvItemMenu.PointerEntered += Animaciones.EntraRatonNvItem;
+            ObjetosVentana.nvItemMenu.PointerExited += Animaciones.SaleRatonNvItem;
+
             TextBlock tbActualizarTt = new TextBlock
             {
                 Text = recursos.GetString("Refresh")
@@ -47,6 +52,7 @@ namespace Interfaz
             ObjetosVentana.gridEntradasGratis.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridEntradasSuscripciones.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOpciones.Visibility = Visibility.Collapsed;
+            ObjetosVentana.gridOfertasExpandida.Visibility = Visibility.Collapsed;
 
             grid.Visibility = Visibility.Visible;
 
@@ -90,9 +96,7 @@ namespace Interfaz
                 ToolTipService.SetPlacement(grid, PlacementMode.Bottom);
             }
             
-            ObjetosVentana.nvPrincipal.MenuItems.Add(grid);
+            ObjetosVentana.nvPrincipal.MenuItems.Insert(1, grid);
         }
-
-
     }
 }

@@ -49,6 +49,21 @@
                 <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="{StaticResource ColorFuente}" />
             </NavigationView.Resources>
 
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:Name="nvItemMenu">
+                    <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
+                        <AnimatedIcon Foreground="{StaticResource ColorFuente}">
+                            <AnimatedIcon.Source>
+                                <animatedvisuals:AnimatedGlobalNavigationButtonVisualSource/>
+                            </AnimatedIcon.Source>
+                            <AnimatedIcon.FallbackIconSource>
+                                <SymbolIconSource Symbol="GlobalNavigationButton"/>
+                            </AnimatedIcon.FallbackIconSource>
+                        </AnimatedIcon>
+                    </Grid>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem x:Name="nvItemActualizar">
                     <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
@@ -75,7 +90,7 @@
                 </Grid.Background>
 
                 <Grid x:Name="gridEntradasTodo" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svEntradasTodo" VerticalScrollBarVisibility="Visible" Padding="0,0,25,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <ScrollViewer x:Name="svEntradasTodo" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                         <StackPanel x:Name="spEntradasTodo" Orientation="Vertical" Padding="20"/>
                     </ScrollViewer>
                 </Grid>
@@ -98,6 +113,10 @@
 
                 <Grid x:Name="gridOpciones" Visibility="Collapsed">
                    
+                </Grid>
+
+                <Grid x:Name="gridOfertasExpandida" Visibility="Collapsed">
+
                 </Grid>
             </Grid>
         </NavigationView>
