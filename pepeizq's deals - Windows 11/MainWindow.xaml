@@ -48,23 +48,54 @@
                 <SolidColorBrush x:Key="NavigationViewTopPaneBackground" Color="{StaticResource ColorPrimario}"/>
                 <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="{StaticResource ColorFuente}" />
             </NavigationView.Resources>
-
+            
             <NavigationView.MenuItems>
                 <NavigationViewItem x:Name="nvItemMenu">
+                    <FlyoutBase.AttachedFlyout>
+                        <MenuFlyout>
+                            <MenuFlyout.MenuFlyoutPresenterStyle>
+                                <Style TargetType="MenuFlyoutPresenter">
+                                    <Setter Property="Background" Value="{StaticResource ColorPrimario}"/>
+                                </Style>
+                            </MenuFlyout.MenuFlyoutPresenterStyle>
+
+                            <MenuFlyoutItem Text="test" Foreground="{StaticResource ColorFuente}"/>
+                        </MenuFlyout>
+                    </FlyoutBase.AttachedFlyout>
+
+                    <NavigationViewItem.Content>
+                        <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
+                            <AnimatedIcon Foreground="{StaticResource ColorFuente}">
+                                <AnimatedIcon.Source>
+                                    <animatedvisuals:AnimatedGlobalNavigationButtonVisualSource/>
+                                </AnimatedIcon.Source>
+                                <AnimatedIcon.FallbackIconSource>
+                                    <SymbolIconSource Symbol="GlobalNavigationButton"/>
+                                </AnimatedIcon.FallbackIconSource>
+                            </AnimatedIcon>
+                        </Grid>
+                    </NavigationViewItem.Content>
+                </NavigationViewItem>
+                <NavigationViewItem x:Name="nvItemVolver" Visibility="Collapsed">
                     <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
                         <AnimatedIcon Foreground="{StaticResource ColorFuente}">
                             <AnimatedIcon.Source>
-                                <animatedvisuals:AnimatedGlobalNavigationButtonVisualSource/>
+                                <animatedvisuals:AnimatedBackVisualSource/>
                             </AnimatedIcon.Source>
                             <AnimatedIcon.FallbackIconSource>
-                                <SymbolIconSource Symbol="GlobalNavigationButton"/>
+                                <SymbolIconSource Symbol="Back"/>
                             </AnimatedIcon.FallbackIconSource>
                         </AnimatedIcon>
                     </Grid>
-                </NavigationViewItem>
+                </NavigationViewItem> 
             </NavigationView.MenuItems>
 
             <NavigationView.FooterMenuItems>
+                <NavigationViewItem x:Name="nvItemSubirArriba" Visibility="Collapsed">
+                    <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
+                        <FontIcon Glyph="&#xE70E;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
+                    </Grid>
+                </NavigationViewItem>
                 <NavigationViewItem x:Name="nvItemActualizar">
                     <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
                         <FontIcon Glyph="&#xE149;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
@@ -96,27 +127,68 @@
                 </Grid>
 
                 <Grid x:Name="gridEntradasOfertas" Visibility="Collapsed">
-                    <ListView x:Name="lvEntradasOfertas"/>
+                    <ScrollViewer x:Name="svEntradasOfertas" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spEntradasOfertas" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
                 </Grid>
 
                 <Grid x:Name="gridEntradasBundles" Visibility="Collapsed">
-                    <ListView x:Name="lvEntradasBundles"/>
+                    <ScrollViewer x:Name="svEntradasBundles" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spEntradasBundles" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
                 </Grid>
 
                 <Grid x:Name="gridEntradasGratis" Visibility="Collapsed">
-                    <ListView x:Name="lvEntradasGratis"/>
+                    <ScrollViewer x:Name="svEntradasGratis" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spEntradasGratis" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
                 </Grid>
 
                 <Grid x:Name="gridEntradasSuscripciones" Visibility="Collapsed">
-                    <ListView x:Name="lvEntradasSuscripciones"/>
+                    <ScrollViewer x:Name="svEntradasSuscripciones" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spEntradasSuscripciones" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
                 </Grid>
 
                 <Grid x:Name="gridOpciones" Visibility="Collapsed">
-                   
+                    <ScrollViewer x:Name="svOpciones" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spOpciones" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
                 </Grid>
 
                 <Grid x:Name="gridOfertasExpandida" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
+                    <Grid Grid.Row="0" Margin="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock x:Uid="SortBy" Grid.Column="0" Foreground="White" VerticalAlignment="Center" Margin="30,0,10,0"/>
+
+                        <ComboBox x:Name="cbOrdenarOfertasExpandida" Grid.Column="1" RequestedTheme="Dark" SelectedIndex="0" VerticalAlignment="Center">
+                            <ComboBoxItem>
+                                <TextBlock x:Uid="SortTitle"/>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <TextBlock x:Uid="SortDiscount"/>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <TextBlock x:Uid="SortReviews"/>
+                            </ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock x:Name="tbMensajeOfertasExpandida" Grid.Column="2" Foreground="White" Margin="40,0" Visibility="Collapsed" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1" x:Name="svOfertasExpandida" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spOfertasExpandida" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
                 </Grid>
             </Grid>
         </NavigationView>

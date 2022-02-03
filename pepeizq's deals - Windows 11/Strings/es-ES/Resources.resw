@@ -138,6 +138,9 @@
   <data name="Refresh" xml:space="preserve">
     <value>Actualizar</value>
   </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Reseñas</value>
+  </data>
   <data name="ShowDeals" xml:space="preserve">
     <value>Enseñar Todas las Ofertas</value>
   </data>

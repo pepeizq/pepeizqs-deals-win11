@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Entradas;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Media;
@@ -16,8 +17,19 @@ namespace Interfaz
 
             ObjetosVentana.nvPrincipal.MenuItems.RemoveAt(0);
             ObjetosVentana.nvPrincipal.MenuItems.Insert(0, ObjetosVentana.nvItemMenu);
+
+            ObjetosVentana.nvItemMenu.PointerPressed += EntraRatonNvItemMenu;
             ObjetosVentana.nvItemMenu.PointerEntered += Animaciones.EntraRatonNvItem;
             ObjetosVentana.nvItemMenu.PointerExited += Animaciones.SaleRatonNvItem;
+
+            ObjetosVentana.nvItemVolver.PointerPressed += Ofertas.BotonCerrarExpandida;
+            ObjetosVentana.nvItemVolver.PointerEntered += Animaciones.EntraRatonNvItem;
+            ObjetosVentana.nvItemVolver.PointerExited += Animaciones.SaleRatonNvItem;
+
+            ObjetosVentana.nvItemSubirArriba.PointerPressed += ScrollViewers.SubirArriba;
+            ObjetosVentana.nvItemSubirArriba.PointerEntered += Animaciones.EntraRatonNvItem;
+            ObjetosVentana.nvItemSubirArriba.PointerExited += Animaciones.SaleRatonNvItem;
+
 
             TextBlock tbActualizarTt = new TextBlock
             {
@@ -97,6 +109,11 @@ namespace Interfaz
             }
             
             ObjetosVentana.nvPrincipal.MenuItems.Insert(1, grid);
+        }
+
+        public static void EntraRatonNvItemMenu(object sender, RoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout(sender as NavigationViewItem);
         }
     }
 }

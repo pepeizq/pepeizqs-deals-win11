@@ -138,6 +138,9 @@
   <data name="Refresh" xml:space="preserve">
     <value>Refresh</value>
   </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Reviews</value>
+  </data>
   <data name="ShowDeals" xml:space="preserve">
     <value>Show All Deals</value>
   </data>
