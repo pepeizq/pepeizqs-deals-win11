@@ -52,6 +52,11 @@ namespace Entradas
 
     public static class Ofertas
     {
+        public static void Cargar()
+        {
+            ObjetosVentana.cbOrdenarOfertasExpandida.SelectionChanged += CambiarOrdenado;
+        }
+
         public static Grid GenerarEntrada(Entrada entrada)
         {
             EntradaOfertas json = JsonSerializer.Deserialize<EntradaOfertas>(entrada.json);
@@ -66,6 +71,7 @@ namespace Entradas
 
             Grid gridMaestro = new Grid
             {
+                Tag = entrada,
                 Margin = new Thickness(0, 0, 0, 40),
                 Background = fondoMaestro,
                 Padding = new Thickness(20, 20, 20, 20),
@@ -302,19 +308,7 @@ namespace Entradas
             Pestañas.Visibilidad(ObjetosVentana.gridOfertasExpandida, true);
             BarraTitulo.CambiarTitulo(null);
 
-            string gridVisible = string.Empty;
-
-            if (ObjetosVentana.gridEntradasTodo.Visibility == Visibility.Visible)
-            {
-                gridVisible = ObjetosVentana.gridEntradasTodo.Name;
-            }
-            else if (ObjetosVentana.gridEntradasOfertas.Visibility == Visibility.Visible)
-            {
-                gridVisible = ObjetosVentana.gridEntradasOfertas.Name;
-            }
-
             ObjetosVentana.nvItemVolver.Visibility = Visibility.Visible;
-            ObjetosVentana.nvItemVolver.Tag = gridVisible;
 
             for (int i = 0; i < ObjetosVentana.nvPrincipal.MenuItems.Count; i++)
             {
@@ -353,15 +347,27 @@ namespace Entradas
             ObjetosVentana.svOfertasExpandida.ChangeView(null, 0, null);
             ObjetosVentana.spOfertasExpandida.Children.Clear();
 
-            ResourceLoader recursos = new ResourceLoader();
+            ResourceLoader recursos = new ResourceLoader();           
 
             if (ordenado == 0)
             {
-                //juegos = juegos.Sort((e1, e2) =>
-                //{
-                //    return e2.titulo.CompareTo(e1.titulo);
-                //});
+                juegos = juegos.OrderBy(x => x.titulo).ToList();               
+            }
+            else if (ordenado == 1)
+            {
+                juegos = juegos.OrderByDescending(x => x.descuento).ToList();
+            }
+            else if (ordenado == 2)
+            {
+                foreach (EntradaOfertasJuego juego in juegos)
+                {
+                    if (juego.analisisPorcentaje == "null")
+                    {
+                        juego.analisisPorcentaje = "0";
+                    }
+                }
 
+                juegos = juegos.OrderByDescending(x => x.analisisPorcentaje.Replace("%", null)).ToList();
             }
 
             foreach (EntradaOfertasJuego juego in juegos)
@@ -641,20 +647,18 @@ namespace Entradas
         {
             ResourceLoader recursos = new ResourceLoader();
             ObjetosVentana.nvItemVolver.Visibility = Visibility.Collapsed;
+            Pestañas.Visibilidad(ObjetosVentana.gridEntradas, true);
+            ScrollViewers.EnseñarSubir(ObjetosVentana.svEntradas);
 
-            string gridVolver = ObjetosVentana.nvItemVolver.Tag as string;
-           
-            if (gridVolver == "gridEntradasOfertas")
-            {
-                Pestañas.Visibilidad(ObjetosVentana.gridEntradasOfertas, true);              
-                BarraTitulo.CambiarTitulo(recursos.GetString("Deals"));
-                ScrollViewers.EnseñarSubir(ObjetosVentana.svEntradasOfertas);
+            int volver = int.Parse(ObjetosVentana.nvPrincipal.Tag.ToString());
+
+            if (volver == 0)
+            {                              
+                BarraTitulo.CambiarTitulo(null);                
             }
             else
             {
-                Pestañas.Visibilidad(ObjetosVentana.gridEntradasTodo, true);
-                BarraTitulo.CambiarTitulo(null);
-                ScrollViewers.EnseñarSubir(ObjetosVentana.svEntradasTodo);
+                BarraTitulo.CambiarTitulo(recursos.GetString("Deals"));
             }
 
             NavigationViewItem menu = ObjetosVentana.nvPrincipal.MenuItems[0] as NavigationViewItem;
@@ -665,6 +669,12 @@ namespace Entradas
             Pestañas.CreadorItems(recursos.GetString("Bundles"), null);
             Pestañas.CreadorItems(recursos.GetString("Deals"), null);
             Pestañas.CreadorItems(recursos.GetString("All"), null);
+        }
+
+        public static void CambiarOrdenado(object sender, SelectionChangedEventArgs e)
+        {
+            List<EntradaOfertasJuego> juegos = ObjetosVentana.cbOrdenarOfertasExpandida.Tag as List<EntradaOfertasJuego>;
+            GenerarListadoOfertas(juegos, ObjetosVentana.cbOrdenarOfertasExpandida.SelectedIndex);
         }
     }
 }

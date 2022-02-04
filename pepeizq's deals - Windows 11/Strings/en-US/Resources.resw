@@ -120,6 +120,9 @@
   <data name="All" xml:space="preserve">
     <value>All</value>
   </data>
+  <data name="AndMoreGames" xml:space="preserve">
+    <value>And More Games</value>
+  </data>
   <data name="Bundles" xml:space="preserve">
     <value>Bundles</value>
   </data>
@@ -143,6 +146,18 @@
   </data>
   <data name="ShowDeals" xml:space="preserve">
     <value>Show All Deals</value>
+  </data>
+  <data name="SortBy.Text" xml:space="preserve">
+    <value>Sort by:</value>
+  </data>
+  <data name="SortDiscount.Text" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="SortReviews.Text" xml:space="preserve">
+    <value>Reviews</value>
+  </data>
+  <data name="SortTitle.Text" xml:space="preserve">
+    <value>Title</value>
   </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Subscriptions</value>

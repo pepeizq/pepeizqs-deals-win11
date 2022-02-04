@@ -58,11 +58,7 @@ namespace Interfaz
         {
             ObjetosVentana.gridCarga.Visibility = Visibility.Collapsed;
             ObjetosVentana.nvPrincipal.Visibility = Visibility.Collapsed;           
-            ObjetosVentana.gridEntradasTodo.Visibility = Visibility.Collapsed;
-            ObjetosVentana.gridEntradasOfertas.Visibility = Visibility.Collapsed;
-            ObjetosVentana.gridEntradasBundles.Visibility = Visibility.Collapsed;
-            ObjetosVentana.gridEntradasGratis.Visibility = Visibility.Collapsed;
-            ObjetosVentana.gridEntradasSuscripciones.Visibility = Visibility.Collapsed;
+            ObjetosVentana.gridEntradas.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOpciones.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOfertasExpandida.Visibility = Visibility.Collapsed;
 

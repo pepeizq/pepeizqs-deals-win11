@@ -120,33 +120,9 @@
                     <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.8"/>
                 </Grid.Background>
 
-                <Grid x:Name="gridEntradasTodo" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svEntradasTodo" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                        <StackPanel x:Name="spEntradasTodo" Orientation="Vertical" Padding="20"/>
-                    </ScrollViewer>
-                </Grid>
-
-                <Grid x:Name="gridEntradasOfertas" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svEntradasOfertas" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                        <StackPanel x:Name="spEntradasOfertas" Orientation="Vertical" Padding="20"/>
-                    </ScrollViewer>
-                </Grid>
-
-                <Grid x:Name="gridEntradasBundles" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svEntradasBundles" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                        <StackPanel x:Name="spEntradasBundles" Orientation="Vertical" Padding="20"/>
-                    </ScrollViewer>
-                </Grid>
-
-                <Grid x:Name="gridEntradasGratis" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svEntradasGratis" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                        <StackPanel x:Name="spEntradasGratis" Orientation="Vertical" Padding="20"/>
-                    </ScrollViewer>
-                </Grid>
-
-                <Grid x:Name="gridEntradasSuscripciones" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svEntradasSuscripciones" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                        <StackPanel x:Name="spEntradasSuscripciones" Orientation="Vertical" Padding="20"/>
+                <Grid x:Name="gridEntradas" Visibility="Collapsed">
+                    <ScrollViewer x:Name="svEntradas" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spEntradas" Orientation="Vertical" Padding="20"/>
                     </ScrollViewer>
                 </Grid>
 
@@ -171,7 +147,11 @@
                         
                         <TextBlock x:Uid="SortBy" Grid.Column="0" Foreground="White" VerticalAlignment="Center" Margin="30,0,10,0"/>
 
-                        <ComboBox x:Name="cbOrdenarOfertasExpandida" Grid.Column="1" RequestedTheme="Dark" SelectedIndex="0" VerticalAlignment="Center">
+                        <ComboBox x:Name="cbOrdenarOfertasExpandida" Grid.Column="1" SelectedIndex="0" VerticalAlignment="Center" RequestedTheme="Dark">
+                            <ComboBox.Resources>
+                                <SolidColorBrush x:Key="ComboBoxBackground" Color="{StaticResource ColorPrimario}"/>
+                            </ComboBox.Resources>
+
                             <ComboBoxItem>
                                 <TextBlock x:Uid="SortTitle"/>
                             </ComboBoxItem>

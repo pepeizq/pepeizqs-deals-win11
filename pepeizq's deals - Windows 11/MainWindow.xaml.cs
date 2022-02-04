@@ -1,9 +1,7 @@
-﻿using Interfaz;
-using Microsoft.UI;
+﻿using Entradas;
+using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.ApplicationModel.Resources;
 using Windows.UI;
@@ -28,7 +26,7 @@ namespace Principal
             Pestañas.Cargar();
             ScrollViewers.Cargar();
             Wordpress.Cargar();
-
+            Ofertas.Cargar();
 
         }
 
@@ -46,25 +44,9 @@ namespace Principal
             ObjetosVentana.nvItemActualizar = nvItemActualizar;
             ObjetosVentana.nvItemOpciones = nvItemOpciones;
 
-            ObjetosVentana.gridEntradasTodo = gridEntradasTodo;
-            ObjetosVentana.svEntradasTodo = svEntradasTodo;
-            ObjetosVentana.spEntradasTodo = spEntradasTodo;
-
-            ObjetosVentana.gridEntradasOfertas = gridEntradasOfertas;
-            ObjetosVentana.svEntradasOfertas = svEntradasOfertas;
-            ObjetosVentana.spEntradasOfertas = spEntradasOfertas;
-
-            ObjetosVentana.gridEntradasBundles = gridEntradasBundles;
-            ObjetosVentana.svEntradasBundles = svEntradasBundles;
-            ObjetosVentana.spEntradasBundles = spEntradasBundles;
-
-            ObjetosVentana.gridEntradasGratis = gridEntradasGratis;
-            ObjetosVentana.svEntradasGratis = svEntradasGratis;
-            ObjetosVentana.spEntradasGratis = spEntradasGratis;
-
-            ObjetosVentana.gridEntradasSuscripciones = gridEntradasSuscripciones;
-            ObjetosVentana.svEntradasSuscripciones = svEntradasSuscripciones;
-            ObjetosVentana.spEntradasSuscripciones = spEntradasSuscripciones;
+            ObjetosVentana.gridEntradas = gridEntradas;
+            ObjetosVentana.svEntradas = svEntradas;
+            ObjetosVentana.spEntradas = spEntradas;
 
             ObjetosVentana.gridOpciones = gridOpciones;
             ObjetosVentana.svOpciones = svOpciones;
@@ -89,21 +71,9 @@ namespace Principal
             public static NavigationViewItem nvItemSubirArriba { get; set; }
             public static NavigationViewItem nvItemActualizar { get; set; }
             public static NavigationViewItem nvItemOpciones { get; set; }
-            public static Grid gridEntradasTodo { get; set; }
-            public static ScrollViewer svEntradasTodo { get; set; }
-            public static StackPanel spEntradasTodo { get; set; }
-            public static Grid gridEntradasOfertas { get; set; }
-            public static ScrollViewer svEntradasOfertas { get; set; }
-            public static StackPanel spEntradasOfertas { get; set; }
-            public static Grid gridEntradasBundles { get; set; }
-            public static ScrollViewer svEntradasBundles { get; set; }
-            public static StackPanel spEntradasBundles { get; set; }
-            public static Grid gridEntradasGratis { get; set; }
-            public static ScrollViewer svEntradasGratis { get; set; }
-            public static StackPanel spEntradasGratis { get; set; }
-            public static Grid gridEntradasSuscripciones { get; set; }
-            public static ScrollViewer svEntradasSuscripciones { get; set; }
-            public static StackPanel spEntradasSuscripciones { get; set; }
+            public static Grid gridEntradas { get; set; }
+            public static ScrollViewer svEntradas { get; set; }
+            public static StackPanel spEntradas { get; set; }
             public static Grid gridOpciones { get; set; }
             public static ScrollViewer svOpciones { get; set; }
             public static StackPanel spOpciones { get; set; }
@@ -127,8 +97,6 @@ namespace Principal
 
         private void nvPrincipal_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            SolidColorBrush colorNvSeñalar = nvPrincipal.Resources["NavigationViewSelectionIndicatorForeground"] as SolidColorBrush;
-
             ResourceLoader recursos = new ResourceLoader();
 
             if (args.InvokedItemContainer != null)
@@ -139,17 +107,15 @@ namespace Principal
 
                     if (item.Name == "nvItemMenu")
                     {
-                        colorNvSeñalar.Color = Colors.Transparent;                       
+                        //colorNvSeñalar.Color = Colors.Transparent;                       
                     }
                     else if (item.Name == "nvItemActualizar")
                     {
-                        colorNvSeñalar.Color = Colors.Transparent;
                         BarraTitulo.CambiarTitulo(null);                        
                         Wordpress.Cargar();
                     }
                     else if (item.Name == "nvItemOpciones")
                     {
-                        colorNvSeñalar.Color = (Color)Application.Current.Resources["ColorFuente"];
                         Pestañas.Visibilidad(gridOpciones, true);
                         BarraTitulo.CambiarTitulo(recursos.GetString("Options"));
                         ScrollViewers.EnseñarSubir(svOpciones);
@@ -171,38 +137,33 @@ namespace Principal
 
                             if (tb.Text == recursos.GetString("All"))
                             {
-                                colorNvSeñalar.Color = (Color)Application.Current.Resources["ColorFuente"];
-                                Pestañas.Visibilidad(gridEntradasTodo, true);
+                                Wordpress.Filtrar(0);
                                 BarraTitulo.CambiarTitulo(null);
-                                ScrollViewers.EnseñarSubir(svEntradasTodo);
+                                ScrollViewers.EnseñarSubir(svEntradas);
                             }
                             else if (tb.Text == recursos.GetString("Deals"))
                             {
-                                colorNvSeñalar.Color = (Color)Application.Current.Resources["ColorFuente"];
-                                Pestañas.Visibilidad(gridEntradasOfertas, true);
+                                Wordpress.Filtrar(3);
                                 BarraTitulo.CambiarTitulo(tb.Text);
-                                ScrollViewers.EnseñarSubir(svEntradasOfertas);
+                                ScrollViewers.EnseñarSubir(svEntradas);
                             }
                             else if (tb.Text == recursos.GetString("Bundles"))
                             {
-                                colorNvSeñalar.Color = (Color)Application.Current.Resources["ColorFuente"];
-                                Pestañas.Visibilidad(gridEntradasBundles, true);
+                                Wordpress.Filtrar(4);
                                 BarraTitulo.CambiarTitulo(tb.Text);
-                                ScrollViewers.EnseñarSubir(svEntradasBundles);
+                                ScrollViewers.EnseñarSubir(svEntradas);
                             }
                             else if (tb.Text == recursos.GetString("Free"))
                             {
-                                colorNvSeñalar.Color = (Color)Application.Current.Resources["ColorFuente"];
-                                Pestañas.Visibilidad(gridEntradasGratis, true);
+                                Wordpress.Filtrar(12);
                                 BarraTitulo.CambiarTitulo(tb.Text);
-                                ScrollViewers.EnseñarSubir(svEntradasGratis);
+                                ScrollViewers.EnseñarSubir(svEntradas);
                             }
                             else if (tb.Text == recursos.GetString("Subscriptions"))
                             {
-                                colorNvSeñalar.Color = (Color)Application.Current.Resources["ColorFuente"];
-                                Pestañas.Visibilidad(gridEntradasSuscripciones, true);
+                                Wordpress.Filtrar(13);
                                 BarraTitulo.CambiarTitulo(tb.Text);
-                                ScrollViewers.EnseñarSubir(svEntradasSuscripciones);
+                                ScrollViewers.EnseñarSubir(svEntradas);
                             }
                         }
                     }                    

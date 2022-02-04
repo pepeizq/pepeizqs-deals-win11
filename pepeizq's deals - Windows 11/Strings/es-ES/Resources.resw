@@ -120,6 +120,9 @@
   <data name="All" xml:space="preserve">
     <value>Todo</value>
   </data>
+  <data name="AndMoreGames" xml:space="preserve">
+    <value>Y Más Juegos</value>
+  </data>
   <data name="Bundles" xml:space="preserve">
     <value>Bundles</value>
   </data>
@@ -143,6 +146,18 @@
   </data>
   <data name="ShowDeals" xml:space="preserve">
     <value>Enseñar Todas las Ofertas</value>
+  </data>
+  <data name="SortBy.Text" xml:space="preserve">
+    <value>Ordenar por:</value>
+  </data>
+  <data name="SortDiscount.Text" xml:space="preserve">
+    <value>Descuento</value>
+  </data>
+  <data name="SortReviews.Text" xml:space="preserve">
+    <value>Reseñas</value>
+  </data>
+  <data name="SortTitle.Text" xml:space="preserve">
+    <value>Título</value>
   </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Suscripciones</value>
