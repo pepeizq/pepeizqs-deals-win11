@@ -3,6 +3,7 @@ using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using WordPressPCL;
 using static Principal.MainWindow;
 
@@ -17,6 +18,7 @@ public static class Wordpress
         public string store_name;
         public string store_logo;
         public string redirect;
+        public string fifu_image_url;
         public string json;
         public string json_expanded;
     }
@@ -47,18 +49,28 @@ public static class Wordpress
             }
             else if (entrada.categories[0] == 4)
             {
-                ObjetosVentana.spEntradas.Children.Add(Bundles.GenerarEntrada(entrada));;
+                ObjetosVentana.spEntradas.Children.Add(Bundles.GenerarEntrada(entrada));
             }
             else if (entrada.categories[0] == 12)
             {
-
+                ObjetosVentana.spEntradas.Children.Add(Gratis.GenerarEntrada(entrada));
             }
             else if (entrada.categories[0] == 13)
             {
-
+                ObjetosVentana.spEntradas.Children.Add(Suscripciones.GenerarEntrada(entrada));
+            }
+            else if (entrada.categories[0] == 1208)
+            {
+                Anuncio.CargarEntrada(entrada);
             }
         }
 
+        if (ObjetosVentana.spAnuncio.Children.Count > 0)
+        {
+            ObjetosVentana.gridAnuncio.Visibility = Visibility.Visible;
+        }
+
+        Filtrar(0);
         ObjetosVentana.nvPrincipal.Tag = 0;
         ObjetosVentana.nvPrincipal.SelectedItem = ObjetosVentana.nvPrincipal.MenuItems[1];
         Pestañas.Visibilidad(ObjetosVentana.gridEntradas, true);
@@ -68,8 +80,16 @@ public static class Wordpress
     {
         ObjetosVentana.nvPrincipal.Tag = categoria;
 
+        int todo = 0;
+        int ofertas = 0;
+        int bundles = 0;
+        int gratis = 0;
+        int suscripciones = 0;
+
+        int j = 0;
         foreach (Grid grid in ObjetosVentana.spEntradas.Children)
         {
+            grid.Margin = new Thickness(0, 0, 0, 40);
             Entrada entrada = grid.Tag as Entrada;
 
             if (categoria != 0)
@@ -77,6 +97,23 @@ public static class Wordpress
                 if (categoria == entrada.categories[0])
                 {
                     grid.Visibility = Visibility.Visible;
+
+                    if (categoria == 3)
+                    {
+                        ofertas = j;
+                    }
+                    else if (categoria == 4)
+                    {
+                        bundles = j;
+                    }
+                    else if (categoria == 12)
+                    {
+                        gratis = j;
+                    }
+                    else if (categoria == 13)
+                    {
+                        suscripciones = j;
+                    }
                 }
                 else
                 {
@@ -86,6 +123,38 @@ public static class Wordpress
             else
             {
                 grid.Visibility = Visibility.Visible;
+                todo = j;
+            }
+
+            j += 1;
+        }
+
+        if (ObjetosVentana.spEntradas.Children.Count > 1)
+        {
+            if (todo > 0)
+            {
+                Grid grid = ObjetosVentana.spEntradas.Children[todo] as Grid;
+                grid.Margin = new Thickness(0);
+            }
+            else if (ofertas > 0)
+            {
+                Grid grid = ObjetosVentana.spEntradas.Children[ofertas] as Grid;
+                grid.Margin = new Thickness(0);
+            }
+            else if (bundles > 0)
+            {
+                Grid grid = ObjetosVentana.spEntradas.Children[bundles] as Grid;
+                grid.Margin = new Thickness(0);
+            }
+            else if (gratis > 0)
+            {
+                Grid grid = ObjetosVentana.spEntradas.Children[gratis] as Grid;
+                grid.Margin = new Thickness(0);
+            }
+            else if (suscripciones > 0)
+            {
+                Grid grid = ObjetosVentana.spEntradas.Children[suscripciones] as Grid;
+                grid.Margin = new Thickness(0);
             }
         }
     }

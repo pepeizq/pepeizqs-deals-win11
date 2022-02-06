@@ -3,7 +3,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Media;
-using Windows.ApplicationModel.Resources;
+using Microsoft.Windows.ApplicationModel.Resources;
 using Windows.UI;
 using static Principal.MainWindow;
 
@@ -18,7 +18,7 @@ namespace Interfaz
             ObjetosVentana.nvPrincipal.MenuItems.RemoveAt(0);
             ObjetosVentana.nvPrincipal.MenuItems.Insert(0, ObjetosVentana.nvItemMenu);
 
-            ObjetosVentana.nvItemMenu.PointerPressed += EntraRatonNvItemMenu;
+            ObjetosVentana.nvItemMenu.PointerEntered += EntraRatonNvItemMenu;
             ObjetosVentana.nvItemMenu.PointerEntered += Animaciones.EntraRatonNvItem;
             ObjetosVentana.nvItemMenu.PointerExited += Animaciones.SaleRatonNvItem;
 
@@ -42,6 +42,17 @@ namespace Interfaz
             ObjetosVentana.nvItemActualizar.PointerEntered += Animaciones.EntraRatonNvItem;
             ObjetosVentana.nvItemActualizar.PointerExited += Animaciones.SaleRatonNvItem;
 
+            TextBlock tbSteamDeseadosTt = new TextBlock
+            {
+                Text = recursos.GetString("SteamWishlist")
+            };
+
+            ToolTipService.SetToolTip(ObjetosVentana.nvItemSteamDeseados, tbSteamDeseadosTt);
+            ToolTipService.SetPlacement(ObjetosVentana.nvItemSteamDeseados, PlacementMode.Bottom);
+
+            ObjetosVentana.nvItemSteamDeseados.PointerEntered += Animaciones.EntraRatonNvItem;
+            ObjetosVentana.nvItemSteamDeseados.PointerExited += Animaciones.SaleRatonNvItem;
+
             TextBlock tbOpcionesTt = new TextBlock
             {
                 Text = recursos.GetString("Options")
@@ -59,6 +70,7 @@ namespace Interfaz
             ObjetosVentana.gridCarga.Visibility = Visibility.Collapsed;
             ObjetosVentana.nvPrincipal.Visibility = Visibility.Collapsed;           
             ObjetosVentana.gridEntradas.Visibility = Visibility.Collapsed;
+            ObjetosVentana.gridSteamDeseados.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOpciones.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOfertasExpandida.Visibility = Visibility.Collapsed;
 

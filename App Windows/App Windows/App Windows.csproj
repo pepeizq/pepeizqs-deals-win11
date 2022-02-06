@@ -3,13 +3,11 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
-    <RootNamespace>pepeizq_s_deals___Windows_11</RootNamespace>
+    <RootNamespace>App_Windows</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x86;x64;arm64</Platforms>
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
-    <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
-    <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\DRMs\drm_battlenet2.png" />
@@ -21,22 +19,14 @@
     <Content Remove="Assets\DRMs\drm_rockstar2.png" />
     <Content Remove="Assets\DRMs\drm_steam2.png" />
     <Content Remove="Assets\DRMs\drm_ubi2.png" />
+    <Content Remove="Assets\Logos\logo_steam.png" />
+    <Content Remove="Assets\Logos\logo_steam2.png" />
     <Content Remove="Assets\Reviews\review_mixed.png" />
     <Content Remove="Assets\Reviews\review_negative.png" />
     <Content Remove="Assets\Reviews\review_positive.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="App.xaml.cs~RFcf63686.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <None Remove="Interfaz\Trial.cs~RF2837ae5.TMP" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,15 +37,20 @@
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
-  <!-- Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
-       Tools extension to be activated for this project even if the Windows App SDK Nuget
-       package has not yet been restored -->
-  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnablePreviewMsixTooling)'=='true'">
-    <ProjectCapability Include="Msix" />
-  </ItemGroup>
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <ApplicationDefinition Update="App.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
   </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
   <ItemGroup>
     <None Update="Assets\DRMs\drm_battlenet2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -82,6 +77,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\DRMs\drm_ubi2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Logos\logo_steam.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Logos\logo_steam2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Reviews\review_mixed.png">

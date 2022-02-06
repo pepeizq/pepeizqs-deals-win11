@@ -5,12 +5,12 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Imaging;
+using Microsoft.Windows.ApplicationModel.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Windows.ApplicationModel.Resources;
 using Windows.System;
 using Windows.UI;
 using static Principal.MainWindow;
@@ -571,43 +571,46 @@ namespace Entradas
 
                     if (juego.analisisPorcentaje != null)
                     {
-                        if (juego.analisisPorcentaje != "null" && juego.analisisPorcentaje != "0")
+                        if (juego.analisisPorcentaje.Trim().Length > 0)
                         {
-                            ImageEx imagenAnalisis = new ImageEx
+                            if (juego.analisisPorcentaje != "null" && juego.analisisPorcentaje != "0")
                             {
-                                MaxHeight = 30,
-                                IsCacheEnabled = true,
-                                EnableLazyLoading = true,
-                                Margin = new Thickness(20, 0, 0, 0),
-                                VerticalAlignment = VerticalAlignment.Center
-                            };
+                                ImageEx imagenAnalisis = new ImageEx
+                                {
+                                    MaxHeight = 30,
+                                    IsCacheEnabled = true,
+                                    EnableLazyLoading = true,
+                                    Margin = new Thickness(20, 0, 0, 0),
+                                    VerticalAlignment = VerticalAlignment.Center
+                                };
 
-                            if (int.Parse(juego.analisisPorcentaje) > 74)
-                            {
-                                imagenAnalisis.Source = "/Assets/Reviews/review_positive.png";
+                                if (int.Parse(juego.analisisPorcentaje) > 74)
+                                {
+                                    imagenAnalisis.Source = "/Assets/Reviews/review_positive.png";
+                                }
+                                else if (int.Parse(juego.analisisPorcentaje) > 49 && int.Parse(juego.analisisPorcentaje) < 75)
+                                {
+                                    imagenAnalisis.Source = "/Assets/Reviews/review_mixed.png";
+                                }
+                                else if (int.Parse(juego.analisisPorcentaje) < 50)
+                                {
+                                    imagenAnalisis.Source = "/Assets/Reviews/review_negative.png";
+                                }
+
+                                spDatos.Children.Add(imagenAnalisis);
+
+                                TextBlock tbAnalisis = new TextBlock
+                                {
+                                    Foreground = new SolidColorBrush(Colors.White),
+                                    FontSize = 13,
+                                    Text = juego.analisisPorcentaje + "% • " + juego.analisisCantidad + " " + recursos.GetString("Reviews"),
+                                    VerticalAlignment = VerticalAlignment.Center,
+                                    Margin = new Thickness(10, 0, 0, 2)
+                                };
+
+                                spDatos.Children.Add(tbAnalisis);
                             }
-                            else if (int.Parse(juego.analisisPorcentaje) > 49 && int.Parse(juego.analisisPorcentaje) < 75)
-                            {
-                                imagenAnalisis.Source = "/Assets/Reviews/review_mixed.png";
-                            }
-                            else if (int.Parse(juego.analisisPorcentaje) < 50)
-                            {
-                                imagenAnalisis.Source = "/Assets/Reviews/review_negative.png";
-                            }
-
-                            spDatos.Children.Add(imagenAnalisis);
-
-                            TextBlock tbAnalisis = new TextBlock
-                            {
-                                Foreground = new SolidColorBrush(Colors.White),
-                                FontSize = 13,
-                                Text = juego.analisisPorcentaje + "% • " + juego.analisisCantidad + " " + recursos.GetString("Reviews"),
-                                VerticalAlignment = VerticalAlignment.Center,
-                                Margin = new Thickness(10, 0, 0, 2)
-                            };
-
-                            spDatos.Children.Add(tbAnalisis);
-                        }
+                        }                        
                     }
 
                     spDerecha.Children.Add(spDatos);

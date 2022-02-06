@@ -62,5 +62,35 @@ namespace Interfaz
                 }
             }
         }
+
+        public static void EntraRatonBoton(object sender, PointerRoutedEventArgs e)
+        {
+            Button boton = sender as Button;
+            Grid grid = boton.Content as Grid;
+
+            if (grid.Children[0] != null)
+            {
+                if (grid.Children[0].GetType() == typeof(TextBlock))
+                {
+                    TextBlock tb = grid.Children[0] as TextBlock;
+                    tb.Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorPrimario"]);
+                }
+            }
+        }
+
+        public static void SaleRatonBoton(object sender, PointerRoutedEventArgs e)
+        {
+            Button boton = sender as Button;
+            Grid grid = boton.Content as Grid;
+
+            if (grid.Children[0] != null)
+            {
+                if (grid.Children[0].GetType() == typeof(TextBlock))
+                {
+                    TextBlock tb = grid.Children[0] as TextBlock;
+                    tb.Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]);
+                }
+            }
+        }
     }
 }

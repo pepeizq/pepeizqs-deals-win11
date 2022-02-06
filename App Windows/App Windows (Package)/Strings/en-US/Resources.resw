@@ -135,6 +135,12 @@
   <data name="Loading.Text" xml:space="preserve">
     <value>Loading</value>
   </data>
+  <data name="NewGameAdded" xml:space="preserve">
+    <value>New Game Added</value>
+  </data>
+  <data name="NewGamesAdded" xml:space="preserve">
+    <value>New Games Added</value>
+  </data>
   <data name="Options" xml:space="preserve">
     <value>Options</value>
   </data>
@@ -159,7 +165,16 @@
   <data name="SortTitle.Text" xml:space="preserve">
     <value>Title</value>
   </data>
+  <data name="SteamWishlist" xml:space="preserve">
+    <value>Wishlist on Steam</value>
+  </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Subscriptions</value>
+  </data>
+  <data name="TrialBuyApp.Text" xml:space="preserve">
+    <value>Buy Application</value>
+  </data>
+  <data name="TrialMessage.Text" xml:space="preserve">
+    <value>You are using the trial version of the application, to unlock all the functions buy the application in the Microsoft store.</value>
   </data>
 </root>

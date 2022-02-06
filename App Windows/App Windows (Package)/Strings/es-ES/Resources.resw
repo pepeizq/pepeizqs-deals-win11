@@ -135,6 +135,12 @@
   <data name="Loading.Text" xml:space="preserve">
     <value>Cargando</value>
   </data>
+  <data name="NewGameAdded" xml:space="preserve">
+    <value>Nuevo Juego Añadido</value>
+  </data>
+  <data name="NewGamesAdded" xml:space="preserve">
+    <value>Nuevos Juegos Añadidos</value>
+  </data>
   <data name="Options" xml:space="preserve">
     <value>Opciones</value>
   </data>
@@ -159,7 +165,16 @@
   <data name="SortTitle.Text" xml:space="preserve">
     <value>Título</value>
   </data>
+  <data name="SteamWishlist" xml:space="preserve">
+    <value>Lista de Deseados en Steam</value>
+  </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Suscripciones</value>
+  </data>
+  <data name="TrialBuyApp.Text" xml:space="preserve">
+    <value>Comprar Aplicación</value>
+  </data>
+  <data name="TrialMessage.Text" xml:space="preserve">
+    <value>Estás usando la versión Trial de la aplicación, para desbloquear todas las funciones compra la aplicación en la tienda de Microsoft.</value>
   </data>
 </root>
