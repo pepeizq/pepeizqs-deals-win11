@@ -168,6 +168,9 @@
   <data name="SteamWishlist" xml:space="preserve">
     <value>Lista de Deseados en Steam</value>
   </data>
+  <data name="SteamWishlistInfo.Text" xml:space="preserve">
+    <value>Pon el enlace a tu perfil de Steam para poder leer tu lista de deseados, ejemplo: https://steamcommunity.com/id/pepeizq/</value>
+  </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Suscripciones</value>
   </data>
@@ -176,5 +179,8 @@
   </data>
   <data name="TrialMessage.Text" xml:space="preserve">
     <value>Estás usando la versión Trial de la aplicación, para desbloquear todas las funciones compra la aplicación en la tienda de Microsoft.</value>
+  </data>
+  <data name="TrialMessageSteamWishlist.Text" xml:space="preserve">
+    <value>Si compras la aplicacion podrás filtrar los resultados con tu lista de deseados de Steam.</value>
   </data>
 </root>

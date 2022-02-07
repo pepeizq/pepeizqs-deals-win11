@@ -168,6 +168,9 @@
   <data name="SteamWishlist" xml:space="preserve">
     <value>Wishlist on Steam</value>
   </data>
+  <data name="SteamWishlistInfo.Text" xml:space="preserve">
+    <value>Put the link to your Steam profile to be able to read your wish list, example: https://steamcommunity.com/id/pepeizq/</value>
+  </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Subscriptions</value>
   </data>
@@ -175,6 +178,9 @@
     <value>Buy Application</value>
   </data>
   <data name="TrialMessage.Text" xml:space="preserve">
-    <value>You are using the trial version of the application, to unlock all the functions buy the application in the Microsoft store.</value>
+    <value>You are using the trial version of the application, to unlock all the functions buy the application in the Microsoft Store.</value>
+  </data>
+  <data name="TrialMessageSteamWishlist.Text" xml:space="preserve">
+    <value>If you buy the application you can filter the results with your Steam wish list.</value>
   </data>
 </root>

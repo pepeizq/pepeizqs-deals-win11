@@ -24,6 +24,7 @@ namespace Interfaz
                     if (licencia.IsActive == true && licencia.IsTrial == false)
                     {
                         ObjetosVentana.gridTrialMensaje.Visibility = Visibility.Collapsed;
+                        ObjetosVentana.gridTrialMensajeSteamDeseados.Visibility = Visibility.Collapsed;
                     }
                     else
                     {
@@ -31,6 +32,12 @@ namespace Interfaz
                         ObjetosVentana.botonTrialComprar.Click += BotonAbrirCompra;
                         ObjetosVentana.botonTrialComprar.PointerEntered += Animaciones.EntraRatonBoton;
                         ObjetosVentana.botonTrialComprar.PointerExited += Animaciones.SaleRatonBoton;
+
+                        ObjetosVentana.gridTrialMensajeSteamDeseados.Visibility = Visibility.Visible;
+                        ObjetosVentana.botonTrialComprarSteamDeseados.Click += BotonAbrirCompra;
+                        ObjetosVentana.botonTrialComprarSteamDeseados.PointerEntered += Animaciones.EntraRatonBoton;
+                        ObjetosVentana.botonTrialComprarSteamDeseados.PointerExited += Animaciones.SaleRatonBoton;
+                        ObjetosVentana.tbSteamDeseados.IsEnabled = false;
                     }
 
                     

@@ -26,6 +26,7 @@
     <Content Remove="Assets\Reviews\review_positive.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Herramientas\Decompiladores.cs~RF91ccbdc.TMP" />
     <None Remove="Interfaz\Trial.cs~RF2837ae5.TMP" />
   </ItemGroup>
 

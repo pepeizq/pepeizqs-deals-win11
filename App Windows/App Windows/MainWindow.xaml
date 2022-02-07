@@ -161,7 +161,50 @@
                 </Grid>
 
                 <Grid x:Name="gridSteamDeseados" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svSteamDeseados" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="gridTrialMensajeSteamDeseados" Grid.Row="0" Padding="20">
+                        <Grid.Background>
+                            <SolidColorBrush Color="{StaticResource ColorFuente}" Opacity="0.8"/>
+                        </Grid.Background>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
+                        <TextBlock x:Uid="TrialMessageSteamWishlist" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" Margin="20,0" VerticalAlignment="Center"/>
+
+                        <Button x:Name="botonTrialComprarSteamDeseados" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
+                            <Button.Content>
+                                <Grid>
+                                    <TextBlock x:Uid="TrialBuyApp" Foreground="{StaticResource ColorFuente}"/>
+                                </Grid>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Padding="30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <controls:ImageEx Grid.Column="0" Margin="0,0,40,0" MaxWidth="130" Source="/Assets/Logos/logo_steam2.png" IsCacheEnabled="True" EnableLazyLoading="True"/>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock x:Uid="SteamWishlistInfo" Margin="0,0,0,20"/>
+                            <TextBox x:Name="tbSteamDeseados" RequestedTheme="Dark"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ScrollViewer x:Name="svSteamDeseados" Grid.Row="2" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                         <StackPanel x:Name="spSteamDeseados" Orientation="Vertical" Padding="20">
 
 

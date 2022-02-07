@@ -53,6 +53,9 @@ namespace Principal
             ObjetosVentana.gridSteamDeseados = gridSteamDeseados;
             ObjetosVentana.svSteamDeseados = svSteamDeseados;
             ObjetosVentana.spSteamDeseados = spSteamDeseados;
+            ObjetosVentana.gridTrialMensajeSteamDeseados = gridTrialMensajeSteamDeseados;
+            ObjetosVentana.botonTrialComprarSteamDeseados = botonTrialComprarSteamDeseados;
+            ObjetosVentana.tbSteamDeseados = tbSteamDeseados;
 
             ObjetosVentana.gridOpciones = gridOpciones;
             ObjetosVentana.svOpciones = svOpciones;
@@ -89,6 +92,9 @@ namespace Principal
             public static Grid gridSteamDeseados { get; set; }
             public static ScrollViewer svSteamDeseados { get; set; }
             public static StackPanel spSteamDeseados { get; set; }
+            public static Grid gridTrialMensajeSteamDeseados { get; set; }
+            public static Button botonTrialComprarSteamDeseados { get; set; }
+            public static TextBox tbSteamDeseados { get; set; }
             public static Grid gridOpciones { get; set; }
             public static ScrollViewer svOpciones { get; set; }
             public static StackPanel spOpciones { get; set; }
@@ -124,7 +130,7 @@ namespace Principal
 
                     if (item.Name == "nvItemMenu")
                     {
-                        //colorNvSeñalar.Color = Colors.Transparent;                       
+                                       
                     }
                     else if (item.Name == "nvItemActualizar")
                     {
