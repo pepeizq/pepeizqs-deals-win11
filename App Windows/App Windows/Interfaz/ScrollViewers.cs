@@ -11,6 +11,7 @@ namespace Interfaz
         public static void Cargar()
         {
             ObjetosVentana.svEntradas.ViewChanging += svScroll;
+            ObjetosVentana.svBuscador.ViewChanging += svScroll;
             ObjetosVentana.svSteamDeseados.ViewChanging += svScroll;
             ObjetosVentana.svOpciones.ViewChanging += svScroll;
             ObjetosVentana.svOfertasExpandida.ViewChanging += svScroll;
@@ -41,6 +42,10 @@ namespace Interfaz
             if (ObjetosVentana.gridEntradas.Visibility == Visibility.Visible)
             {
                 ObjetosVentana.svEntradas.ChangeView(null, 0, null);
+            }
+            else if (ObjetosVentana.gridBuscador.Visibility == Visibility.Visible)
+            {
+                ObjetosVentana.svBuscador.ChangeView(null, 0, null);
             }
             else if (ObjetosVentana.gridSteamDeseados.Visibility == Visibility.Visible)
             {

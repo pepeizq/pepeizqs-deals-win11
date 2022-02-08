@@ -150,6 +150,15 @@
   <data name="Reviews" xml:space="preserve">
     <value>Reviews</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchNoResults.Text" xml:space="preserve">
+    <value>There are no good deals on what you are looking for, but you can try the following websites:</value>
+  </data>
+  <data name="SearchResults.Text" xml:space="preserve">
+    <value>Search results for</value>
+  </data>
   <data name="ShowDeals" xml:space="preserve">
     <value>Show All Deals</value>
   </data>

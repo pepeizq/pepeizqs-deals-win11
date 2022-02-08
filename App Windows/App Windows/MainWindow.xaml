@@ -102,6 +102,7 @@
                         <FontIcon Glyph="&#xE149;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
                     </Grid>
                 </NavigationViewItem>
+                <TextBox x:Name="tbBuscador" RequestedTheme="Dark" MinWidth="200"/>
                 <NavigationViewItem x:Name="nvItemSteamDeseados">
                     <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
                         <controls:ImageEx Source="/Assets/Logos/logo_steam.png" IsCacheEnabled="True" EnableLazyLoading="True"/>
@@ -160,6 +161,53 @@
                     </ScrollViewer>
                 </Grid>
 
+                <Grid x:Name="gridBuscador" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Padding="20">
+                        <TextBlock x:Uid="SearchResults" FontSize="18" Foreground="{StaticResource ColorFuente}" Margin="0,0,5,0"/>
+                        <TextBlock x:Name="tbBuscadorResultado" FontSize="18" Foreground="{StaticResource ColorFuente}"/>
+                    </StackPanel>
+                    
+                    <ScrollViewer x:Name="svBuscador" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                        <StackPanel x:Name="spBuscador" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
+
+                    <StackPanel x:Name="spBuscadorNoResultados" Grid.Row="2" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <TextBlock x:Uid="SearchNoResults" FontSize="18" Foreground="{StaticResource ColorFuente}" Margin="20,40,20,20"/>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Button x:Name="botonBuscadorSteamDB" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <controls:ImageEx Source="/Assets/OtrasWebs/steamdb.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                        <TextBlock Text="SteamDB" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+                            <Button x:Name="botonBuscadorGGdeals" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10" Margin="20,0">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <controls:ImageEx Source="/Assets/OtrasWebs/ggdeals.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                        <TextBlock Text="GGdeals" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+                            <Button x:Name="botonBuscadorIsthereanydeal" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <controls:ImageEx Source="/Assets/OtrasWebs/isthereanydeal.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                        <TextBlock Text="Isthereanydeal" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
                 <Grid x:Name="gridSteamDeseados" Visibility="Collapsed">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -190,25 +238,39 @@
                         </Button>
                     </Grid>
 
-                    <Grid Grid.Row="1" Padding="30">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                    <Expander x:Name="expanderSteamDeseados" Grid.Row="1" IsExpanded="True" Margin="20" Background="{StaticResource ColorPrimario}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                        <Expander.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                        <controls:ImageEx Grid.Column="0" Margin="0,0,40,0" MaxWidth="130" Source="/Assets/Logos/logo_steam2.png" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                <ProgressRing x:Name="prSteamDeseados" Grid.Column="0" Margin="0,0,20,0" Width="22" Height="22" Foreground="{StaticResource ColorPrimario}" Visibility="Collapsed"/>
+                                <controls:ImageEx x:Name="imagenSteamDeseadosAvatar" Grid.Column="1" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                <TextBlock x:Name="tbSteamDeseadosUsuario" Grid.Column="2" Foreground="{StaticResource ColorPrimario}" Margin="15,0" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <Grid Padding="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="1">
-                            <TextBlock x:Uid="SteamWishlistInfo" Margin="0,0,0,20"/>
-                            <TextBox x:Name="tbSteamDeseados" RequestedTheme="Dark"/>
-                        </StackPanel>
-                    </Grid>
+                                <controls:ImageEx Grid.Column="0" Margin="0,0,40,0" MaxWidth="120" Source="/Assets/Logos/logo_steam2.png" IsCacheEnabled="True" EnableLazyLoading="True"/>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock x:Uid="SteamWishlistInfo" Margin="0,0,0,20" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="tbSteamDeseadosEnlaceCuenta" RequestedTheme="Dark" PlaceholderText="https://steamcommunity.com/id/..."/>
+                                </StackPanel>
+                            </Grid>
+                        </Expander.Content>
+                    </Expander>
 
                     <ScrollViewer x:Name="svSteamDeseados" Grid.Row="2" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                        <StackPanel x:Name="spSteamDeseados" Orientation="Vertical" Padding="20">
-
-
-                        </StackPanel>
+                        <StackPanel x:Name="spSteamDeseados" Orientation="Vertical" Padding="20"/>
                     </ScrollViewer>
                 </Grid>
 
@@ -255,7 +317,7 @@
                         <TextBlock x:Name="tbMensajeOfertasExpandida" Grid.Column="2" Foreground="White" Margin="40,0" Visibility="Collapsed" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
 
-                    <ScrollViewer Grid.Row="1" x:Name="svOfertasExpandida" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <ScrollViewer x:Name="svOfertasExpandida" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                         <StackPanel x:Name="spOfertasExpandida" Orientation="Vertical" Padding="20"/>
                     </ScrollViewer>
                 </Grid>

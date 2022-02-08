@@ -21,6 +21,9 @@
     <Content Remove="Assets\DRMs\drm_ubi2.png" />
     <Content Remove="Assets\Logos\logo_steam.png" />
     <Content Remove="Assets\Logos\logo_steam2.png" />
+    <Content Remove="Assets\OtrasWebs\ggdeals.png" />
+    <Content Remove="Assets\OtrasWebs\isthereanydeal.png" />
+    <Content Remove="Assets\OtrasWebs\steamdb.png" />
     <Content Remove="Assets\Reviews\review_mixed.png" />
     <Content Remove="Assets\Reviews\review_negative.png" />
     <Content Remove="Assets\Reviews\review_positive.png" />
@@ -84,6 +87,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Logos\logo_steam2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\OtrasWebs\ggdeals.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\OtrasWebs\isthereanydeal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\OtrasWebs\steamdb.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Reviews\review_mixed.png">

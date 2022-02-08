@@ -1,4 +1,5 @@
-﻿using Entradas;
+﻿using CommunityToolkit.WinUI.UI.Controls;
+using Entradas;
 using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -50,12 +51,26 @@ namespace Principal
             ObjetosVentana.svEntradas = svEntradas;
             ObjetosVentana.spEntradas = spEntradas;
 
+            ObjetosVentana.gridBuscador = gridBuscador;
+            ObjetosVentana.tbBuscador = tbBuscador;
+            ObjetosVentana.tbBuscadorResultado = tbBuscadorResultado;
+            ObjetosVentana.svBuscador = svBuscador;
+            ObjetosVentana.spBuscador = spBuscador;
+            ObjetosVentana.spBuscadorNoResultados = spBuscadorNoResultados;
+            ObjetosVentana.botonBuscadorSteamDB = botonBuscadorSteamDB;
+            ObjetosVentana.botonBuscadorGGdeals = botonBuscadorGGdeals;
+            ObjetosVentana.botonBuscadorIsthereanydeal = botonBuscadorIsthereanydeal;
+
             ObjetosVentana.gridSteamDeseados = gridSteamDeseados;
             ObjetosVentana.svSteamDeseados = svSteamDeseados;
             ObjetosVentana.spSteamDeseados = spSteamDeseados;
             ObjetosVentana.gridTrialMensajeSteamDeseados = gridTrialMensajeSteamDeseados;
             ObjetosVentana.botonTrialComprarSteamDeseados = botonTrialComprarSteamDeseados;
-            ObjetosVentana.tbSteamDeseados = tbSteamDeseados;
+            ObjetosVentana.expanderSteamDeseados = expanderSteamDeseados;
+            ObjetosVentana.prSteamDeseados = prSteamDeseados;
+            ObjetosVentana.imagenSteamDeseadosAvatar = imagenSteamDeseadosAvatar;
+            ObjetosVentana.tbSteamDeseadosUsuario = tbSteamDeseadosUsuario;
+            ObjetosVentana.tbSteamDeseadosEnlaceCuenta = tbSteamDeseadosEnlaceCuenta;
 
             ObjetosVentana.gridOpciones = gridOpciones;
             ObjetosVentana.svOpciones = svOpciones;
@@ -89,12 +104,25 @@ namespace Principal
             public static Button botonTrialComprar { get; set; }
             public static ScrollViewer svEntradas { get; set; }
             public static StackPanel spEntradas { get; set; }
-            public static Grid gridSteamDeseados { get; set; }
+            public static Grid gridBuscador { get; set; }
+            public static TextBox tbBuscador { get; set; }
+            public static TextBlock tbBuscadorResultado { get; set; }
+            public static ScrollViewer svBuscador { get; set; }
+            public static StackPanel spBuscador { get; set; }
+            public static StackPanel spBuscadorNoResultados { get; set; }
+            public static Button botonBuscadorSteamDB { get; set; }
+            public static Button botonBuscadorGGdeals { get; set; }
+            public static Button botonBuscadorIsthereanydeal { get; set; }
+            public static Grid gridSteamDeseados { get; set; }           
             public static ScrollViewer svSteamDeseados { get; set; }
             public static StackPanel spSteamDeseados { get; set; }
             public static Grid gridTrialMensajeSteamDeseados { get; set; }
             public static Button botonTrialComprarSteamDeseados { get; set; }
-            public static TextBox tbSteamDeseados { get; set; }
+            public static Microsoft.UI.Xaml.Controls.Expander expanderSteamDeseados { get; set; }
+            public static ProgressRing prSteamDeseados { get; set; }
+            public static ImageEx imagenSteamDeseadosAvatar { get; set; }
+            public static TextBlock tbSteamDeseadosUsuario { get; set; }
+            public static TextBox tbSteamDeseadosEnlaceCuenta { get; set; }
             public static Grid gridOpciones { get; set; }
             public static ScrollViewer svOpciones { get; set; }
             public static StackPanel spOpciones { get; set; }
@@ -205,6 +233,6 @@ namespace Principal
                     }                    
                 }
             }
-        } 
+        }
     }
 }

@@ -3,7 +3,7 @@ using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using WordPressPCL;
 using static Principal.MainWindow;
 
@@ -28,40 +28,67 @@ public static class Wordpress
         public string rendered;
     }
 
-    public static async void Cargar()
+    static IEnumerable<Entrada> entradas;
+
+    public static void Cargar()
     {
         Pestañas.Visibilidad(ObjetosVentana.gridCarga, false);
+        ObjetosVentana.spEntradas.Children.Clear();
 
+        BackgroundWorker bw = new BackgroundWorker();
+        bw.DoWork += bw_DoWork;
+        bw.ProgressChanged += bw_ProgressChanged;
+        bw.RunWorkerCompleted += bw_RunWorkerCompleted;
+        bw.WorkerReportsProgress = true;
+        bw.WorkerSupportsCancellation = true;
+
+        if (bw.IsBusy == false)
+        {
+            bw.RunWorkerAsync();
+        }
+    }
+
+    private static void bw_DoWork(object sender, DoWorkEventArgs e)
+    {
         WordPressClient cliente = new WordPressClient("https://pepeizqdeals.com/wp-json/")
         {
             AuthMethod = WordPressPCL.Models.AuthMethod.JWT
         };
 
-        IEnumerable<Entrada> entradas = await cliente.CustomRequest.Get<IEnumerable<Entrada>>("wp/v2/posts?per_page=100&categories=3,4,12,13,1208");
+        entradas = cliente.CustomRequest.Get<IEnumerable<Entrada>>("wp/v2/posts?per_page=100&categories=3,4,12,13,1208").Result;
+    }
 
-        ObjetosVentana.spEntradas.Children.Clear();
+    private static void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+    {
+     
+    }
 
-        foreach (Entrada entrada in entradas)
+    private static void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+        if (entradas != null)
         {
-            if (entrada.categories[0] == 3)
+            foreach (Entrada entrada in entradas)
             {
-                ObjetosVentana.spEntradas.Children.Add(Ofertas.GenerarEntrada(entrada));
-            }
-            else if (entrada.categories[0] == 4)
-            {
-                ObjetosVentana.spEntradas.Children.Add(Bundles.GenerarEntrada(entrada));
-            }
-            else if (entrada.categories[0] == 12)
-            {
-                ObjetosVentana.spEntradas.Children.Add(Gratis.GenerarEntrada(entrada));
-            }
-            else if (entrada.categories[0] == 13)
-            {
-                ObjetosVentana.spEntradas.Children.Add(Suscripciones.GenerarEntrada(entrada));
-            }
-            else if (entrada.categories[0] == 1208)
-            {
-                Anuncio.CargarEntrada(entrada);
+                if (entrada.categories[0] == 3)
+                {
+                    ObjetosVentana.spEntradas.Children.Add(Ofertas.GenerarEntrada(entrada));
+                }
+                else if (entrada.categories[0] == 4)
+                {
+                    ObjetosVentana.spEntradas.Children.Add(Bundles.GenerarEntrada(entrada));
+                }
+                else if (entrada.categories[0] == 12)
+                {
+                    ObjetosVentana.spEntradas.Children.Add(Gratis.GenerarEntrada(entrada));
+                }
+                else if (entrada.categories[0] == 13)
+                {
+                    ObjetosVentana.spEntradas.Children.Add(Suscripciones.GenerarEntrada(entrada));
+                }
+                else if (entrada.categories[0] == 1208)
+                {
+                    Anuncio.CargarEntrada(entrada);
+                }
             }
         }
 

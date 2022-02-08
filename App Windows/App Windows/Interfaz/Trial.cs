@@ -37,7 +37,7 @@ namespace Interfaz
                         ObjetosVentana.botonTrialComprarSteamDeseados.Click += BotonAbrirCompra;
                         ObjetosVentana.botonTrialComprarSteamDeseados.PointerEntered += Animaciones.EntraRatonBoton;
                         ObjetosVentana.botonTrialComprarSteamDeseados.PointerExited += Animaciones.SaleRatonBoton;
-                        ObjetosVentana.tbSteamDeseados.IsEnabled = false;
+                        ObjetosVentana.tbSteamDeseadosEnlaceCuenta.IsEnabled = false;
                     }
 
                     

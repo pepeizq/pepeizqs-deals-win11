@@ -30,7 +30,6 @@ namespace Interfaz
             ObjetosVentana.nvItemSubirArriba.PointerEntered += Animaciones.EntraRatonNvItem;
             ObjetosVentana.nvItemSubirArriba.PointerExited += Animaciones.SaleRatonNvItem;
 
-
             TextBlock tbActualizarTt = new TextBlock
             {
                 Text = recursos.GetString("Refresh")
@@ -41,6 +40,9 @@ namespace Interfaz
 
             ObjetosVentana.nvItemActualizar.PointerEntered += Animaciones.EntraRatonNvItem;
             ObjetosVentana.nvItemActualizar.PointerExited += Animaciones.SaleRatonNvItem;
+
+            ObjetosVentana.tbBuscador.PlaceholderText = recursos.GetString("Search");
+            ObjetosVentana.tbBuscador.TextChanged += Buscador.Busca;
 
             TextBlock tbSteamDeseadosTt = new TextBlock
             {
@@ -70,6 +72,7 @@ namespace Interfaz
             ObjetosVentana.gridCarga.Visibility = Visibility.Collapsed;
             ObjetosVentana.nvPrincipal.Visibility = Visibility.Collapsed;           
             ObjetosVentana.gridEntradas.Visibility = Visibility.Collapsed;
+            ObjetosVentana.gridBuscador.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridSteamDeseados.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOpciones.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOfertasExpandida.Visibility = Visibility.Collapsed;
