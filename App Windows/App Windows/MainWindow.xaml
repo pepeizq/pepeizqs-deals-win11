@@ -145,7 +145,7 @@
                         </Grid.ColumnDefinitions>
 
                         <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
-                        <TextBlock x:Uid="TrialMessage" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" Margin="20,0" VerticalAlignment="Center"/>
+                        <TextBlock x:Uid="TrialMessage" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center"/>
 
                         <Button x:Name="botonTrialComprar" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
                             <Button.Content>
@@ -227,7 +227,7 @@
                         </Grid.ColumnDefinitions>
 
                         <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
-                        <TextBlock x:Uid="TrialMessageSteamWishlist" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" Margin="20,0" VerticalAlignment="Center"/>
+                        <TextBlock x:Uid="TrialMessageSteamWishlist" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center"/>
 
                         <Button x:Name="botonTrialComprarSteamDeseados" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
                             <Button.Content>
@@ -275,10 +275,53 @@
                 </Grid>
 
                 <Grid x:Name="gridOpciones" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svOpciones" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                        <StackPanel x:Name="spOpciones" Orientation="Vertical" Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="gridTrialMensajeOpciones" Grid.Row="0" Padding="20">
+                        <Grid.Background>
+                            <SolidColorBrush Color="{StaticResource ColorFuente}" Opacity="0.8"/>
+                        </Grid.Background>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
+                        <TextBlock x:Uid="TrialMessageOptions" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center"/>
+
+                        <Button x:Name="botonTrialComprarOpciones" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
+                            <Button.Content>
+                                <Grid>
+                                    <TextBlock x:Uid="TrialBuyApp" Foreground="{StaticResource ColorFuente}"/>
+                                </Grid>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+
+                    <ScrollViewer x:Name="svOpciones" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                        <StackPanel x:Name="spOpciones" Orientation="Vertical" Padding="40">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock x:Uid="OptionsNotifications" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
+
+                                <ToggleSwitch x:Name="toggleOpcionesNotificaciones" Foreground="{StaticResource ColorFuente}" RequestedTheme="Dark">
+                                    <ToggleSwitch.Header>
+                                        <TextBlock x:Uid="OptionsNotificationsInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,5"/>
+                                    </ToggleSwitch.Header>
+                                    <ToggleSwitch.OnContent>
+                                        <TextBlock x:Uid="OptionsNotificationsOn" Foreground="{StaticResource ColorFuente}"/>
+                                    </ToggleSwitch.OnContent>
+                                    <ToggleSwitch.OffContent>
+                                        <TextBlock x:Uid="OptionsNotificationsOff" Foreground="{StaticResource ColorFuente}"/>
+                                    </ToggleSwitch.OffContent>
+                                </ToggleSwitch>
+                            </StackPanel>
                             
-                            
+
                         </StackPanel> 
                     </ScrollViewer>
                 </Grid>

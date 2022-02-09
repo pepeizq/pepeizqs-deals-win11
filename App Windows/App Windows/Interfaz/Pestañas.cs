@@ -41,9 +41,6 @@ namespace Interfaz
             ObjetosVentana.nvItemActualizar.PointerEntered += Animaciones.EntraRatonNvItem;
             ObjetosVentana.nvItemActualizar.PointerExited += Animaciones.SaleRatonNvItem;
 
-            ObjetosVentana.tbBuscador.PlaceholderText = recursos.GetString("Search");
-            ObjetosVentana.tbBuscador.TextChanged += Buscador.Busca;
-
             TextBlock tbSteamDeseadosTt = new TextBlock
             {
                 Text = recursos.GetString("SteamWishlist")

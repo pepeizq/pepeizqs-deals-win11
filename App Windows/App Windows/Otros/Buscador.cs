@@ -1,15 +1,30 @@
 ﻿using Entradas;
 using Herramientas;
+using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.Windows.ApplicationModel.Resources;
+using System;
+using Windows.System;
 using static Principal.MainWindow;
 using static Wordpress;
 
-namespace Interfaz
+namespace Otros
 {
     public static class Buscador
     {
+        public static void Cargar()
+        {
+            ResourceLoader recursos = new ResourceLoader();
+
+            ObjetosVentana.tbBuscador.PlaceholderText = recursos.GetString("Search");
+            ObjetosVentana.tbBuscador.TextChanged += Busca;
+
+            ObjetosVentana.botonBuscadorSteamDB.Click += BotonAbrirBuscador;
+            ObjetosVentana.botonBuscadorGGdeals.Click += BotonAbrirBuscador;
+            ObjetosVentana.botonBuscadorIsthereanydeal.Click += BotonAbrirBuscador;
+        }
+
         public static void Busca(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
@@ -118,9 +133,21 @@ namespace Interfaz
             else if (ObjetosVentana.spBuscador.Children.Count == 0)
             {
                 ObjetosVentana.spBuscadorNoResultados.Visibility = Visibility.Visible;
+
+                ObjetosVentana.botonBuscadorSteamDB.Tag = "https://steamdb.info/search/?a=app&q=" + tb.Text.Trim();
+                ObjetosVentana.botonBuscadorGGdeals.Tag = "https://gg.deals/games/?title=" + tb.Text.Trim();
+                ObjetosVentana.botonBuscadorIsthereanydeal.Tag = "https://new.isthereanydeal.com/search/?q=" + tb.Text.Trim();
             }
 
             tb.Focus(FocusState.Programmatic);
+        }
+
+        public static async void BotonAbrirBuscador(object sender, RoutedEventArgs e)
+        {
+            Button boton = sender as Button;
+            string enlace = boton.Tag as string;
+
+            await Launcher.LaunchUriAsync(new Uri(enlace));
         }
     }
 }

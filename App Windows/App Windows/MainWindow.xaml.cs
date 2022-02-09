@@ -4,6 +4,7 @@ using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.Windows.ApplicationModel.Resources;
+using Otros;
 
 //https://blogs.windows.com/windowsdeveloper/2022/01/28/build-your-first-winui-3-app-part-1/
 //ms-windows-store://publisher/?name=Microsoft Corporation
@@ -20,13 +21,15 @@ namespace Principal
             //----------------------------------
 
             CargarObjetosVentana();
+            Wordpress.Cargar();
             Trial.Detectar();
             BarraTitulo.Generar(this);
             BarraTitulo.CambiarTitulo(null);
             Pestañas.Cargar();
-            ScrollViewers.Cargar();
-            Wordpress.Cargar();
+            ScrollViewers.Cargar();           
             Ofertas.Cargar();
+            Buscador.Cargar();
+           
 
         }
 
@@ -75,6 +78,9 @@ namespace Principal
             ObjetosVentana.gridOpciones = gridOpciones;
             ObjetosVentana.svOpciones = svOpciones;
             ObjetosVentana.spOpciones = spOpciones;
+            ObjetosVentana.gridTrialMensajeOpciones = gridTrialMensajeOpciones;
+            ObjetosVentana.botonTrialComprarOpciones = botonTrialComprarOpciones;
+            ObjetosVentana.toggleOpcionesNotificaciones = toggleOpcionesNotificaciones;
 
             ObjetosVentana.gridOfertasExpandida = gridOfertasExpandida;
             ObjetosVentana.svOfertasExpandida = svOfertasExpandida;
@@ -126,6 +132,9 @@ namespace Principal
             public static Grid gridOpciones { get; set; }
             public static ScrollViewer svOpciones { get; set; }
             public static StackPanel spOpciones { get; set; }
+            public static Grid gridTrialMensajeOpciones { get; set; }
+            public static Button botonTrialComprarOpciones { get; set; }
+            public static ToggleSwitch toggleOpcionesNotificaciones { get; set; }
             public static Grid gridOfertasExpandida { get; set; }
             public static ScrollViewer svOfertasExpandida { get; set; }
             public static StackPanel spOfertasExpandida { get; set; }

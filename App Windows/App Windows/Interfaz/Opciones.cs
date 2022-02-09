@@ -26,5 +26,9 @@ namespace Interfaz
             
         }
 
+        public static async void ToggleOpcionNotificaciones(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

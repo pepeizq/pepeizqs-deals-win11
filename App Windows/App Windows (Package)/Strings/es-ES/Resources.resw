@@ -141,8 +141,23 @@
   <data name="NewGamesAdded" xml:space="preserve">
     <value>Nuevos Juegos Añadidos</value>
   </data>
+  <data name="Open" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
   <data name="Options" xml:space="preserve">
     <value>Opciones</value>
+  </data>
+  <data name="OptionsNotifications.Text" xml:space="preserve">
+    <value>Notificaciones</value>
+  </data>
+  <data name="OptionsNotificationsInfo.Text" xml:space="preserve">
+    <value>Recibe notificaciones push de nuevas ofertas mientras tengas abierta la aplicación.</value>
+  </data>
+  <data name="OptionsNotificationsOff.Text" xml:space="preserve">
+    <value>Notificaciones desactivadas</value>
+  </data>
+  <data name="OptionsNotificationsOn.Text" xml:space="preserve">
+    <value>Notificaciones activadas</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Actualizar</value>
@@ -188,6 +203,9 @@
   </data>
   <data name="TrialMessage.Text" xml:space="preserve">
     <value>Estás usando la versión Trial de la aplicación, para desbloquear todas las funciones compra la aplicación en la tienda de Microsoft.</value>
+  </data>
+  <data name="TrialMessageOptions.Text" xml:space="preserve">
+    <value>Algunas opciones están desactivadas por qué estás usando la version Trial de la aplicación.</value>
   </data>
   <data name="TrialMessageSteamWishlist.Text" xml:space="preserve">
     <value>Si compras la aplicacion podrás filtrar los resultados con tu lista de deseados de Steam.</value>

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.WinUI.UI.Controls;
 using Entradas;
 using Herramientas;
+using Interfaz;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -17,7 +18,7 @@ using Windows.UI;
 using static Principal.MainWindow;
 using static Wordpress;
 
-namespace Interfaz
+namespace Otros
 {
     public class SteamDeseadoJuego
     {
