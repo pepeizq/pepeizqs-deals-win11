@@ -30,17 +30,6 @@ namespace Interfaz
             ObjetosVentana.nvItemSubirArriba.PointerEntered += Animaciones.EntraRatonNvItem;
             ObjetosVentana.nvItemSubirArriba.PointerExited += Animaciones.SaleRatonNvItem;
 
-            TextBlock tbActualizarTt = new TextBlock
-            {
-                Text = recursos.GetString("Refresh")
-            };
-
-            ToolTipService.SetToolTip(ObjetosVentana.nvItemActualizar, tbActualizarTt);
-            ToolTipService.SetPlacement(ObjetosVentana.nvItemActualizar, PlacementMode.Bottom);
-
-            ObjetosVentana.nvItemActualizar.PointerEntered += Animaciones.EntraRatonNvItem;
-            ObjetosVentana.nvItemActualizar.PointerExited += Animaciones.SaleRatonNvItem;
-
             TextBlock tbSteamDeseadosTt = new TextBlock
             {
                 Text = recursos.GetString("SteamWishlist")

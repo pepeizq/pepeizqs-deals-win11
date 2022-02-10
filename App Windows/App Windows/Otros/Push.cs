@@ -3,13 +3,10 @@ using FireSharp;
 using FireSharp.Config;
 using FireSharp.Response;
 using Herramientas;
-using Microsoft.UI.Xaml.Controls;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using Windows.Storage;
-using static Principal.MainWindow;
-using static Wordpress;
 
 namespace Otros
 {
@@ -31,6 +28,8 @@ namespace Otros
 
     public static class Push
     {
+        static EventStreamResponse respuesta2;
+
         public static async void Escuchar()
         {
             FirebaseConfig config = new FirebaseConfig
@@ -122,7 +121,7 @@ namespace Otros
 
                 MensajePush nuevoMensaje = null;
                 int i = 0;
-                EventStreamResponse respuesta2  = await cliente.OnAsync("mensajes/", async (s, args, context) => {
+                respuesta2 = await cliente.OnAsync("mensajes/", async (s, args, context) => {
                     
                     if (i == 0)
                     {
@@ -183,6 +182,18 @@ namespace Otros
                     }
                     i += 1;
                 });
+            }
+        }
+
+        public static void Parar()
+        {
+            try
+            {
+                respuesta2.Cancel();
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

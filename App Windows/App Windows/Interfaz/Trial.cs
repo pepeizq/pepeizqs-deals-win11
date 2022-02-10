@@ -4,7 +4,6 @@ using Windows.System;
 using System;
 using Microsoft.UI.Xaml;
 using static Principal.MainWindow;
-using Otros;
 
 namespace Interfaz
 {
@@ -26,10 +25,7 @@ namespace Interfaz
                     {
                         ObjetosVentana.gridTrialMensaje.Visibility = Visibility.Collapsed;
                         ObjetosVentana.gridTrialMensajeSteamDeseados.Visibility = Visibility.Collapsed;
-                        ObjetosVentana.gridTrialMensajeOpciones.Visibility = Visibility.Collapsed;
-
-                        ObjetosVentana.toggleOpcionesNotificaciones.Toggled += Opciones.ToggleOpcionNotificaciones;
-                        Push.Escuchar();
+                        ObjetosVentana.gridTrialMensajeOpciones.Visibility = Visibility.Collapsed;             
                     }
                     else
                     {
@@ -49,7 +45,7 @@ namespace Interfaz
                         ObjetosVentana.botonTrialComprarOpciones.PointerEntered += Animaciones.EntraRatonBoton;
                         ObjetosVentana.botonTrialComprarOpciones.PointerExited += Animaciones.SaleRatonBoton;
                         ObjetosVentana.toggleOpcionesNotificaciones.IsEnabled = false;
-
+                        ObjetosVentana.toggleOpcionesMensajes.IsEnabled = false;
                     }
 
                     

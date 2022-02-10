@@ -29,7 +29,9 @@ namespace Principal
             ScrollViewers.Cargar();           
             Ofertas.Cargar();
             Buscador.Cargar();
-           
+            Opciones.CargarDatos();
+            Mensajes.Cargar();
+
 
         }
 
@@ -44,7 +46,6 @@ namespace Principal
             ObjetosVentana.nvItemMenu = nvItemMenu;
             ObjetosVentana.nvItemVolver = nvItemVolver;
             ObjetosVentana.nvItemSubirArriba = nvItemSubirArriba;
-            ObjetosVentana.nvItemActualizar = nvItemActualizar;
             ObjetosVentana.nvItemSteamDeseados = nvItemSteamDeseados;
             ObjetosVentana.nvItemOpciones = nvItemOpciones;
 
@@ -81,6 +82,9 @@ namespace Principal
             ObjetosVentana.gridTrialMensajeOpciones = gridTrialMensajeOpciones;
             ObjetosVentana.botonTrialComprarOpciones = botonTrialComprarOpciones;
             ObjetosVentana.toggleOpcionesNotificaciones = toggleOpcionesNotificaciones;
+            ObjetosVentana.toggleOpcionesAnuncios = toggleOpcionesAnuncios;
+            ObjetosVentana.toggleOpcionesMensajes = toggleOpcionesMensajes;
+            ObjetosVentana.botonOpcionesActualizar = botonOpcionesActualizar;
 
             ObjetosVentana.gridOfertasExpandida = gridOfertasExpandida;
             ObjetosVentana.svOfertasExpandida = svOfertasExpandida;
@@ -90,6 +94,8 @@ namespace Principal
 
             ObjetosVentana.gridAnuncio = gridAnuncio;
             ObjetosVentana.spAnuncio = spAnuncio;
+
+            ObjetosVentana.gridMensajes = gridMensajes;
         }
 
         public static class ObjetosVentana
@@ -102,7 +108,6 @@ namespace Principal
             public static NavigationViewItem nvItemMenu { get; set; }
             public static NavigationViewItem nvItemVolver { get; set; }
             public static NavigationViewItem nvItemSubirArriba { get; set; }
-            public static NavigationViewItem nvItemActualizar { get; set; }
             public static NavigationViewItem nvItemSteamDeseados { get; set; }
             public static NavigationViewItem nvItemOpciones { get; set; }
             public static Grid gridEntradas { get; set; }
@@ -135,6 +140,9 @@ namespace Principal
             public static Grid gridTrialMensajeOpciones { get; set; }
             public static Button botonTrialComprarOpciones { get; set; }
             public static ToggleSwitch toggleOpcionesNotificaciones { get; set; }
+            public static ToggleSwitch toggleOpcionesAnuncios { get; set; }
+            public static ToggleSwitch toggleOpcionesMensajes { get; set; }
+            public static Button botonOpcionesActualizar { get; set; }
             public static Grid gridOfertasExpandida { get; set; }
             public static ScrollViewer svOfertasExpandida { get; set; }
             public static StackPanel spOfertasExpandida { get; set; }
@@ -142,6 +150,7 @@ namespace Principal
             public static TextBlock tbMensajeOfertasExpandida { get; set; }
             public static Grid gridAnuncio { get; set; }
             public static StackPanel spAnuncio { get; set; }
+            public static Grid gridMensajes { get; set; }
         }
 
         private void nvPrincipal_Loaded(object sender, RoutedEventArgs e)
@@ -169,11 +178,6 @@ namespace Principal
                     {
                                        
                     }
-                    else if (item.Name == "nvItemActualizar")
-                    {
-                        BarraTitulo.CambiarTitulo(null);                        
-                        Wordpress.Cargar();
-                    }
                     else if (item.Name == "nvItemSteamDeseados")
                     {
                         SteamDeseados.Cargar();
@@ -183,7 +187,7 @@ namespace Principal
                     }
                     else if (item.Name == "nvItemOpciones")
                     {
-                        Opciones.Cargar();
+                        Opciones.CargarPestaña();
                         Pestañas.Visibilidad(gridOpciones, true);
                         BarraTitulo.CambiarTitulo(recursos.GetString("Options"));
                         ScrollViewers.EnseñarSubir(svOpciones);

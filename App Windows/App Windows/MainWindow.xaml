@@ -97,11 +97,6 @@
                         <FontIcon Glyph="&#xE70E;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
                     </Grid>
                 </NavigationViewItem>
-                <NavigationViewItem x:Name="nvItemActualizar">
-                    <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
-                        <FontIcon Glyph="&#xE149;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
-                    </Grid>
-                </NavigationViewItem>
                 <TextBox x:Name="tbBuscador" RequestedTheme="Dark" MinWidth="200"/>
                 <NavigationViewItem x:Name="nvItemSteamDeseados">
                     <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
@@ -305,12 +300,16 @@
 
                     <ScrollViewer x:Name="svOpciones" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                         <StackPanel x:Name="spOpciones" Orientation="Vertical" Padding="40">
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock x:Uid="OptionsNotifications" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
+
+                            <TextBlock x:Uid="OptionsNotifications" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="30,0,0,15"/>
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,50" CornerRadius="5" Padding="30">
+                                <StackPanel.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </StackPanel.Background>
 
                                 <ToggleSwitch x:Name="toggleOpcionesNotificaciones" Foreground="{StaticResource ColorFuente}" RequestedTheme="Dark">
                                     <ToggleSwitch.Header>
-                                        <TextBlock x:Uid="OptionsNotificationsInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,5"/>
+                                        <TextBlock x:Uid="OptionsNotificationsInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
                                     </ToggleSwitch.Header>
                                     <ToggleSwitch.OnContent>
                                         <TextBlock x:Uid="OptionsNotificationsOn" Foreground="{StaticResource ColorFuente}"/>
@@ -320,8 +319,54 @@
                                     </ToggleSwitch.OffContent>
                                 </ToggleSwitch>
                             </StackPanel>
-                            
 
+                            <TextBlock x:Uid="OptionsAnnouncements" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="30,0,0,15"/>
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,50" CornerRadius="5" Padding="30">
+                                <StackPanel.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </StackPanel.Background>
+
+                                <ToggleSwitch x:Name="toggleOpcionesAnuncios" Foreground="{StaticResource ColorFuente}" RequestedTheme="Dark" Margin="0,0,0,25">
+                                    <ToggleSwitch.Header>
+                                        <TextBlock x:Uid="OptionsAnnouncementsInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                    </ToggleSwitch.Header>
+                                    <ToggleSwitch.OnContent>
+                                        <TextBlock x:Uid="OptionsAnnouncementsOn" Foreground="{StaticResource ColorFuente}"/>
+                                    </ToggleSwitch.OnContent>
+                                    <ToggleSwitch.OffContent>
+                                        <TextBlock x:Uid="OptionsAnnouncementsOff" Foreground="{StaticResource ColorFuente}"/>
+                                    </ToggleSwitch.OffContent>
+                                </ToggleSwitch>
+
+                                <ToggleSwitch x:Name="toggleOpcionesMensajes" Foreground="{StaticResource ColorFuente}" RequestedTheme="Dark">
+                                    <ToggleSwitch.Header>
+                                        <TextBlock x:Uid="OptionsAnnouncements2Info" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                    </ToggleSwitch.Header>
+                                    <ToggleSwitch.OnContent>
+                                        <TextBlock x:Uid="OptionsAnnouncements2On" Foreground="{StaticResource ColorFuente}"/>
+                                    </ToggleSwitch.OnContent>
+                                    <ToggleSwitch.OffContent>
+                                        <TextBlock x:Uid="OptionsAnnouncements2Off" Foreground="{StaticResource ColorFuente}"/>
+                                    </ToggleSwitch.OffContent>
+                                </ToggleSwitch>
+                            </StackPanel>
+
+                            <TextBlock x:Uid="OptionsUpdate" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="30,0,0,15"/>
+                            <StackPanel Orientation="Vertical" CornerRadius="5" Padding="30">
+                                <StackPanel.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </StackPanel.Background>
+
+                                <TextBlock x:Uid="OptionsUpdateInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
+                                <Button x:Name="botonOpcionesActualizar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon Glyph="&#xE149;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
+                                            <TextBlock x:Uid="OptionsUpdateButton" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
                         </StackPanel> 
                     </ScrollViewer>
                 </Grid>
@@ -374,5 +419,13 @@
 
             <StackPanel x:Name="spAnuncio" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40"/>
         </Grid>
+
+        <Grid x:Name="gridMensajes" Grid.Row="1" Visibility="Collapsed">
+            <Grid.Background>
+                <AcrylicBrush TintOpacity="0.1" TintLuminosityOpacity="0.1" TintColor="{StaticResource ColorPrimario}" FallbackColor="{StaticResource ColorPrimario}" />
+            </Grid.Background>
+            
+            
+        </Grid> 
     </Grid> 
 </Window>

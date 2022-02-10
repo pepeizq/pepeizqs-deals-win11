@@ -147,6 +147,27 @@
   <data name="Options" xml:space="preserve">
     <value>Options</value>
   </data>
+  <data name="OptionsAnnouncements.Text" xml:space="preserve">
+    <value>Announcements</value>
+  </data>
+  <data name="OptionsAnnouncements2Info.Text" xml:space="preserve">
+    <value>Show messages from the creator of the application.</value>
+  </data>
+  <data name="OptionsAnnouncements2Off.Text" xml:space="preserve">
+    <value>Messages off</value>
+  </data>
+  <data name="OptionsAnnouncements2On.Text" xml:space="preserve">
+    <value>Messages on</value>
+  </data>
+  <data name="OptionsAnnouncementsInfo.Text" xml:space="preserve">
+    <value>Show announcements of new giveaways or massive deals periods like Summer or Winter Sales.</value>
+  </data>
+  <data name="OptionsAnnouncementsOff.Text" xml:space="preserve">
+    <value>Announcements off</value>
+  </data>
+  <data name="OptionsAnnouncementsOn.Text" xml:space="preserve">
+    <value>Announcements on</value>
+  </data>
   <data name="OptionsNotifications.Text" xml:space="preserve">
     <value>Notifications</value>
   </data>
@@ -159,8 +180,14 @@
   <data name="OptionsNotificationsOn.Text" xml:space="preserve">
     <value>Notifications on</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+  <data name="OptionsUpdate.Text" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="OptionsUpdateButton.Text" xml:space="preserve">
+    <value>Update Data</value>
+  </data>
+  <data name="OptionsUpdateInfo.Text" xml:space="preserve">
+    <value>Press the button if you want to update the data of the application without closing it.</value>
   </data>
   <data name="Reviews" xml:space="preserve">
     <value>Reviews</value>

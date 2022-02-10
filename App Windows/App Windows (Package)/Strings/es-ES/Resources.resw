@@ -147,6 +147,27 @@
   <data name="Options" xml:space="preserve">
     <value>Opciones</value>
   </data>
+  <data name="OptionsAnnouncements.Text" xml:space="preserve">
+    <value>Anuncios</value>
+  </data>
+  <data name="OptionsAnnouncements2Info.Text" xml:space="preserve">
+    <value>Mostrar los mensajes del creador de la aplicación.</value>
+  </data>
+  <data name="OptionsAnnouncements2Off.Text" xml:space="preserve">
+    <value>Mensajes desactivados</value>
+  </data>
+  <data name="OptionsAnnouncements2On.Text" xml:space="preserve">
+    <value>Mensajes activados</value>
+  </data>
+  <data name="OptionsAnnouncementsInfo.Text" xml:space="preserve">
+    <value>Mostrar los anuncios de nuevos sorteos o grandes periodos de ofertas como verano o invierno.</value>
+  </data>
+  <data name="OptionsAnnouncementsOff.Text" xml:space="preserve">
+    <value>Anuncios desactivados</value>
+  </data>
+  <data name="OptionsAnnouncementsOn.Text" xml:space="preserve">
+    <value>Anuncios activados</value>
+  </data>
   <data name="OptionsNotifications.Text" xml:space="preserve">
     <value>Notificaciones</value>
   </data>
@@ -159,14 +180,20 @@
   <data name="OptionsNotificationsOn.Text" xml:space="preserve">
     <value>Notificaciones activadas</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
+  <data name="OptionsUpdate.Text" xml:space="preserve">
     <value>Actualizar</value>
+  </data>
+  <data name="OptionsUpdateButton.Text" xml:space="preserve">
+    <value>Actualizar Datos</value>
+  </data>
+  <data name="OptionsUpdateInfo.Text" xml:space="preserve">
+    <value>Pulsa el botón si deseas actualizar los datos de la aplicación sin cerrarla.</value>
   </data>
   <data name="Reviews" xml:space="preserve">
     <value>Reseñas</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Busca</value>
+    <value>Buscar</value>
   </data>
   <data name="SearchNoResults.Text" xml:space="preserve">
     <value>No hay buenas ofertas en lo que buscas, pero puedes probar en las siguientes webs:</value>

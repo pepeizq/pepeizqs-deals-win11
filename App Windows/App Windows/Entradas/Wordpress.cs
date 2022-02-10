@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Windows.Storage;
 using WordPressPCL;
 using static Principal.MainWindow;
 
@@ -65,6 +66,8 @@ public static class Wordpress
 
     private static void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {
+        ApplicationDataContainer datos = ApplicationData.Current.LocalSettings;
+
         if (entradas != null)
         {
             foreach (Entrada entrada in entradas)
@@ -87,7 +90,14 @@ public static class Wordpress
                 }
                 else if (entrada.categories[0] == 1208)
                 {
-                    Anuncio.CargarEntrada(entrada);
+                    if (datos.Values["OpcionesNotificaciones"] == null)
+                    {
+                        Anuncio.CargarEntrada(entrada);
+                    }
+                    else if (datos.Values["OpcionesNotificaciones"] is true)
+                    {
+                        Anuncio.CargarEntrada(entrada);
+                    }                   
                 }
             }
         }
