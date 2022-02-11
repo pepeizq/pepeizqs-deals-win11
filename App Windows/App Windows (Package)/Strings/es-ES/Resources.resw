@@ -135,6 +135,24 @@
   <data name="Loading.Text" xml:space="preserve">
     <value>Cargando</value>
   </data>
+  <data name="MenuApps" xml:space="preserve">
+    <value>Más Aplicaciones y Juegos</value>
+  </data>
+  <data name="MenuGithub" xml:space="preserve">
+    <value>Código Fuente</value>
+  </data>
+  <data name="MenuRate" xml:space="preserve">
+    <value>Calificar la Aplicación</value>
+  </data>
+  <data name="MessageApps" xml:space="preserve">
+    <value>Puedes ver otras aplicaciones y juegos que he creado en mi web.</value>
+  </data>
+  <data name="MessageGithub" xml:space="preserve">
+    <value>Esta aplicación es de código abierto, puedes consultar el código en Github.</value>
+  </data>
+  <data name="MessageRate" xml:space="preserve">
+    <value>Si te gusta la aplicación puedes dar una nota en la tienda de Microsoft (y poner buena nota).</value>
+  </data>
   <data name="NewGameAdded" xml:space="preserve">
     <value>Nuevo Juego Añadido</value>
   </data>

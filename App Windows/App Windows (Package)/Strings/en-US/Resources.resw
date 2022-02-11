@@ -135,6 +135,24 @@
   <data name="Loading.Text" xml:space="preserve">
     <value>Loading</value>
   </data>
+  <data name="MenuApps" xml:space="preserve">
+    <value>More Apps and Games</value>
+  </data>
+  <data name="MenuGithub" xml:space="preserve">
+    <value>Source Code</value>
+  </data>
+  <data name="MenuRate" xml:space="preserve">
+    <value>Rate the App</value>
+  </data>
+  <data name="MessageApps" xml:space="preserve">
+    <value>You can see other applications and games that I have created on my website.</value>
+  </data>
+  <data name="MessageGithub" xml:space="preserve">
+    <value>This app is open source, you can check the code on Github.</value>
+  </data>
+  <data name="MessageRate" xml:space="preserve">
+    <value>If you like the app you can rate it on the Microsoft Store (and give it a good rating).</value>
+  </data>
   <data name="NewGameAdded" xml:space="preserve">
     <value>New Game Added</value>
   </data>

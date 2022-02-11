@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals" 
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:iconos="using:FontAwesome5"
     
     mc:Ignorable="d" x:Name="ventana">
 
@@ -16,23 +17,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.9"/>
+        </Grid.Background>
+
         <Grid x:Name="gridTitulo" Grid.Row="0">
             <Grid.Background>
-                <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.9"/>
+                <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.5"/>
             </Grid.Background>
             
             <TextBlock x:Name="tbTitulo" Margin="15,0,0,0" FontSize="12" Foreground="White" VerticalAlignment="Center"/>
-        </Grid>
-
-        <Grid x:Name="gridCarga" Grid.Row="1" Visibility="Collapsed">
-            <Grid.Background>
-                <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.9"/>
-            </Grid.Background>
-
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Uid="Loading" Foreground="White" Margin="0,0,0,30" HorizontalAlignment="Center"/>
-                <ProgressRing IsActive="True" Foreground="White" HorizontalAlignment="Center"/>
-            </StackPanel>
         </Grid>
 
         <NavigationView x:Name="nvPrincipal" Grid.Row="1" PaneDisplayMode="Top" IsBackButtonVisible="Collapsed" 
@@ -53,14 +47,13 @@
             <NavigationView.MenuItems>
                 <NavigationViewItem x:Name="nvItemMenu">
                     <FlyoutBase.AttachedFlyout>
-                        <MenuFlyout>
+                        <MenuFlyout x:Name="menuItemMenu">
                             <MenuFlyout.MenuFlyoutPresenterStyle>
                                 <Style TargetType="MenuFlyoutPresenter">
                                     <Setter Property="Background" Value="{StaticResource ColorPrimario}"/>
+                                    <Setter Property="Padding" Value="10,20"/>
                                 </Style>
                             </MenuFlyout.MenuFlyoutPresenterStyle>
-
-                            <MenuFlyoutItem Text="test" Foreground="{StaticResource ColorFuente}"/>
                         </MenuFlyout>
                     </FlyoutBase.AttachedFlyout>
 
@@ -93,14 +86,14 @@
 
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem x:Name="nvItemSubirArriba" Visibility="Collapsed">
-                    <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
-                        <FontIcon Glyph="&#xE70E;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
+                    <Grid Height="28" Width="28" Padding="1" CornerRadius="3">
+                        <iconos:FontAwesome Icon="Solid_AngleUp" Foreground="{StaticResource ColorFuente}" FontSize="19"/>
                     </Grid>
                 </NavigationViewItem>
-                <TextBox x:Name="tbBuscador" RequestedTheme="Dark" MinWidth="200"/>
+                <TextBox x:Name="tbBuscador" RequestedTheme="Dark" MinWidth="200" BorderThickness="0"/>
                 <NavigationViewItem x:Name="nvItemSteamDeseados">
-                    <Grid Height="28" Width="28" Padding="5" CornerRadius="3">
-                        <controls:ImageEx Source="/Assets/Logos/logo_steam.png" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                    <Grid Height="28" Width="28" Padding="1" CornerRadius="3">
+                        <iconos:FontAwesome Icon="Brands_Steam" Foreground="{StaticResource ColorFuente}" FontSize="19"/>
                     </Grid>
                 </NavigationViewItem>
                 <NavigationViewItem x:Name="nvItemOpciones">
@@ -254,8 +247,8 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <controls:ImageEx Grid.Column="0" Margin="0,0,40,0" MaxWidth="120" Source="/Assets/Logos/logo_steam2.png" IsCacheEnabled="True" EnableLazyLoading="True"/>
-
+                                <iconos:FontAwesome Grid.Column="0" Margin="0,0,40,0" Icon="Brands_Steam" Foreground="{StaticResource ColorFuente}" FontSize="40"/>
+      
                                 <StackPanel Grid.Column="1">
                                     <TextBlock x:Uid="SteamWishlistInfo" Margin="0,0,0,20" VerticalAlignment="Center"/>
                                     <TextBox x:Name="tbSteamDeseadosEnlaceCuenta" RequestedTheme="Dark" PlaceholderText="https://steamcommunity.com/id/..."/>
@@ -361,7 +354,7 @@
                                 <Button x:Name="botonOpcionesActualizar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <FontIcon Glyph="&#xE149;" Foreground="{StaticResource ColorFuente}" FontSize="16" FontFamily="Segoe MDL2 Assets"/>
+                                            <iconos:FontAwesome Icon="Solid_Sync" Foreground="{StaticResource ColorFuente}" FontSize="15"/>
                                             <TextBlock x:Uid="OptionsUpdateButton" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button.Content>
@@ -412,6 +405,23 @@
             </Grid>
         </NavigationView>
 
+        <Grid x:Name="gridCarga" Grid.Row="1" Visibility="Collapsed">
+            <Grid.Background>
+                <AcrylicBrush TintOpacity="0.1" TintLuminosityOpacity="0.1" TintColor="{StaticResource ColorPrimario}" FallbackColor="{StaticResource ColorPrimario}" />
+            </Grid.Background>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <StackPanel x:Name="spCarga" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40">
+                    <TextBlock x:Uid="Loading" FontSize="18" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,30" HorizontalAlignment="Center"/>
+                    <ProgressRing IsActive="True" FontSize="18" Foreground="{StaticResource ColorFuente}" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel x:Name="spMensajes" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40"/>
+
+            </StackPanel>
+        </Grid>
+
         <Grid x:Name="gridAnuncio" Grid.Row="1" Visibility="Collapsed">
             <Grid.Background>
                 <AcrylicBrush TintOpacity="0.1" TintLuminosityOpacity="0.1" TintColor="{StaticResource ColorPrimario}" FallbackColor="{StaticResource ColorPrimario}" />
@@ -419,13 +429,5 @@
 
             <StackPanel x:Name="spAnuncio" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40"/>
         </Grid>
-
-        <Grid x:Name="gridMensajes" Grid.Row="1" Visibility="Collapsed">
-            <Grid.Background>
-                <AcrylicBrush TintOpacity="0.1" TintLuminosityOpacity="0.1" TintColor="{StaticResource ColorPrimario}" FallbackColor="{StaticResource ColorPrimario}" />
-            </Grid.Background>
-            
-            
-        </Grid> 
     </Grid> 
 </Window>

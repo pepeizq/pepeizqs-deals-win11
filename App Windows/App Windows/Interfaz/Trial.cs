@@ -46,9 +46,7 @@ namespace Interfaz
                         ObjetosVentana.botonTrialComprarOpciones.PointerExited += Animaciones.SaleRatonBoton;
                         ObjetosVentana.toggleOpcionesNotificaciones.IsEnabled = false;
                         ObjetosVentana.toggleOpcionesMensajes.IsEnabled = false;
-                    }
-
-                    
+                    }           
                 }
             }
         }

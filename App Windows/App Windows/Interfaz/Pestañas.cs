@@ -55,7 +55,6 @@ namespace Interfaz
 
         public static void Visibilidad(Grid grid, bool nv)
         {
-            ObjetosVentana.gridCarga.Visibility = Visibility.Collapsed;
             ObjetosVentana.nvPrincipal.Visibility = Visibility.Collapsed;           
             ObjetosVentana.gridEntradas.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridBuscador.Visibility = Visibility.Collapsed;

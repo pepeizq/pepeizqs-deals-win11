@@ -20,8 +20,6 @@
     <Content Remove="Assets\DRMs\drm_rockstar2.png" />
     <Content Remove="Assets\DRMs\drm_steam2.png" />
     <Content Remove="Assets\DRMs\drm_ubi2.png" />
-    <Content Remove="Assets\Logos\logo_steam.png" />
-    <Content Remove="Assets\Logos\logo_steam2.png" />
     <Content Remove="Assets\OtrasWebs\ggdeals.png" />
     <Content Remove="Assets\OtrasWebs\isthereanydeal.png" />
     <Content Remove="Assets\OtrasWebs\steamdb.png" />
@@ -39,7 +37,9 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.WinUI.Notifications" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Primitives" Version="7.1.2" />
     <PackageReference Include="FireSharp" Version="2.0.4" />
+    <PackageReference Include="FontAwesome5" Version="2.1.6" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22000.197" />
     <PackageReference Include="WordPressPCL" Version="1.9.0" />
@@ -86,12 +86,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\DRMs\drm_ubi2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Logos\logo_steam.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\Logos\logo_steam2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Assets\OtrasWebs\ggdeals.png">

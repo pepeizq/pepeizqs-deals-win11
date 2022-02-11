@@ -62,7 +62,7 @@ namespace Entradas
             StackPanel spIzquierda = new StackPanel
             {
                 Orientation = Orientation.Vertical,
-                Margin = new Thickness(30, 30, 40, 30),
+                Margin = new Thickness(30, 30, 30, 30),
                 VerticalAlignment = VerticalAlignment.Center
             };
 
@@ -159,8 +159,9 @@ namespace Entradas
             Button boton = new Button
             {
                 Content = gv,
-                HorizontalAlignment = HorizontalAlignment.Stretch,
-                HorizontalContentAlignment = HorizontalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                VerticalContentAlignment = VerticalAlignment.Stretch,
                 Background = fondoSuscripcion,
                 Margin = new Thickness(10, 10, 10, 10),
                 Tag = entrada.redirect

@@ -119,9 +119,9 @@ namespace Entradas
             {
                 Content = imagenJuego,
                 Padding = new Thickness(10, 10, 10, 10),
-                Margin = new Thickness(10, 0, 10, 0),
-                HorizontalAlignment = HorizontalAlignment.Stretch,
-                HorizontalContentAlignment = HorizontalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                VerticalContentAlignment = VerticalAlignment.Stretch,
                 Tag = entrada.redirect,
                 Background = new SolidColorBrush(Colors.Transparent)
             };

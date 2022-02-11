@@ -149,11 +149,6 @@ namespace Entradas
             {
                 if (json.juegos != null)
                 {
-                    AdaptiveGridView gv = new AdaptiveGridView
-                    {
-                        HorizontalAlignment = HorizontalAlignment.Center
-                    };
-
                     int maximoAncho = 250;
                     int maximoAlto = 200;
 
@@ -162,7 +157,13 @@ namespace Entradas
                         maximoAncho = 400;
                         maximoAlto = 300;
                     };
-                   
+
+                    AdaptiveGridView gv = new AdaptiveGridView
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        DesiredWidth = maximoAncho
+                    };
+                  
                     foreach (EntradaOfertasJuego juego in json.juegos)
                     {
                         SolidColorBrush fondoJuego = new SolidColorBrush
@@ -236,8 +237,9 @@ namespace Entradas
                         {
                             Content = spJuego,
                             Padding = new Thickness(10, 10, 10, 10),
-                            HorizontalAlignment = HorizontalAlignment.Stretch,
-                            HorizontalContentAlignment = HorizontalAlignment.Center,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                            VerticalContentAlignment = VerticalAlignment.Stretch,
                             Tag = juego.enlace,
                             Background = new SolidColorBrush(Colors.Transparent),
                             BorderBrush = new SolidColorBrush(Colors.Transparent),

@@ -30,8 +30,8 @@ namespace Principal
             Ofertas.Cargar();
             Buscador.Cargar();
             Opciones.CargarDatos();
-            Mensajes.Cargar();
-
+            MasCosas.CargarMenu();
+            MasCosas.MostrarMensaje();
 
         }
 
@@ -40,10 +40,10 @@ namespace Principal
             ObjetosVentana.ventana = ventana;
             ObjetosVentana.gridTitulo = gridTitulo;
             ObjetosVentana.tbTitulo = tbTitulo;
-            ObjetosVentana.gridCarga = gridCarga;
 
             ObjetosVentana.nvPrincipal = nvPrincipal;
             ObjetosVentana.nvItemMenu = nvItemMenu;
+            ObjetosVentana.menuItemMenu = menuItemMenu;
             ObjetosVentana.nvItemVolver = nvItemVolver;
             ObjetosVentana.nvItemSubirArriba = nvItemSubirArriba;
             ObjetosVentana.nvItemSteamDeseados = nvItemSteamDeseados;
@@ -92,10 +92,12 @@ namespace Principal
             ObjetosVentana.cbOrdenarOfertasExpandida = cbOrdenarOfertasExpandida;
             ObjetosVentana.tbMensajeOfertasExpandida = tbMensajeOfertasExpandida;
 
-            ObjetosVentana.gridAnuncio = gridAnuncio;
-            ObjetosVentana.spAnuncio = spAnuncio;
+            ObjetosVentana.gridCarga = gridCarga;
+            ObjetosVentana.spCarga = spCarga;
+            ObjetosVentana.spMensajes = spMensajes;
 
-            ObjetosVentana.gridMensajes = gridMensajes;
+            ObjetosVentana.gridAnuncio = gridAnuncio;
+            ObjetosVentana.spAnuncio = spAnuncio;      
         }
 
         public static class ObjetosVentana
@@ -103,9 +105,9 @@ namespace Principal
             public static Window ventana { get; set; }
             public static Grid gridTitulo { get; set; }
             public static TextBlock tbTitulo { get; set; }
-            public static Grid gridCarga { get; set; }
             public static NavigationView nvPrincipal { get; set; }
             public static NavigationViewItem nvItemMenu { get; set; }
+            public static MenuFlyout menuItemMenu { get; set; }
             public static NavigationViewItem nvItemVolver { get; set; }
             public static NavigationViewItem nvItemSubirArriba { get; set; }
             public static NavigationViewItem nvItemSteamDeseados { get; set; }
@@ -148,10 +150,12 @@ namespace Principal
             public static StackPanel spOfertasExpandida { get; set; }
             public static ComboBox cbOrdenarOfertasExpandida { get; set; }
             public static TextBlock tbMensajeOfertasExpandida { get; set; }
+            public static Grid gridCarga { get; set; }
+            public static StackPanel spCarga { get; set; }
+            public static StackPanel spMensajes { get; set; }
             public static Grid gridAnuncio { get; set; }
-            public static StackPanel spAnuncio { get; set; }
-            public static Grid gridMensajes { get; set; }
-        }
+            public static StackPanel spAnuncio { get; set; }           
+    }
 
         private void nvPrincipal_Loaded(object sender, RoutedEventArgs e)
         {

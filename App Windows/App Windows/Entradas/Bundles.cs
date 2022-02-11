@@ -178,8 +178,9 @@ namespace Entradas
             Button boton = new Button
             {
                 Content = spJuegos,
-                HorizontalAlignment = HorizontalAlignment.Stretch,
+                HorizontalAlignment = HorizontalAlignment.Center,
                 HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                VerticalContentAlignment = VerticalAlignment.Stretch,
                 Background = fondoBundle,
                 Margin = new Thickness(10, 10, 10, 10),
                 Tag = entrada.redirect
