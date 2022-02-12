@@ -391,8 +391,8 @@ namespace Otros
             ImageEx imagenJuego = new ImageEx
             {
                 Source = new BitmapImage(new Uri(juego.imagen)),
-                MaxHeight = 400,
-                MaxWidth = 300,
+                MaxWidth = 400,
+                MaxHeight = 300,          
                 EnableLazyLoading = true,
                 IsCacheEnabled = true,
                 CornerRadius = new CornerRadius(2, 2, 0, 0)
@@ -447,7 +447,8 @@ namespace Otros
                 Content = spJuego,
                 Padding = new Thickness(10, 10, 10, 10),
                 HorizontalAlignment = HorizontalAlignment.Center,
-                HorizontalContentAlignment = HorizontalAlignment.Center,
+                HorizontalContentAlignment = HorizontalAlignment.Stretch,
+                VerticalContentAlignment = VerticalAlignment.Stretch,
                 Tag = juego.enlace,
                 Background = new SolidColorBrush(Colors.Transparent),
                 BorderBrush = new SolidColorBrush(Colors.Transparent),

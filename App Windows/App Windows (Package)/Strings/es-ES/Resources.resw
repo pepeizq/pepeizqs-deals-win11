@@ -141,8 +141,17 @@
   <data name="MenuGithub" xml:space="preserve">
     <value>Código Fuente</value>
   </data>
+  <data name="MenuGiveaways" xml:space="preserve">
+    <value>Sorteos</value>
+  </data>
   <data name="MenuRate" xml:space="preserve">
     <value>Calificar la Aplicación</value>
+  </data>
+  <data name="MenuSocial" xml:space="preserve">
+    <value>Sigue las Ofertas</value>
+  </data>
+  <data name="MenuWeb" xml:space="preserve">
+    <value>Versión Web</value>
   </data>
   <data name="MessageApps" xml:space="preserve">
     <value>Puedes ver otras aplicaciones y juegos que he creado en mi web.</value>
@@ -185,6 +194,33 @@
   </data>
   <data name="OptionsAnnouncementsOn.Text" xml:space="preserve">
     <value>Anuncios activados</value>
+  </data>
+  <data name="OptionsApp.Text" xml:space="preserve">
+    <value>Aplicación</value>
+  </data>
+  <data name="OptionsAppCleanButton.Text" xml:space="preserve">
+    <value>Limpiar Datos</value>
+  </data>
+  <data name="OptionsAppCleanInfo.Text" xml:space="preserve">
+    <value>Pulsa el botón para limpiar todos los datos generados por la aplicación, se recomienda reiniciar la aplicación.</value>
+  </data>
+  <data name="OptionsAppWindow1.Text" xml:space="preserve">
+    <value>Defecto</value>
+  </data>
+  <data name="OptionsAppWindow2.Text" xml:space="preserve">
+    <value>Pantalla Completa</value>
+  </data>
+  <data name="OptionsAppWindow3.Text" xml:space="preserve">
+    <value>Superpuesta</value>
+  </data>
+  <data name="OptionsAppWindowInfo.Text" xml:space="preserve">
+    <value>Selecciona en que modo quieres que la aplicación se muestre en Windows:</value>
+  </data>
+  <data name="OptionsLanguage.Text" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="OptionsLanguageInfo.Text" xml:space="preserve">
+    <value>Selecciona el idioma de la aplicación, es necesario un reinicio en la aplicación para efectuar el cambio.</value>
   </data>
   <data name="OptionsNotifications.Text" xml:space="preserve">
     <value>Notificaciones</value>

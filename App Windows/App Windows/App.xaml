@@ -11,11 +11,7 @@
             </ResourceDictionary.MergedDictionaries>
 
             <Color x:Key="ColorFuente">#f7fcff</Color>
-            
             <Color x:Key="ColorPrimario">#002033</Color>
-            <!--<Color x:Key="ColorSecundario">#1b2838</Color>-->
-            <!--<Color x:Key="ColorTerciario">#bce6ff</Color>
-            <Color x:Key="ColorCuarto">#00395a</Color>-->
 
         </ResourceDictionary>
     </Application.Resources>

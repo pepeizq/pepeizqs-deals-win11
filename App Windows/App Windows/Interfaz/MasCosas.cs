@@ -49,6 +49,18 @@ namespace Interfaz
 
             if (cosas.Count > 0)
             {
+                if (ObjetosVentana.menuItemMenu.Items.Count > 0)
+                {
+                    MenuFlyoutSeparator separador = new MenuFlyoutSeparator
+                    {
+                        Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                        RequestedTheme = ElementTheme.Dark,
+                        Height = 30
+                    };
+
+                    ObjetosVentana.menuItemMenu.Items.Add(separador);
+                }
+
                 ResourceLoader recursos = new ResourceLoader();
 
                 foreach (var cosa in cosas)
@@ -170,7 +182,7 @@ namespace Interfaz
             {
                 foreach (StackPanel sp in ObjetosVentana.spMensajes.Children)
                 {
-                    if (sp.Visibility == Visibility.Visible)
+                    if (sp.Children.Count > 0 && sp.Visibility == Visibility.Visible)
                     {
                         Button botonAbrir = sp.Children[2] as Button;
                         botonAbrir.Visibility = Visibility.Visible;
@@ -178,6 +190,13 @@ namespace Interfaz
                         Button botonCerrar = sp.Children[3] as Button;
                         botonCerrar.Visibility = Visibility.Visible;                     
                     }
+                }
+
+                if (ObjetosVentana.toggleOpcionesMensajes.IsOn == true && ObjetosVentana.toggleOpcionesMensajes.IsEnabled == true)
+                {
+                    ObjetosVentana.gridCarga.Visibility = Visibility.Collapsed;
+                    ObjetosVentana.nvPrincipal.SelectedItem = ObjetosVentana.nvPrincipal.MenuItems[1];
+                    Pestañas.Visibilidad(ObjetosVentana.gridEntradas, true);
                 }
             }
         }
@@ -200,7 +219,11 @@ namespace Interfaz
             if (enlace != null)
             {
                 await Launcher.LaunchUriAsync(new Uri(enlace));
-            }           
+            }
+
+            ObjetosVentana.gridCarga.Visibility = Visibility.Collapsed;
+            ObjetosVentana.nvPrincipal.SelectedItem = ObjetosVentana.nvPrincipal.MenuItems[1];
+            Pestañas.Visibilidad(ObjetosVentana.gridEntradas, true);
         }
 
         public static void BotonCerrarMensaje(object sender, RoutedEventArgs e)

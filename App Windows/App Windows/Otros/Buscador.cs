@@ -96,14 +96,21 @@ namespace Otros
                         {
                             bool añadir = false;
 
-                            if (Limpieza.Limpiar(entrada.title.rendered).Contains(Limpieza.Limpiar(tb.Text.Trim())))
+                            if (entrada.title.rendered != null)
                             {
-                                añadir = true;
+                                if (Limpieza.Limpiar(entrada.title.rendered).Contains(Limpieza.Limpiar(tb.Text.Trim())))
+                                {
+                                    añadir = true;
+                                }
                             }
-                            else if (Limpieza.Limpiar(entrada.title2).Contains(Limpieza.Limpiar(tb.Text.Trim())))
+                                                       
+                            if (entrada.title2 != null)
                             {
-                                añadir = true;
-                            }
+                                if (Limpieza.Limpiar(entrada.title2).Contains(Limpieza.Limpiar(tb.Text.Trim())))
+                                {
+                                    añadir = true;
+                                }
+                            }                            
 
                             if (añadir == true)
                             {

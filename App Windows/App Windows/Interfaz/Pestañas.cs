@@ -61,6 +61,7 @@ namespace Interfaz
             ObjetosVentana.gridSteamDeseados.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOpciones.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOfertasExpandida.Visibility = Visibility.Collapsed;
+            ObjetosVentana.gridWeb.Visibility = Visibility.Collapsed;
 
             grid.Visibility = Visibility.Visible;
 

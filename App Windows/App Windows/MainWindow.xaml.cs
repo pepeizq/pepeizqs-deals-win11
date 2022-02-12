@@ -7,7 +7,6 @@ using Microsoft.Windows.ApplicationModel.Resources;
 using Otros;
 
 //https://blogs.windows.com/windowsdeveloper/2022/01/28/build-your-first-winui-3-app-part-1/
-//ms-windows-store://publisher/?name=Microsoft Corporation
 
 namespace Principal
 {
@@ -25,14 +24,14 @@ namespace Principal
             Trial.Detectar();
             BarraTitulo.Generar(this);
             BarraTitulo.CambiarTitulo(null);
+            Interfaz.Menu.Cargar();
             Pestañas.Cargar();
             ScrollViewers.Cargar();           
             Ofertas.Cargar();
             Buscador.Cargar();
             Opciones.CargarDatos();
             MasCosas.CargarMenu();
-            MasCosas.MostrarMensaje();
-
+            MasCosas.MostrarMensaje();  
         }
 
         public void CargarObjetosVentana()
@@ -81,16 +80,22 @@ namespace Principal
             ObjetosVentana.spOpciones = spOpciones;
             ObjetosVentana.gridTrialMensajeOpciones = gridTrialMensajeOpciones;
             ObjetosVentana.botonTrialComprarOpciones = botonTrialComprarOpciones;
+            ObjetosVentana.cbOpcionesIdioma = cbOpcionesIdioma;
             ObjetosVentana.toggleOpcionesNotificaciones = toggleOpcionesNotificaciones;
             ObjetosVentana.toggleOpcionesAnuncios = toggleOpcionesAnuncios;
             ObjetosVentana.toggleOpcionesMensajes = toggleOpcionesMensajes;
             ObjetosVentana.botonOpcionesActualizar = botonOpcionesActualizar;
+            ObjetosVentana.cbOpcionesPantalla = cbOpcionesPantalla;
+            ObjetosVentana.botonOpcionesLimpiar = botonOpcionesLimpiar;
 
             ObjetosVentana.gridOfertasExpandida = gridOfertasExpandida;
             ObjetosVentana.svOfertasExpandida = svOfertasExpandida;
             ObjetosVentana.spOfertasExpandida = spOfertasExpandida;
             ObjetosVentana.cbOrdenarOfertasExpandida = cbOrdenarOfertasExpandida;
             ObjetosVentana.tbMensajeOfertasExpandida = tbMensajeOfertasExpandida;
+
+            ObjetosVentana.gridWeb = gridWeb;
+            ObjetosVentana.wvWeb = wvWeb;
 
             ObjetosVentana.gridCarga = gridCarga;
             ObjetosVentana.spCarga = spCarga;
@@ -141,15 +146,20 @@ namespace Principal
             public static StackPanel spOpciones { get; set; }
             public static Grid gridTrialMensajeOpciones { get; set; }
             public static Button botonTrialComprarOpciones { get; set; }
+            public static ComboBox cbOpcionesIdioma { get; set; }
             public static ToggleSwitch toggleOpcionesNotificaciones { get; set; }
             public static ToggleSwitch toggleOpcionesAnuncios { get; set; }
+            public static ComboBox cbOpcionesPantalla { get; set; }
             public static ToggleSwitch toggleOpcionesMensajes { get; set; }
             public static Button botonOpcionesActualizar { get; set; }
+            public static Button botonOpcionesLimpiar { get; set; }
             public static Grid gridOfertasExpandida { get; set; }
             public static ScrollViewer svOfertasExpandida { get; set; }
             public static StackPanel spOfertasExpandida { get; set; }
             public static ComboBox cbOrdenarOfertasExpandida { get; set; }
             public static TextBlock tbMensajeOfertasExpandida { get; set; }
+            public static Grid gridWeb { get; set; }
+            public static WebView2 wvWeb { get; set; }
             public static Grid gridCarga { get; set; }
             public static StackPanel spCarga { get; set; }
             public static StackPanel spMensajes { get; set; }

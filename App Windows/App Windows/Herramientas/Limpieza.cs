@@ -8,7 +8,7 @@ namespace Herramientas
     {
         public static string Limpiar(string texto)
         {
-            if (texto != string.Empty)
+            if (texto != null)
             {
                 texto = texto.Trim();
 

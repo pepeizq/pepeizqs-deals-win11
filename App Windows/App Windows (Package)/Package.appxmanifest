@@ -2,19 +2,22 @@
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  IgnorableNamespaces="uap rescap">
+  IgnorableNamespaces="mp uap rescap">
 
   <Identity
     Name="5078pepeizq.SteamDeals"
     Publisher="CN=C91088FC-231C-4E13-86D1-5F9658173DA7"
     Version="4.0.0.0" />
 
+   <mp:PhoneIdentity PhoneProductId="882cd09f-c37d-481c-a1cd-233e69498d30" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+	
   <Properties>
     <DisplayName>pepeizq&apos;s deals • Digital Game Deals for PC • Steam, GOG, Epic Games, Origin, ...</DisplayName>
     <PublisherDisplayName>pepeizq&apos;s apps</PublisherDisplayName>
-    <Logo>Images\StoreLogo.png</Logo>
+    <Logo>Images\Logos\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -23,7 +26,8 @@
   </Dependencies>
 
   <Resources>
-    <Resource Language="x-generate"/>
+	<Resource Language="en-US"/>
+	<Resource Language="es-ES"/>
   </Resources>
 
   <Applications>
@@ -32,17 +36,22 @@
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
         DisplayName="pepeizq&apos;s deals"
-        Description="App Windows (Package)"
-        BackgroundColor="transparent"
-        Square150x150Logo="Images\Square150x150Logo.png"
-        Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
-        <uap:SplashScreen Image="Images\SplashScreen.png" />
+        Description="https://pepeizqapps.com/"
+        BackgroundColor="#002033"
+        Square150x150Logo="Images\Logos\Square150x150Logo.png"
+        Square44x44Logo="Images\Logos\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Logos\Wide310x150Logo.png" ShortName="pepeizq&amp;apos;s deals" Square71x71Logo="Images\Logos\SmallTile.png" Square310x310Logo="Images\Logos\LargeTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="wide310x150Logo"/>
+            <uap:ShowOn Tile="square310x310Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile >
+        <uap:SplashScreen Image="Images\Logos\SplashScreen.png" BackgroundColor="#002033"/>
       </uap:VisualElements>
     </Application>
   </Applications>
 
   <Capabilities>
-    <rescap:Capability Name="runFullTrust" />
+    <Capability Name="internetClient"/>
   </Capabilities>
 </Package>

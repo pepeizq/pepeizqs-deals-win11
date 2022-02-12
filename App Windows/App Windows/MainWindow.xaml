@@ -294,6 +294,16 @@
                     <ScrollViewer x:Name="svOpciones" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                         <StackPanel x:Name="spOpciones" Orientation="Vertical" Padding="40">
 
+                            <TextBlock x:Uid="OptionsLanguage" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="30,0,0,15"/>
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,50" CornerRadius="5" Padding="30">
+                                <StackPanel.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </StackPanel.Background>
+
+                                <TextBlock x:Uid="OptionsLanguageInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
+                                <ComboBox x:Name="cbOpcionesIdioma" RequestedTheme="Dark"/>
+                            </StackPanel>
+                            
                             <TextBlock x:Uid="OptionsNotifications" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="30,0,0,15"/>
                             <StackPanel Orientation="Vertical" Margin="0,0,0,50" CornerRadius="5" Padding="30">
                                 <StackPanel.Background>
@@ -345,7 +355,7 @@
                             </StackPanel>
 
                             <TextBlock x:Uid="OptionsUpdate" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="30,0,0,15"/>
-                            <StackPanel Orientation="Vertical" CornerRadius="5" Padding="30">
+                            <StackPanel Orientation="Vertical" Margin="0,0,0,50" CornerRadius="5" Padding="30">
                                 <StackPanel.Background>
                                     <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
                                 </StackPanel.Background>
@@ -356,6 +366,30 @@
                                         <StackPanel Orientation="Horizontal">
                                             <iconos:FontAwesome Icon="Solid_Sync" Foreground="{StaticResource ColorFuente}" FontSize="15"/>
                                             <TextBlock x:Uid="OptionsUpdateButton" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+
+                            <TextBlock x:Uid="OptionsApp" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="30,0,0,15"/>
+                            <StackPanel Orientation="Vertical" CornerRadius="5" Padding="30">
+                                <StackPanel.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </StackPanel.Background>
+
+                                <TextBlock x:Uid="OptionsAppWindowInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
+                                <ComboBox x:Name="cbOpcionesPantalla" RequestedTheme="Dark" Margin="0,0,0,25">
+                                    <TextBlock x:Uid="OptionsAppWindow1"/>
+                                    <TextBlock x:Uid="OptionsAppWindow2"/>
+                                    <TextBlock x:Uid="OptionsAppWindow3"/>
+                                </ComboBox> 
+
+                                <TextBlock x:Uid="OptionsAppCleanInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
+                                <Button x:Name="botonOpcionesLimpiar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14">
+                                    <Button.Content>
+                                        <StackPanel Orientation="Horizontal">
+                                            <iconos:FontAwesome Icon="Solid_Trash" Foreground="{StaticResource ColorFuente}" FontSize="15"/>
+                                            <TextBlock x:Uid="OptionsAppCleanButton" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button.Content>
                                 </Button>
@@ -402,6 +436,10 @@
                         <StackPanel x:Name="spOfertasExpandida" Orientation="Vertical" Padding="20"/>
                     </ScrollViewer>
                 </Grid>
+
+                <Grid x:Name="gridWeb" Visibility="Collapsed">
+                    <WebView2 x:Name="wvWeb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
             </Grid>
         </NavigationView>
 
@@ -411,14 +449,12 @@
             </Grid.Background>
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-
                 <StackPanel x:Name="spCarga" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40">
                     <TextBlock x:Uid="Loading" FontSize="18" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,30" HorizontalAlignment="Center"/>
                     <ProgressRing IsActive="True" FontSize="18" Foreground="{StaticResource ColorFuente}" HorizontalAlignment="Center"/>
                 </StackPanel>
 
                 <StackPanel x:Name="spMensajes" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40"/>
-
             </StackPanel>
         </Grid>
 
