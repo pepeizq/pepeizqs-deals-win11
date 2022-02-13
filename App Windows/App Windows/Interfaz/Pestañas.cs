@@ -62,6 +62,7 @@ namespace Interfaz
             ObjetosVentana.gridOpciones.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOfertasExpandida.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridWeb.Visibility = Visibility.Collapsed;
+            ObjetosVentana.gridRedesSociales.Visibility = Visibility.Collapsed;
 
             grid.Visibility = Visibility.Visible;
 

@@ -252,9 +252,12 @@ namespace Otros
                                     {
                                         añadir = true;
                                     }
-                                    else if (Limpieza.Limpiar(entrada.title2).Contains(Limpieza.Limpiar(juegoDeseado.name)))
+                                    else if (Limpieza.Limpiar(entrada.title2) != null)
                                     {
-                                        añadir = true;
+                                        if (Limpieza.Limpiar(entrada.title2).Contains(Limpieza.Limpiar(juegoDeseado.name)))
+                                        {
+                                            añadir = true;
+                                        }
                                     }
                                 }
 

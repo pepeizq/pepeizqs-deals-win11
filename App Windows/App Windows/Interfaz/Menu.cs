@@ -47,7 +47,7 @@ namespace Interfaz
 
             ObjetosVentana.menuItemMenu.Items.Add(item3);
 
-            ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/en/");
+            //ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/en/");
         }
 
         public static void BotonAbrirSorteos(object sender, RoutedEventArgs e)
@@ -68,12 +68,7 @@ namespace Interfaz
             ResourceLoader recursos = new ResourceLoader();
 
             BarraTitulo.CambiarTitulo(recursos.GetString("MenuSocial"));
-            Pestañas.Visibilidad(ObjetosVentana.gridWeb, true);
-
-            if (ObjetosVentana.wvWeb.Source != new Uri("https://pepeizqdeals.com/follow-the-deals/"))
-            {
-                ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/follow-the-deals/");
-            }
+            Pestañas.Visibilidad(ObjetosVentana.gridRedesSociales, true);
         }
 
         public static void BotonAbrirWeb(object sender, RoutedEventArgs e)

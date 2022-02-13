@@ -22,7 +22,9 @@ namespace Interfaz
                 ventanaTitulo.TitleBar.ExtendsContentIntoTitleBar = true;
                 ventanaTitulo.TitleBar.ButtonBackgroundColor = Colors.Transparent;
                 ventanaTitulo.TitleBar.ButtonHoverBackgroundColor = (Color)Application.Current.Resources["ColorPrimario"];
-                ventanaTitulo.TitleBar.ForegroundColor = (Color)Application.Current.Resources["ColorFuente"];
+                ventanaTitulo.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+                ventanaTitulo.TitleBar.ButtonForegroundColor = (Color)Application.Current.Resources["ColorFuente"];
+                ventanaTitulo.TitleBar.ButtonInactiveForegroundColor = (Color)Application.Current.Resources["ColorFuente"];
             }
         }
 

@@ -440,6 +440,12 @@
                 <Grid x:Name="gridWeb" Visibility="Collapsed">
                     <WebView2 x:Name="wvWeb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Grid>
+
+                <Grid x:Name="gridRedesSociales" Visibility="Collapsed">
+                    <ScrollViewer x:Name="svRedesSociales" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                        <StackPanel x:Name="spRedesSociales" Orientation="Vertical" Padding="20"/>
+                    </ScrollViewer>
+                </Grid>
             </Grid>
         </NavigationView>
 

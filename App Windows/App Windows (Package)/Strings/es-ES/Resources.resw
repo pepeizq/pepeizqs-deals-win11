@@ -123,6 +123,21 @@
   <data name="AndMoreGames" xml:space="preserve">
     <value>Y Más Juegos</value>
   </data>
+  <data name="AppScreen1" xml:space="preserve">
+    <value>Entérate de las últimas ofertas de videojuegos para PC</value>
+  </data>
+  <data name="AppScreen2" xml:space="preserve">
+    <value>Y también averigua los juegos gratis que se pueden obtener</value>
+  </data>
+  <data name="AppScreen3" xml:space="preserve">
+    <value>Sincroniza tu cuenta de Steam para saber que juegos de tu lista de deseados están en oferta</value>
+  </data>
+  <data name="AppScreen4" xml:space="preserve">
+    <value>Busca los juegos que quieras</value>
+  </data>
+  <data name="AppScreen5" xml:space="preserve">
+    <value>Y recibe notificaciones de nuevas ofertas</value>
+  </data>
   <data name="Bundles" xml:space="preserve">
     <value>Bundles</value>
   </data>
@@ -154,7 +169,7 @@
     <value>Versión Web</value>
   </data>
   <data name="MessageApps" xml:space="preserve">
-    <value>Puedes ver otras aplicaciones y juegos que he creado en mi web.</value>
+    <value>Puedes ver otras aplicaciones y juegos que he creado en pepeizqapps.com</value>
   </data>
   <data name="MessageGithub" xml:space="preserve">
     <value>Esta aplicación es de código abierto, puedes consultar el código en Github.</value>

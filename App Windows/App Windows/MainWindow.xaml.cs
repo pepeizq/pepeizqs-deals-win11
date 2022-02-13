@@ -97,6 +97,10 @@ namespace Principal
             ObjetosVentana.gridWeb = gridWeb;
             ObjetosVentana.wvWeb = wvWeb;
 
+            ObjetosVentana.gridRedesSociales = gridRedesSociales;
+            ObjetosVentana.svRedesSociales = svRedesSociales;
+            ObjetosVentana.spRedesSociales = spRedesSociales;
+
             ObjetosVentana.gridCarga = gridCarga;
             ObjetosVentana.spCarga = spCarga;
             ObjetosVentana.spMensajes = spMensajes;
@@ -160,6 +164,9 @@ namespace Principal
             public static TextBlock tbMensajeOfertasExpandida { get; set; }
             public static Grid gridWeb { get; set; }
             public static WebView2 wvWeb { get; set; }
+            public static Grid gridRedesSociales { get; set; }
+            public static ScrollViewer svRedesSociales { get; set; }
+            public static StackPanel spRedesSociales { get; set; }
             public static Grid gridCarga { get; set; }
             public static StackPanel spCarga { get; set; }
             public static StackPanel spMensajes { get; set; }

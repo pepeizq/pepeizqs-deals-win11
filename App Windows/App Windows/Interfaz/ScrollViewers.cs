@@ -15,6 +15,7 @@ namespace Interfaz
             ObjetosVentana.svSteamDeseados.ViewChanging += svScroll;
             ObjetosVentana.svOpciones.ViewChanging += svScroll;
             ObjetosVentana.svOfertasExpandida.ViewChanging += svScroll;
+            ObjetosVentana.svRedesSociales.ViewChanging += svScroll;
         }
 
         private static void svScroll(object sender, ScrollViewerViewChangingEventArgs args)
