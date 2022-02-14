@@ -3,6 +3,7 @@ using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Windows.Storage;
 using WordPressPCL;
 using static Principal.MainWindow;
@@ -33,12 +34,17 @@ public static class Wordpress
         Pestañas.Visibilidad(ObjetosVentana.gridCarga, false);
         ObjetosVentana.spEntradas.Children.Clear();
 
-        WordPressClient cliente = new WordPressClient("https://pepeizqdeals.com/wp-json/")
-        {
-            AuthMethod = WordPressPCL.Models.AuthMethod.JWT
-        };
+        IEnumerable<Entrada> entradas = null;
 
-        IEnumerable<Entrada> entradas = await cliente.CustomRequest.Get<IEnumerable<Entrada>>("wp/v2/posts?per_page=100&categories=3,4,12,13,1208");
+        await Task.Run(async () =>
+        {
+            WordPressClient cliente = new WordPressClient("https://pepeizqdeals.com/wp-json/")
+            {
+                AuthMethod = WordPressPCL.Models.AuthMethod.JWT
+            };
+
+            entradas = await cliente.CustomRequest.Get<IEnumerable<Entrada>>("wp/v2/posts?per_page=100&categories=3,4,12,13,1208");
+        });
 
         ApplicationDataContainer datos = ApplicationData.Current.LocalSettings;
 

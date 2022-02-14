@@ -15,14 +15,13 @@ namespace Interfaz
             ObjetosVentana.svSteamDeseados.ViewChanging += svScroll;
             ObjetosVentana.svOpciones.ViewChanging += svScroll;
             ObjetosVentana.svOfertasExpandida.ViewChanging += svScroll;
-            ObjetosVentana.svRedesSociales.ViewChanging += svScroll;
         }
 
         private static void svScroll(object sender, ScrollViewerViewChangingEventArgs args)
         {
             ScrollViewer sv = sender as ScrollViewer;
 
-            if (sv.VerticalOffset > 100)
+            if (sv.VerticalOffset > 150)
             {
                 ObjetosVentana.nvItemSubirArriba.Visibility = Visibility.Visible;
             }
@@ -59,10 +58,6 @@ namespace Interfaz
             else if (ObjetosVentana.gridOfertasExpandida.Visibility == Visibility.Visible)
             {
                 ObjetosVentana.svOfertasExpandida.ChangeView(null, 0, null);
-            }
-            else if (ObjetosVentana.gridRedesSociales.Visibility == Visibility.Visible)
-            {
-                ObjetosVentana.svRedesSociales.ChangeView(null, 0, null);
             }
         }
 

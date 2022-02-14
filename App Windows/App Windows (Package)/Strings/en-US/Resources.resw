@@ -153,11 +153,20 @@
   <data name="MenuApps" xml:space="preserve">
     <value>More Apps and Games</value>
   </data>
+  <data name="MenuContact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="MenuFAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
   <data name="MenuGithub" xml:space="preserve">
     <value>Source Code</value>
   </data>
   <data name="MenuGiveaways" xml:space="preserve">
     <value>Giveaways</value>
+  </data>
+  <data name="MenuPCGamePass" xml:space="preserve">
+    <value>PC Game Pass</value>
   </data>
   <data name="MenuRate" xml:space="preserve">
     <value>Rate the App</value>
@@ -272,48 +281,6 @@
   </data>
   <data name="ShowDeals" xml:space="preserve">
     <value>Show All Deals</value>
-  </data>
-  <data name="SocialDiscord1" xml:space="preserve">
-    <value>Discord</value>
-  </data>
-  <data name="SocialDiscord2" xml:space="preserve">
-    <value>Follow the latest deals added on the web on the Discord server.</value>
-  </data>
-  <data name="SocialMail1" xml:space="preserve">
-    <value>Email Notifications</value>
-  </data>
-  <data name="SocialMail2" xml:space="preserve">
-    <value>Receive emails in real time of the latest deals added on the web (customizable by categories).</value>
-  </data>
-  <data name="SocialReddit1" xml:space="preserve">
-    <value>Reddit</value>
-  </data>
-  <data name="SocialReddit2" xml:space="preserve">
-    <value>Follow the latest deals added on the web in the Reddit sub.</value>
-  </data>
-  <data name="SocialRss1" xml:space="preserve">
-    <value>RSS</value>
-  </data>
-  <data name="SocialRss2" xml:space="preserve">
-    <value>Follow the latest deals in your favorite RSS reader (customizable by categories).</value>
-  </data>
-  <data name="SocialSteam1" xml:space="preserve">
-    <value>Steam Group</value>
-  </data>
-  <data name="SocialSteam2" xml:space="preserve">
-    <value>Receive notifications in real time of the latest deals added on the web when you have Steam open.</value>
-  </data>
-  <data name="SocialTelegram1" xml:space="preserve">
-    <value>Telegram</value>
-  </data>
-  <data name="SocialTelegram2" xml:space="preserve">
-    <value>Receive notifications in real time of the latest deals added on the web in your Telegram account.</value>
-  </data>
-  <data name="SocialTwitter1" xml:space="preserve">
-    <value>Twitter</value>
-  </data>
-  <data name="SocialTwitter2" xml:space="preserve">
-    <value>Receive tweets in real time of the latest deals added on the web.</value>
   </data>
   <data name="SortBy.Text" xml:space="preserve">
     <value>Sort by:</value>

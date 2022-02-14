@@ -429,7 +429,7 @@
                             </ComboBoxItem>
                         </ComboBox>
 
-                        <TextBlock x:Name="tbMensajeOfertasExpandida" Grid.Column="2" Foreground="White" Margin="40,0" Visibility="Collapsed" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="tbMensajeOfertasExpandida" Grid.Column="2" Foreground="{StaticResource ColorFuente}" Margin="40,0" Visibility="Collapsed" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
 
                     <ScrollViewer x:Name="svOfertasExpandida" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
@@ -439,12 +439,10 @@
 
                 <Grid x:Name="gridWeb" Visibility="Collapsed">
                     <WebView2 x:Name="wvWeb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                </Grid>
 
-                <Grid x:Name="gridRedesSociales" Visibility="Collapsed">
-                    <ScrollViewer x:Name="svRedesSociales" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                        <StackPanel x:Name="spRedesSociales" Orientation="Vertical" Padding="20"/>
-                    </ScrollViewer>
+                    <Grid x:Name="gridWebCarga" Background="{StaticResource ColorPrimario}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20" Padding="20" Visibility="Collapsed">
+                        <ProgressBar Foreground="{StaticResource ColorFuente}" IsIndeterminate="True" Width="100"/>
+                    </Grid>
                 </Grid>
             </Grid>
         </NavigationView>

@@ -153,11 +153,20 @@
   <data name="MenuApps" xml:space="preserve">
     <value>Más Aplicaciones y Juegos</value>
   </data>
+  <data name="MenuContact" xml:space="preserve">
+    <value>Contactar</value>
+  </data>
+  <data name="MenuFAQ" xml:space="preserve">
+    <value>Preguntas y Respuestas</value>
+  </data>
   <data name="MenuGithub" xml:space="preserve">
     <value>Código Fuente</value>
   </data>
   <data name="MenuGiveaways" xml:space="preserve">
     <value>Sorteos</value>
+  </data>
+  <data name="MenuPCGamePass" xml:space="preserve">
+    <value>PC Game Pass</value>
   </data>
   <data name="MenuRate" xml:space="preserve">
     <value>Calificar la Aplicación</value>
@@ -272,48 +281,6 @@
   </data>
   <data name="ShowDeals" xml:space="preserve">
     <value>Enseñar Todas las Ofertas</value>
-  </data>
-  <data name="SocialDiscord1" xml:space="preserve">
-    <value>Discord</value>
-  </data>
-  <data name="SocialDiscord2" xml:space="preserve">
-    <value>Sigue las últimas ofertas añadidas a la webs en este servidor de Discord.</value>
-  </data>
-  <data name="SocialMail1" xml:space="preserve">
-    <value>Notificaciones por Correo</value>
-  </data>
-  <data name="SocialMail2" xml:space="preserve">
-    <value>Recibe correos en tiempo real de las últimas ofertas añadidas a la web (personalizable por categorías).</value>
-  </data>
-  <data name="SocialReddit1" xml:space="preserve">
-    <value>Reddit</value>
-  </data>
-  <data name="SocialReddit2" xml:space="preserve">
-    <value>Sigue las últimas ofertas añadidas a la web en este sub de Reddit.</value>
-  </data>
-  <data name="SocialRss1" xml:space="preserve">
-    <value>RSS</value>
-  </data>
-  <data name="SocialRss2" xml:space="preserve">
-    <value>Sigue las últimas ofertas en tu lector favorito de RSS (personalizable por categorías).</value>
-  </data>
-  <data name="SocialSteam1" xml:space="preserve">
-    <value>Grupo de Steam</value>
-  </data>
-  <data name="SocialSteam2" xml:space="preserve">
-    <value>Recibe notificaciones en tiempo real de las últimas ofertas añadidas a la web cuando tengas Steam abierto.</value>
-  </data>
-  <data name="SocialTelegram1" xml:space="preserve">
-    <value>Telegram</value>
-  </data>
-  <data name="SocialTelegram2" xml:space="preserve">
-    <value>Recibe notificaciones en tiempo real de las últimas ofertas añadidas a la web en tu cuenta de Telegram.</value>
-  </data>
-  <data name="SocialTwitter1" xml:space="preserve">
-    <value>Twitter</value>
-  </data>
-  <data name="SocialTwitter2" xml:space="preserve">
-    <value>Recibe tweets en tiempo real de las últimas ofertas añadidas a la web.</value>
   </data>
   <data name="SortBy.Text" xml:space="preserve">
     <value>Ordenar por:</value>

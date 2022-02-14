@@ -47,7 +47,7 @@ namespace Herramientas
 
             ToastGenericAppLogo logo = new ToastGenericAppLogo
             {
-                Source = "Assets/ImagenesEntradapepeizq/avatar_notificaciones.png",
+                Source = "Assets/Imagenes/notificaciones.png",
                 HintCrop = ToastGenericAppLogoCrop.Default
             };
 
