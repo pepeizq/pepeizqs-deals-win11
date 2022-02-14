@@ -183,7 +183,9 @@ namespace Entradas
                 VerticalContentAlignment = VerticalAlignment.Stretch,
                 Background = fondoBundle,
                 Margin = new Thickness(10, 10, 10, 10),
-                Tag = entrada.redirect
+                Tag = entrada.redirect,
+                RequestedTheme = ElementTheme.Dark,
+                BorderThickness = new Thickness(0)
             };
 
             boton.Click += BotonAbrirBundle;

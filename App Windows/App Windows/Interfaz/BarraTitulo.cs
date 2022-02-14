@@ -30,6 +30,7 @@ namespace Interfaz
 
         public static void CambiarTitulo(string titulo)
         {
+            ObjetosVentana.ventana.Title = Package.Current.DisplayName;
             ObjetosVentana.tbTitulo.Text = Package.Current.DisplayName + " (" + Package.Current.Id.Version.Major.ToString() + "." + Package.Current.Id.Version.Minor.ToString() + "." + Package.Current.Id.Version.Build.ToString() + "." + Package.Current.Id.Version.Revision.ToString() + ")";
 
             if (titulo != null)

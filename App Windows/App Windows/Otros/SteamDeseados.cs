@@ -82,12 +82,15 @@ namespace Otros
 
             ApplicationDataContainer cuentaSteam = ApplicationData.Current.LocalSettings;        
             
-            if (cuentaSteam.Values["Cuenta_Steam"] != null)
+            if (ObjetosVentana.tbSteamDeseadosEnlaceCuenta.IsEnabled == true)
             {
-                ObjetosVentana.tbSteamDeseadosEnlaceCuenta.Text = cuentaSteam.Values["Cuenta_Steam"].ToString();
-                ObjetosVentana.expanderSteamDeseados.IsExpanded = false;
-                CambiaCuenta();
-            }           
+                if (cuentaSteam.Values["Cuenta_Steam"] != null)
+                {
+                    ObjetosVentana.tbSteamDeseadosEnlaceCuenta.Text = cuentaSteam.Values["Cuenta_Steam"].ToString();
+                    ObjetosVentana.expanderSteamDeseados.IsExpanded = false;
+                    CambiaCuenta();
+                }
+            }                   
         }
 
         public static void CambiaCuenta(object sender, TextChangedEventArgs e)

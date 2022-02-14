@@ -18,7 +18,8 @@ namespace Interfaz
             {
                 Text = recursos.GetString("MenuGiveaways"),
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
-                RequestedTheme = ElementTheme.Dark
+                RequestedTheme = ElementTheme.Dark,
+                Margin = new Thickness(-30, 0, 0, 0)
             };
 
             item1.Click += BotonAbrirSorteos;
@@ -29,7 +30,8 @@ namespace Interfaz
             {
                 Text = recursos.GetString("MenuSocial"),
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
-                RequestedTheme = ElementTheme.Dark
+                RequestedTheme = ElementTheme.Dark,
+                Margin = new Thickness(-30, 0, 0, 0)
             };
 
             item2.Click += BotonAbrirSocial;
@@ -40,7 +42,8 @@ namespace Interfaz
             {
                 Text = recursos.GetString("MenuWeb"),
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
-                RequestedTheme = ElementTheme.Dark
+                RequestedTheme = ElementTheme.Dark,
+                Margin = new Thickness(-30, 0, 0, 0)
             };
 
             item3.Click += BotonAbrirWeb;

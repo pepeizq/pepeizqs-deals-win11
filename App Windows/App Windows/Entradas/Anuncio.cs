@@ -40,7 +40,9 @@ namespace Entradas
                         HorizontalAlignment = HorizontalAlignment.Stretch,
                         HorizontalContentAlignment = HorizontalAlignment.Center,
                         Tag = entrada.redirect,
-                        Background = new SolidColorBrush((Color)Application.Current.Resources["ColorPrimario"])
+                        Background = new SolidColorBrush((Color)Application.Current.Resources["ColorPrimario"]),
+                        RequestedTheme = ElementTheme.Dark,
+                        BorderThickness = new Thickness(0)
                     };
 
                     boton.Click += BotonAbrirAnuncio;
@@ -60,7 +62,9 @@ namespace Entradas
                         Padding = new Thickness(10, 10, 10, 10),
                         HorizontalAlignment = HorizontalAlignment.Right,
                         HorizontalContentAlignment = HorizontalAlignment.Center,
-                        Background = new SolidColorBrush((Color)Application.Current.Resources["ColorPrimario"])
+                        Background = new SolidColorBrush((Color)Application.Current.Resources["ColorPrimario"]),
+                        RequestedTheme = ElementTheme.Dark,
+                        BorderThickness = new Thickness(0)
                     };
 
                     botonCerrar.Click += BotonCerrarAnuncio;

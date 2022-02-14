@@ -123,7 +123,9 @@ namespace Entradas
                 HorizontalContentAlignment = HorizontalAlignment.Stretch,
                 VerticalContentAlignment = VerticalAlignment.Stretch,
                 Tag = entrada.redirect,
-                Background = new SolidColorBrush(Colors.Transparent)
+                Background = new SolidColorBrush(Colors.Transparent),
+                RequestedTheme = ElementTheme.Dark,
+                BorderThickness = new Thickness(0)
             };
 
             boton.Click += BotonAbrirGratis;

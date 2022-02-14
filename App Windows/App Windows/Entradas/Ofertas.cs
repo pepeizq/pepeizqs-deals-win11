@@ -243,7 +243,8 @@ namespace Entradas
                             Tag = juego.enlace,
                             Background = new SolidColorBrush(Colors.Transparent),
                             BorderBrush = new SolidColorBrush(Colors.Transparent),
-                            BorderThickness = new Thickness(0, 0, 0, 0)
+                            RequestedTheme = ElementTheme.Dark,
+                            BorderThickness = new Thickness(0)
                         };
 
                         boton.Click += BotonAbrirJuego;
@@ -279,7 +280,9 @@ namespace Entradas
                                 Padding = new Thickness(40, 15, 40, 15),
                                 Tag = jsonExpandido,
                                 Background = fondoAmpliar,
-                                HorizontalAlignment = HorizontalAlignment.Center
+                                HorizontalAlignment = HorizontalAlignment.Center,
+                                RequestedTheme = ElementTheme.Dark,
+                                BorderThickness = new Thickness(0)
                             };
 
                             botonAmpliar.Click += BotonAbrirExpandida;
@@ -623,13 +626,15 @@ namespace Entradas
                     Button boton = new Button
                     {
                         Content = gridMaestro,
-                        Margin = new Thickness(0, 0, 0, 30),
-                        Padding = new Thickness(0, 0, 0, 0),
+                        Margin = new Thickness(0, 0, 0, 20),
+                        Padding = new Thickness(12),
                         HorizontalAlignment = HorizontalAlignment.Stretch,
                         HorizontalContentAlignment = HorizontalAlignment.Stretch,
                         Background = new SolidColorBrush(Colors.Transparent),
                         Tag = juego.enlace,
-                        CornerRadius = new CornerRadius(5)
+                        CornerRadius = new CornerRadius(5),
+                        RequestedTheme = ElementTheme.Dark,
+                        BorderThickness = new Thickness(0)
                     };
 
                     boton.Click += BotonAbrirJuego;

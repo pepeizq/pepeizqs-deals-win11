@@ -133,9 +133,9 @@
                         </Grid.ColumnDefinitions>
 
                         <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
-                        <TextBlock x:Uid="TrialMessage" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center"/>
+                        <TextBlock x:Uid="TrialMessage" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                        <Button x:Name="botonTrialComprar" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
+                        <Button x:Name="botonTrialComprar" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12">
                             <Button.Content>
                                 <Grid>
                                     <TextBlock x:Uid="TrialBuyApp" Foreground="{StaticResource ColorFuente}"/>
@@ -168,7 +168,7 @@
                         <TextBlock x:Uid="SearchNoResults" FontSize="18" Foreground="{StaticResource ColorFuente}" Margin="20,40,20,20"/>
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                            <Button x:Name="botonBuscadorSteamDB" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12">
+                            <Button x:Name="botonBuscadorSteamDB" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12" RequestedTheme="Dark" BorderThickness="0">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal">
                                         <controls:ImageEx Source="/Assets/OtrasWebs/steamdb.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
@@ -176,7 +176,7 @@
                                     </StackPanel>
                                 </Button.Content>
                             </Button>
-                            <Button x:Name="botonBuscadorGGdeals" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10" Margin="20,0">
+                            <Button x:Name="botonBuscadorGGdeals" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12" RequestedTheme="Dark" Margin="20,0" BorderThickness="0">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal">
                                         <controls:ImageEx Source="/Assets/OtrasWebs/ggdeals.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
@@ -184,7 +184,7 @@
                                     </StackPanel>
                                 </Button.Content>
                             </Button>
-                            <Button x:Name="botonBuscadorIsthereanydeal" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
+                            <Button x:Name="botonBuscadorIsthereanydeal" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12" RequestedTheme="Dark" BorderThickness="0">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal">
                                         <controls:ImageEx Source="/Assets/OtrasWebs/isthereanydeal.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
@@ -215,9 +215,9 @@
                         </Grid.ColumnDefinitions>
 
                         <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
-                        <TextBlock x:Uid="TrialMessageSteamWishlist" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center"/>
+                        <TextBlock x:Uid="TrialMessageSteamWishlist" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                        <Button x:Name="botonTrialComprarSteamDeseados" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
+                        <Button x:Name="botonTrialComprarSteamDeseados" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12">
                             <Button.Content>
                                 <Grid>
                                     <TextBlock x:Uid="TrialBuyApp" Foreground="{StaticResource ColorFuente}"/>
@@ -280,9 +280,9 @@
                         </Grid.ColumnDefinitions>
 
                         <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
-                        <TextBlock x:Uid="TrialMessageOptions" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center"/>
+                        <TextBlock x:Uid="TrialMessageOptions" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
-                        <Button x:Name="botonTrialComprarOpciones" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="12,8,12,10">
+                        <Button x:Name="botonTrialComprarOpciones" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12">
                             <Button.Content>
                                 <Grid>
                                     <TextBlock x:Uid="TrialBuyApp" Foreground="{StaticResource ColorFuente}"/>
@@ -361,7 +361,7 @@
                                 </StackPanel.Background>
 
                                 <TextBlock x:Uid="OptionsUpdateInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
-                                <Button x:Name="botonOpcionesActualizar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14">
+                                <Button x:Name="botonOpcionesActualizar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14" RequestedTheme="Dark" BorderThickness="0">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <iconos:FontAwesome Icon="Solid_Sync" Foreground="{StaticResource ColorFuente}" FontSize="15"/>
@@ -385,7 +385,7 @@
                                 </ComboBox> 
 
                                 <TextBlock x:Uid="OptionsAppCleanInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
-                                <Button x:Name="botonOpcionesLimpiar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14">
+                                <Button x:Name="botonOpcionesLimpiar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14" RequestedTheme="Dark" BorderThickness="0">
                                     <Button.Content>
                                         <StackPanel Orientation="Horizontal">
                                             <iconos:FontAwesome Icon="Solid_Trash" Foreground="{StaticResource ColorFuente}" FontSize="15"/>
@@ -404,7 +404,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0" Margin="20">
+                    <Grid Grid.Row="0" Padding="20">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>

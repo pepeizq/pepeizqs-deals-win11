@@ -22,7 +22,7 @@ namespace Interfaz
         {
             ScrollViewer sv = sender as ScrollViewer;
 
-            if (sv.VerticalOffset > 50)
+            if (sv.VerticalOffset > 100)
             {
                 ObjetosVentana.nvItemSubirArriba.Visibility = Visibility.Visible;
             }
@@ -59,6 +59,10 @@ namespace Interfaz
             else if (ObjetosVentana.gridOfertasExpandida.Visibility == Visibility.Visible)
             {
                 ObjetosVentana.svOfertasExpandida.ChangeView(null, 0, null);
+            }
+            else if (ObjetosVentana.gridRedesSociales.Visibility == Visibility.Visible)
+            {
+                ObjetosVentana.svRedesSociales.ChangeView(null, 0, null);
             }
         }
 

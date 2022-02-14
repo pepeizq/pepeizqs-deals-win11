@@ -10,7 +10,6 @@ using Otros;
 
 namespace Principal
 {
-
     public sealed partial class MainWindow : Window
     {
         public MainWindow()
@@ -30,8 +29,10 @@ namespace Principal
             Ofertas.Cargar();
             Buscador.Cargar();
             Opciones.CargarDatos();
+            RedesSociales.Cargar();
             MasCosas.CargarMenu();
-            MasCosas.MostrarMensaje();  
+            MasCosas.MostrarMensaje();
+
         }
 
         public void CargarObjetosVentana()
@@ -172,7 +173,7 @@ namespace Principal
             public static StackPanel spMensajes { get; set; }
             public static Grid gridAnuncio { get; set; }
             public static StackPanel spAnuncio { get; set; }           
-    }
+        }
 
         private void nvPrincipal_Loaded(object sender, RoutedEventArgs e)
         {
