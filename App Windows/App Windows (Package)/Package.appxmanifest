@@ -5,12 +5,13 @@
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
   IgnorableNamespaces="mp uap rescap">
 
   <Identity
     Name="5078pepeizq.SteamDeals"
     Publisher="CN=C91088FC-231C-4E13-86D1-5F9658173DA7"
-    Version="4.0.2.0" />
+    Version="4.0.3.0" />
 
    <mp:PhoneIdentity PhoneProductId="882cd09f-c37d-481c-a1cd-233e69498d30" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 	
@@ -31,23 +32,29 @@
   </Resources>
 
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="$targetentrypoint$">
-      <uap:VisualElements
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
+        <uap:VisualElements
         DisplayName="pepeizq&apos;s deals"
         Description="https://pepeizqapps.com/"
         BackgroundColor="#002033"
         Square150x150Logo="Images\Logos\Square150x150Logo.png"
         Square44x44Logo="Images\Logos\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Logos\Wide310x150Logo.png" ShortName="pepeizq&amp;apos;s deals" Square71x71Logo="Images\Logos\SmallTile.png" Square310x310Logo="Images\Logos\LargeTile.png">
-          <uap:ShowNameOnTiles>
-            <uap:ShowOn Tile="wide310x150Logo"/>
-            <uap:ShowOn Tile="square310x310Logo"/>
-          </uap:ShowNameOnTiles>
-        </uap:DefaultTile >
+            <uap:DefaultTile Wide310x150Logo="Images\Logos\Wide310x150Logo.png" ShortName="pepeizq&amp;apos;s deals" Square71x71Logo="Images\Logos\SmallTile.png" Square310x310Logo="Images\Logos\LargeTile.png">
+                <uap:ShowNameOnTiles>
+                <uap:ShowOn Tile="wide310x150Logo"/>
+                <uap:ShowOn Tile="square310x310Logo"/>
+                </uap:ShowNameOnTiles>
+            </uap:DefaultTile >
         <uap:SplashScreen Image="Images\Logos\SplashScreen.png" BackgroundColor="#002033"/>
-      </uap:VisualElements>
+        </uap:VisualElements>
+
+		<Extensions>
+			<uap5:Extension Category="windows.startupTask" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
+				<uap5:StartupTask
+				  TaskId="arranque"
+				  DisplayName="pepeizq&amp;apos;s deals" />
+			</uap5:Extension>
+		</Extensions>	
     </Application>
   </Applications>
 

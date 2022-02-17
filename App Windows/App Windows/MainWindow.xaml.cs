@@ -6,8 +6,6 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.Windows.ApplicationModel.Resources;
 using Otros;
 
-//https://blogs.windows.com/windowsdeveloper/2022/01/28/build-your-first-winui-3-app-part-1/
-
 namespace Principal
 {
     public sealed partial class MainWindow : Window

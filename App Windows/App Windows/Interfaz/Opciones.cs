@@ -6,6 +6,7 @@ using Microsoft.Windows.ApplicationModel.Resources;
 using Otros;
 using System;
 using System.Collections.Generic;
+using Windows.ApplicationModel;
 using Windows.Globalization;
 using Windows.Storage;
 using Windows.System.UserProfile;
