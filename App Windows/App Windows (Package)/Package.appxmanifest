@@ -11,12 +11,12 @@
   <Identity
     Name="5078pepeizq.SteamDeals"
     Publisher="CN=C91088FC-231C-4E13-86D1-5F9658173DA7"
-    Version="4.0.3.0" />
+    Version="4.0.4.0" />
 
    <mp:PhoneIdentity PhoneProductId="882cd09f-c37d-481c-a1cd-233e69498d30" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 	
   <Properties>
-    <DisplayName>pepeizq&apos;s deals • Digital Game Deals for PC • Steam, GOG, Epic Games, Origin, ...</DisplayName>
+    <DisplayName>pepeizq&apos;s deals</DisplayName>
     <PublisherDisplayName>pepeizq&apos;s apps</PublisherDisplayName>
     <Logo>Images\Logos\StoreLogo.png</Logo>
   </Properties>
@@ -48,13 +48,6 @@
         <uap:SplashScreen Image="Images\Logos\SplashScreen.png" BackgroundColor="#002033"/>
         </uap:VisualElements>
 
-		<Extensions>
-			<uap5:Extension Category="windows.startupTask" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
-				<uap5:StartupTask
-				  TaskId="arranque"
-				  DisplayName="pepeizq&amp;apos;s deals" />
-			</uap5:Extension>
-		</Extensions>	
     </Application>
   </Applications>
 
