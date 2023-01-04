@@ -300,6 +300,11 @@
   <data name="SteamWishlistInfo.Text" xml:space="preserve">
     <value>Put the link to your Steam profile to be able to read your wish list, example: https://steamcommunity.com/id/pepeizq/</value>
   </data>
+  <data name="StoreDescription" xml:space="preserve">
+    <value>Official application of the pepeizqdeals.com web for Windows 11, find out about the latest PC game deals, as well as bundles, free promotions and subscriptions.
+
+This app offers advanced features like push notifications and check out games with deals from your Steam wishlist.</value>
+  </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Subscriptions</value>
   </data>

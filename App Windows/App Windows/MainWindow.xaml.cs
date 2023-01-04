@@ -12,7 +12,7 @@ namespace Principal
     {
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             //----------------------------------
 
@@ -29,7 +29,6 @@ namespace Principal
             Opciones.CargarDatos();
             MasCosas.CargarMenu();
             MasCosas.MostrarMensaje();
-
         }
 
         public void CargarObjetosVentana()

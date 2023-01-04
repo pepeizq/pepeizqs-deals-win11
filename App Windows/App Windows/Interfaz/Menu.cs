@@ -21,18 +21,6 @@ namespace Interfaz
 
             ResourceLoader recursos = new ResourceLoader();
 
-            MenuFlyoutItem item1 = new MenuFlyoutItem
-            {
-                Text = recursos.GetString("MenuPCGamePass"),
-                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
-                RequestedTheme = ElementTheme.Dark,
-                Margin = new Thickness(-30, 0, 0, 0)
-            };
-
-            item1.Click += BotonAbrirPCGamePass;
-
-            ObjetosVentana.menuItemMenu.Items.Add(item1);
-
             MenuFlyoutItem item2 = new MenuFlyoutItem
             {
                 Text = recursos.GetString("MenuGiveaways"),
@@ -92,19 +80,6 @@ namespace Interfaz
             item6.Click += BotonAbrirWeb;
 
             ObjetosVentana.menuItemMenu.Items.Add(item6);
-        }
-
-        public static void BotonAbrirPCGamePass(object sender, RoutedEventArgs e)
-        {
-            ResourceLoader recursos = new ResourceLoader();
-
-            BarraTitulo.CambiarTitulo(recursos.GetString("MenuPCGamePass"));
-            Pestañas.Visibilidad(ObjetosVentana.gridWeb, true);
-
-            if (ObjetosVentana.wvWeb.Source != new Uri("https://pepeizqdeals.com/pc-game-pass/"))
-            {
-                ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/pc-game-pass/");
-            }
         }
 
         public static void BotonAbrirSorteos(object sender, RoutedEventArgs e)

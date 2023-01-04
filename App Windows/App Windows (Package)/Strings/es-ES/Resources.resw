@@ -300,6 +300,11 @@
   <data name="SteamWishlistInfo.Text" xml:space="preserve">
     <value>Pon el enlace a tu perfil de Steam para poder leer tu lista de deseados, ejemplo: https://steamcommunity.com/id/pepeizq/</value>
   </data>
+  <data name="StoreDescription" xml:space="preserve">
+    <value>Aplicación oficial de la web pepeizqdeals.com para Windows 11, entérate de las últimas ofertas de juegos para PC, además de bundles, promociones gratuitas y suscripciones.
+
+Esta aplicación ofrece funciones avanzadas como notificaciones push y consultar juegos con ofertas de tu lista de deseados de Steam.</value>
+  </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Suscripciones</value>
   </data>

@@ -65,7 +65,7 @@ namespace Interfaz
             //    }
             //}
 
-            await Launcher.LaunchUriAsync(new Uri("ms-windows-store://pdp/?ProductId=9P7836M1TW15"));
+            await Launcher.LaunchUriAsync(new Uri("ms-windows-store://pdp/?ProductId=9PFVL780F0MS"));
         }
     }
 }

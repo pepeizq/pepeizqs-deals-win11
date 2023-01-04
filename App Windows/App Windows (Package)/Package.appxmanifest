@@ -9,15 +9,15 @@
   IgnorableNamespaces="mp uap rescap">
 
   <Identity
-    Name="5078pepeizq.SteamDeals"
-    Publisher="CN=C91088FC-231C-4E13-86D1-5F9658173DA7"
-    Version="4.0.4.0" />
+    Name="12041pepeizq.pepeizqsdealsforWindows11"
+    Publisher="CN=E6A59F16-60E0-4B88-A8A1-993C16A63CD0"
+    Version="4.0.5.0" />
 
    <mp:PhoneIdentity PhoneProductId="882cd09f-c37d-481c-a1cd-233e69498d30" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 	
   <Properties>
-    <DisplayName>pepeizq&apos;s deals</DisplayName>
-    <PublisherDisplayName>pepeizq&apos;s apps</PublisherDisplayName>
+    <DisplayName>pepeizq&apos;s deals for Windows 11</DisplayName>
+    <PublisherDisplayName>pepeizq</PublisherDisplayName>
     <Logo>Images\Logos\StoreLogo.png</Logo>
   </Properties>
 
@@ -34,7 +34,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
         <uap:VisualElements
-        DisplayName="pepeizq&apos;s deals"
+        DisplayName="pepeizq&apos;s deals for Windows 11"
         Description="https://pepeizqapps.com/"
         BackgroundColor="#002033"
         Square150x150Logo="Images\Logos\Square150x150Logo.png"
