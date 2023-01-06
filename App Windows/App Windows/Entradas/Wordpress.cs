@@ -1,4 +1,5 @@
 ﻿using Entradas;
+using Herramientas;
 using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -52,6 +53,8 @@ public static class Wordpress
         {
             foreach (Entrada entrada in entradas)
             {
+                await Task.Delay(100);
+
                 if (entrada.categories[0] == 3)
                 {
                     ObjetosVentana.spEntradas.Children.Add(Ofertas.GenerarEntrada(entrada));

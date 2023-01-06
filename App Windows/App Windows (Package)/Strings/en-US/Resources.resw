@@ -156,6 +156,9 @@
   <data name="MenuContact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="MenuExit" xml:space="preserve">
+    <value>Close Application</value>
+  </data>
   <data name="MenuFAQ" xml:space="preserve">
     <value>FAQ</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="MenuGiveaways" xml:space="preserve">
     <value>Giveaways</value>
+  </data>
+  <data name="MenuPatchNotes" xml:space="preserve">
+    <value>Last Patch Notes</value>
   </data>
   <data name="MenuPCGamePass" xml:space="preserve">
     <value>PC Game Pass</value>

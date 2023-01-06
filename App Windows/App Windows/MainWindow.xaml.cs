@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.Windows.ApplicationModel.Resources;
 using Otros;
+using System.Threading.Tasks;
 
 namespace Principal
 {
@@ -17,6 +18,7 @@ namespace Principal
             //----------------------------------
 
             CargarObjetosVentana();
+            Task.Delay(500);
             Wordpress.Cargar();
             Trial.Detectar();
             BarraTitulo.Generar(this);

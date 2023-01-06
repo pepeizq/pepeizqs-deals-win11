@@ -36,8 +36,8 @@
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.props" />
   <PropertyGroup>
     <ProjectGuid>c521f6e3-7485-42f4-b77c-808e4fb2a4b4</ProjectGuid>
-    <TargetPlatformVersion>10.0.22621.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.22621.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.22000.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.22000.0</TargetPlatformMinVersion>
     <AssetTargetFallback>net6.0-windows$(TargetPlatformVersion);$(AssetTargetFallback)</AssetTargetFallback>
     <DefaultLanguage>es-ES</DefaultLanguage>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
@@ -143,11 +143,11 @@
     <PackageReference Include="CommunityToolkit.WinUI.Notifications" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
     <PackageReference Include="FireSharp" Version="2.0.4" />
-    <PackageReference Include="FontAwesome5" Version="2.1.11" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221209.1">
+    <PackageReference Include="FontAwesome5" Version="2.1.6" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.1.5">
       <IncludeAssets>build</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755">
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22000.197">
       <IncludeAssets>build</IncludeAssets>
     </PackageReference>
     <PackageReference Include="WordPressPCL" Version="1.9.0" />

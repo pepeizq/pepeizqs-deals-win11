@@ -71,72 +71,115 @@ namespace Interfaz
 
             MenuFlyoutItem item6 = new MenuFlyoutItem
             {
+                Text = recursos.GetString("MenuPatchNotes"),
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                RequestedTheme = ElementTheme.Dark,
+                Margin = new Thickness(-30, 0, 0, 0)
+            };
+
+            item6.Click += BotonAbrirNotasParche;
+
+            ObjetosVentana.menuItemMenu.Items.Add(item6);
+
+            MenuFlyoutItem item7 = new MenuFlyoutItem
+            {
                 Text = recursos.GetString("MenuWeb"),
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
                 RequestedTheme = ElementTheme.Dark,
                 Margin = new Thickness(-30, 0, 0, 0)
             };
 
-            item6.Click += BotonAbrirWeb;
+            item7.Click += BotonAbrirWeb;
 
-            ObjetosVentana.menuItemMenu.Items.Add(item6);
+            ObjetosVentana.menuItemMenu.Items.Add(item7);
+
+            MenuFlyoutItem item8 = new MenuFlyoutItem
+            {
+                Text = recursos.GetString("MenuExit"),
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                RequestedTheme = ElementTheme.Dark,
+                Margin = new Thickness(-30, 0, 0, 0)
+            };
+
+            item8.Click += BotonCerrarApp;
+
+            ObjetosVentana.menuItemMenu.Items.Add(item8);
         }
 
         public static void BotonAbrirSorteos(object sender, RoutedEventArgs e)
         {
             ResourceLoader recursos = new ResourceLoader();
-
             BarraTitulo.CambiarTitulo(recursos.GetString("MenuGiveaways"));
-            Pestañas.Visibilidad(ObjetosVentana.gridWeb, true);
 
-            if (ObjetosVentana.wvWeb.Source != new Uri("https://pepeizqdeals.com/giveaways/"))
-            {
-                ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/giveaways/");
-            }
+            AbrirEnlace("https://pepeizqdeals.com/giveaways/");
         }
 
         public static void BotonAbrirSocial(object sender, RoutedEventArgs e)
         {
             ResourceLoader recursos = new ResourceLoader();
-
             BarraTitulo.CambiarTitulo(recursos.GetString("MenuSocial"));
-            Pestañas.Visibilidad(ObjetosVentana.gridWeb, true);
 
-            if (ObjetosVentana.wvWeb.Source != new Uri("https://pepeizqdeals.com/follow-the-deals/"))
-            {
-                ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/follow-the-deals/");
-            }
+            AbrirEnlace("https://pepeizqdeals.com/follow-the-deals/");
         }
 
         public static void BotonAbrirFAQ(object sender, RoutedEventArgs e)
         {
             ResourceLoader recursos = new ResourceLoader();
-
             BarraTitulo.CambiarTitulo(recursos.GetString("MenuFAQ"));
-            Pestañas.Visibilidad(ObjetosVentana.gridWeb, true);
 
-            if (ObjetosVentana.wvWeb.Source != new Uri("https://pepeizqdeals.com/faq/"))
-            {
-                ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/faq/");
-            }
+            AbrirEnlace("https://pepeizqdeals.com/faq/");
         }
 
-        public static void BotonAbrirContactar(object sender, RoutedEventArgs e)
+        public async static void BotonAbrirContactar(object sender, RoutedEventArgs e)
         {
             ResourceLoader recursos = new ResourceLoader();
-
             BarraTitulo.CambiarTitulo(recursos.GetString("MenuContact"));
-            Pestañas.Visibilidad(ObjetosVentana.gridWeb, true);
 
-            if (ObjetosVentana.wvWeb.Source != new Uri("https://pepeizqdeals.com/contact/"))
-            {
-                ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/contact/");
-            }
+            AbrirEnlace("https://pepeizqdeals.com/contact/");
+        }
+
+        public static void BotonAbrirNotasParche(object sender, RoutedEventArgs e)
+        {
+            ResourceLoader recursos = new ResourceLoader();
+            BarraTitulo.CambiarTitulo(recursos.GetString("MenuPatchNotes"));
+
+            AbrirEnlace("https://pepeizqapps.com/patch-notes/");
         }
 
         public static async void BotonAbrirWeb(object sender, RoutedEventArgs e)
         {
             await Launcher.LaunchUriAsync(new Uri("https://pepeizqdeals.com/en/"));
+        }
+
+        public static void BotonCerrarApp(object sender, RoutedEventArgs e)
+        {
+            Application app = Application.Current;
+            app.Exit();
+        }
+
+        public static async void AbrirEnlace(string enlace)
+        {
+            Pestañas.Visibilidad(ObjetosVentana.gridWeb, true);
+
+            bool abierto = false;
+
+            try
+            {
+                if (ObjetosVentana.wvWeb.Source != new Uri(enlace))
+                {
+                    ObjetosVentana.wvWeb.Source = new Uri(enlace);
+                    abierto = true;
+                }
+            }
+            catch { }
+
+            if (abierto == true)
+            {
+                await Launcher.LaunchUriAsync(new Uri(enlace));
+
+                BarraTitulo.CambiarTitulo(null);
+                Pestañas.Visibilidad(ObjetosVentana.gridEntradas, true);
+            }
         }
 
         public static async void WvMenuNavegacionEmpieza(WebView2 sender, CoreWebView2NavigationStartingEventArgs e)
