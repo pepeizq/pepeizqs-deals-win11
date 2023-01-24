@@ -19,16 +19,16 @@ namespace Interfaz
             ObjetosVentana.nvPrincipal.MenuItems.Insert(0, ObjetosVentana.nvItemMenu);
 
             ObjetosVentana.nvItemMenu.PointerEntered += EntraRatonNvItemMenu;
-            ObjetosVentana.nvItemMenu.PointerEntered += Animaciones.EntraRatonNvItem;
-            ObjetosVentana.nvItemMenu.PointerExited += Animaciones.SaleRatonNvItem;
+            ObjetosVentana.nvItemMenu.PointerEntered += Animaciones.EntraRatonNvItem2;
+            ObjetosVentana.nvItemMenu.PointerExited += Animaciones.SaleRatonNvItem2;
 
             ObjetosVentana.nvItemVolver.PointerPressed += Ofertas.BotonCerrarExpandida;
-            ObjetosVentana.nvItemVolver.PointerEntered += Animaciones.EntraRatonNvItem;
-            ObjetosVentana.nvItemVolver.PointerExited += Animaciones.SaleRatonNvItem;
+            ObjetosVentana.nvItemVolver.PointerEntered += Animaciones.EntraRatonNvItem2;
+            ObjetosVentana.nvItemVolver.PointerExited += Animaciones.SaleRatonNvItem2;
 
             ObjetosVentana.nvItemSubirArriba.PointerPressed += ScrollViewers.SubirArriba;
-            ObjetosVentana.nvItemSubirArriba.PointerEntered += Animaciones.EntraRatonNvItem;
-            ObjetosVentana.nvItemSubirArriba.PointerExited += Animaciones.SaleRatonNvItem;
+            ObjetosVentana.nvItemSubirArriba.PointerEntered += Animaciones.EntraRatonNvItem2;
+            ObjetosVentana.nvItemSubirArriba.PointerExited += Animaciones.SaleRatonNvItem2;
 
             TextBlock tbSteamDeseadosTt = new TextBlock
             {
@@ -38,8 +38,8 @@ namespace Interfaz
             ToolTipService.SetToolTip(ObjetosVentana.nvItemSteamDeseados, tbSteamDeseadosTt);
             ToolTipService.SetPlacement(ObjetosVentana.nvItemSteamDeseados, PlacementMode.Bottom);
 
-            ObjetosVentana.nvItemSteamDeseados.PointerEntered += Animaciones.EntraRatonNvItem;
-            ObjetosVentana.nvItemSteamDeseados.PointerExited += Animaciones.SaleRatonNvItem;
+            ObjetosVentana.nvItemSteamDeseados.PointerEntered += Animaciones.EntraRatonNvItem2;
+            ObjetosVentana.nvItemSteamDeseados.PointerExited += Animaciones.SaleRatonNvItem2;
 
             TextBlock tbOpcionesTt = new TextBlock
             {
@@ -49,8 +49,8 @@ namespace Interfaz
             ToolTipService.SetToolTip(ObjetosVentana.nvItemOpciones, tbOpcionesTt);
             ToolTipService.SetPlacement(ObjetosVentana.nvItemOpciones, PlacementMode.Bottom);
 
-            ObjetosVentana.nvItemOpciones.PointerEntered += Animaciones.EntraRatonNvItem;
-            ObjetosVentana.nvItemOpciones.PointerExited += Animaciones.SaleRatonNvItem;
+            ObjetosVentana.nvItemOpciones.PointerEntered += Animaciones.EntraRatonNvItem2;
+            ObjetosVentana.nvItemOpciones.PointerExited += Animaciones.SaleRatonNvItem2;
         }
 
         public static void Visibilidad(Grid grid, bool nv)
@@ -77,35 +77,38 @@ namespace Interfaz
 
         public static void CreadorItems(string nombre, string tooltip)
         {
+            StackPanel2 sp = new StackPanel2
+            {
+                CornerRadius = new CornerRadius(3),
+                Padding = new Thickness(5),
+                Orientation = Orientation.Horizontal,
+                Height = 30
+            };
+
+            sp.PointerEntered += Animaciones.EntraRatonStackPanel2;
+            sp.PointerExited += Animaciones.SaleRatonStackPanel2;
+
             TextBlock tb = new TextBlock
             {
                 Text = nombre,
-                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                VerticalAlignment = VerticalAlignment.Center
             };
 
-            Grid grid = new Grid
-            {
-                CornerRadius = new CornerRadius(3),
-                Padding = new Thickness(5)
-            };
+            sp.Children.Add(tb);
 
-            grid.Children.Add(tb);
-
-            grid.PointerEntered += Animaciones.EntraRatonGrid;
-            grid.PointerExited += Animaciones.SaleRatonGrid;
-
-            if (tooltip != null)
+            if (nombre != null)
             {
                 TextBlock tbTt = new TextBlock
                 {
                     Text = nombre
                 };
 
-                ToolTipService.SetToolTip(grid, tbTt);
-                ToolTipService.SetPlacement(grid, PlacementMode.Bottom);
+                ToolTipService.SetToolTip(sp, tbTt);
+                ToolTipService.SetPlacement(sp, PlacementMode.Bottom);
             }
-            
-            ObjetosVentana.nvPrincipal.MenuItems.Insert(1, grid);
+
+            ObjetosVentana.nvPrincipal.MenuItems.Insert(1, sp);
         }
 
         public static void EntraRatonNvItemMenu(object sender, RoutedEventArgs e)

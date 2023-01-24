@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.WinUI.UI.Controls;
+using Interfaz;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -59,15 +60,22 @@ namespace Entradas
                 VerticalAlignment = VerticalAlignment.Center
             };
 
+            string imagen = entrada.store_logo;
+
+            if (imagen.Contains("https://i.imgur.com/") == true)
+            {
+                imagen = imagen.Replace("https://pepeizqdeals.com/wp-content/uploads/", null);
+            }
+     
             ImageEx imagenTienda = new ImageEx
             {
                 MaxWidth = 180,
                 MaxHeight = 50,
-                Source = new BitmapImage(new Uri(entrada.store_logo)),
+                Source = new BitmapImage(new Uri(imagen)),
                 EnableLazyLoading = true,
                 IsCacheEnabled = true
             };
-
+            
             spIzquierda.Children.Add(imagenTienda);
 
             StackPanel spMensaje = new StackPanel
@@ -112,10 +120,11 @@ namespace Entradas
                 EnableLazyLoading = true,
                 Source = json.imagen,
                 MaxHeight = 200,
-                MaxWidth = 400
+                MaxWidth = 400,
+                CornerRadius = new CornerRadius(5)
             };
 
-            Button boton = new Button
+            Button2 boton = new Button2
             {
                 Content = imagenJuego,
                 Padding = new Thickness(10, 10, 10, 10),
@@ -125,10 +134,13 @@ namespace Entradas
                 Tag = entrada.redirect,
                 Background = new SolidColorBrush(Colors.Transparent),
                 RequestedTheme = ElementTheme.Dark,
-                BorderThickness = new Thickness(0)
+                BorderThickness = new Thickness(0),
+                CornerRadius = new CornerRadius(5)
             };
 
             boton.Click += BotonAbrirGratis;
+            boton.PointerEntered += Animaciones.EntraRatonBoton2;
+            boton.PointerExited += Animaciones.SaleRatonBoton2;
 
             gv.Items.Add(boton);
 

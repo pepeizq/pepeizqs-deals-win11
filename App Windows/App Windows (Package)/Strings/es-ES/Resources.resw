@@ -157,7 +157,7 @@
     <value>Contactar</value>
   </data>
   <data name="MenuExit" xml:space="preserve">
-    <value>Cerrar Aplicación</value>
+    <value>Salir</value>
   </data>
   <data name="MenuFAQ" xml:space="preserve">
     <value>Preguntas y Respuestas</value>
@@ -232,7 +232,7 @@
     <value>Limpiar Datos</value>
   </data>
   <data name="OptionsAppCleanInfo.Text" xml:space="preserve">
-    <value>Pulsa el botón para limpiar todos los datos generados por la aplicación, se recomienda reiniciar la aplicación.</value>
+    <value>Pulsa el botón para limpiar todos los datos generados por la aplicación, se reiniciará la aplicación.</value>
   </data>
   <data name="OptionsAppWindow1.Text" xml:space="preserve">
     <value>Defecto</value>

@@ -29,8 +29,6 @@ namespace Principal
             Ofertas.Cargar();
             Buscador.Cargar();
             Opciones.CargarDatos();
-            MasCosas.CargarMenu();
-            MasCosas.MostrarMensaje();
         }
 
         public void CargarObjetosVentana()
@@ -81,8 +79,6 @@ namespace Principal
             ObjetosVentana.botonTrialComprarOpciones = botonTrialComprarOpciones;
             ObjetosVentana.cbOpcionesIdioma = cbOpcionesIdioma;
             ObjetosVentana.toggleOpcionesNotificaciones = toggleOpcionesNotificaciones;
-            ObjetosVentana.toggleOpcionesAnuncios = toggleOpcionesAnuncios;
-            ObjetosVentana.toggleOpcionesMensajes = toggleOpcionesMensajes;
             ObjetosVentana.botonOpcionesActualizar = botonOpcionesActualizar;
             ObjetosVentana.cbOpcionesPantalla = cbOpcionesPantalla;
             ObjetosVentana.botonOpcionesLimpiar = botonOpcionesLimpiar;
@@ -148,9 +144,7 @@ namespace Principal
             public static Button botonTrialComprarOpciones { get; set; }
             public static ComboBox cbOpcionesIdioma { get; set; }
             public static ToggleSwitch toggleOpcionesNotificaciones { get; set; }
-            public static ToggleSwitch toggleOpcionesAnuncios { get; set; }
             public static ComboBox cbOpcionesPantalla { get; set; }
-            public static ToggleSwitch toggleOpcionesMensajes { get; set; }
             public static Button botonOpcionesActualizar { get; set; }
             public static Button botonOpcionesLimpiar { get; set; }
             public static Grid gridOfertasExpandida { get; set; }
@@ -185,9 +179,9 @@ namespace Principal
 
             if (args.InvokedItemContainer != null)
             {
-                if (args.InvokedItemContainer.GetType() == typeof(NavigationViewItem))
+                if (args.InvokedItemContainer.GetType() == typeof(NavigationViewItem2))
                 {
-                    NavigationViewItem item = args.InvokedItemContainer as NavigationViewItem;
+                    NavigationViewItem2 item = args.InvokedItemContainer as NavigationViewItem2;
 
                     if (item.Name == "nvItemMenu")
                     {
@@ -212,15 +206,15 @@ namespace Principal
                 
             if (args.InvokedItem != null)
             {                           
-                if (args.InvokedItem.GetType() == typeof(Grid))
+                if (args.InvokedItem.GetType() == typeof(StackPanel2))
                 {
-                    Grid grid = (Grid)args.InvokedItem;
+                    StackPanel2 sp = (StackPanel2)args.InvokedItem;
 
-                    if (grid.Children[0] != null)
+                    if (sp.Children[0] != null)
                     {
-                        if (grid.Children[0].GetType() == typeof(TextBlock))
+                        if (sp.Children[0].GetType() == typeof(TextBlock))
                         {
-                            TextBlock tb = grid.Children[0] as TextBlock;
+                            TextBlock tb = sp.Children[0] as TextBlock;
 
                             if (tb.Text == recursos.GetString("All"))
                             {

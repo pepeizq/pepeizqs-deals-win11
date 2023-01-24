@@ -1,9 +1,10 @@
-﻿using Microsoft.UI.Xaml;
+﻿using FontAwesome5;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
-using Microsoft.Web.WebView2.Core;
 using Microsoft.Windows.ApplicationModel.Resources;
 using System;
+using Windows.ApplicationModel;
 using Windows.System;
 using Windows.UI;
 using static Principal.MainWindow;
@@ -14,50 +15,64 @@ namespace Interfaz
     {
         public static void Cargar()
         {
-            //ObjetosVentana.wvWeb.Source = new Uri("https://pepeizqdeals.com/en/");
-
-            ObjetosVentana.wvWeb.NavigationStarting += WvMenuNavegacionEmpieza;
-            ObjetosVentana.wvWeb.NavigationCompleted += WvMenuNavegacionCompleta;
-
             ResourceLoader recursos = new ResourceLoader();
 
-            MenuFlyoutItem item2 = new MenuFlyoutItem
+            //--------------------------------------------------------------------
+
+            FontAwesome icono1 = new FontAwesome
             {
-                Text = recursos.GetString("MenuGiveaways"),
-                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
-                RequestedTheme = ElementTheme.Dark,
-                Margin = new Thickness(-30, 0, 0, 0)
+                Icon = EFontAwesomeIcon.Solid_ThumbsUp,
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])
             };
 
-            item2.Click += BotonAbrirSorteos;
+            MenuFlyoutItem2 item1 = new MenuFlyoutItem2
+            {
+                Icon = icono1,
+                Text = recursos.GetString("MenuRate"),
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                RequestedTheme = ElementTheme.Dark
+            };
+
+            item1.Click += BotonAbrirVotar;
+            item1.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            item1.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
+
+            ObjetosVentana.menuItemMenu.Items.Add(item1);
+
+            FontAwesome icono2 = new FontAwesome
+            {
+                Icon = EFontAwesomeIcon.Brands_Github,
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])
+            };
+
+            MenuFlyoutItem2 item2 = new MenuFlyoutItem2
+            {
+                Icon = icono2,
+                Text = recursos.GetString("MenuGithub"),
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                RequestedTheme = ElementTheme.Dark
+            };
+
+            item2.Click += BotonAbrirCodigoFuente;
+            item2.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            item2.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
 
             ObjetosVentana.menuItemMenu.Items.Add(item2);
 
-            MenuFlyoutItem item3 = new MenuFlyoutItem
+            //--------------------------------------------------------------------
+
+            MenuFlyoutSeparator separador1 = new MenuFlyoutSeparator
             {
-                Text = recursos.GetString("MenuSocial"),
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
                 RequestedTheme = ElementTheme.Dark,
-                Margin = new Thickness(-30, 0, 0, 0)
+                Height = 30
             };
 
-            item3.Click += BotonAbrirSocial;
+            ObjetosVentana.menuItemMenu.Items.Add(separador1);
 
-            ObjetosVentana.menuItemMenu.Items.Add(item3);
+            //--------------------------------------------------------------------
 
-            MenuFlyoutItem item4 = new MenuFlyoutItem
-            {
-                Text = recursos.GetString("MenuFAQ"),
-                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
-                RequestedTheme = ElementTheme.Dark,
-                Margin = new Thickness(-30, 0, 0, 0)
-            };
-
-            item4.Click += BotonAbrirFAQ;
-
-            ObjetosVentana.menuItemMenu.Items.Add(item4);
-
-            MenuFlyoutItem item5 = new MenuFlyoutItem
+            MenuFlyoutItem2 item3 = new MenuFlyoutItem2
             {
                 Text = recursos.GetString("MenuContact"),
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
@@ -65,35 +80,82 @@ namespace Interfaz
                 Margin = new Thickness(-30, 0, 0, 0)
             };
 
-            item5.Click += BotonAbrirContactar;
+            item3.Click += BotonAbrirContactar;
+            item3.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            item3.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
 
-            ObjetosVentana.menuItemMenu.Items.Add(item5);
+            ObjetosVentana.menuItemMenu.Items.Add(item3);
 
-            MenuFlyoutItem item6 = new MenuFlyoutItem
+            MenuFlyoutItem2 item4 = new MenuFlyoutItem2
             {
                 Text = recursos.GetString("MenuPatchNotes"),
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
                 RequestedTheme = ElementTheme.Dark,
-                Margin = new Thickness(-30, 0, 0, 0)
+                Margin = new Thickness(-30, 0, 0, 0),
+                CornerRadius = new CornerRadius(5)
             };
 
-            item6.Click += BotonAbrirNotasParche;
+            item4.Click += BotonAbrirNotasParche;
+            item4.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            item4.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
 
-            ObjetosVentana.menuItemMenu.Items.Add(item6);
+            ObjetosVentana.menuItemMenu.Items.Add(item4);
 
-            MenuFlyoutItem item7 = new MenuFlyoutItem
+            //--------------------------------------------------------------------
+
+            MenuFlyoutSeparator separador2 = new MenuFlyoutSeparator
             {
-                Text = recursos.GetString("MenuWeb"),
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                RequestedTheme = ElementTheme.Dark,
+                Height = 30
+            };
+
+            ObjetosVentana.menuItemMenu.Items.Add(separador2);
+
+            //--------------------------------------------------------------------
+
+            MenuFlyoutItem2 item5 = new MenuFlyoutItem2
+            {
+                Text = "pepeizqapps.com",
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
                 RequestedTheme = ElementTheme.Dark,
                 Margin = new Thickness(-30, 0, 0, 0)
             };
 
-            item7.Click += BotonAbrirWeb;
+            item5.Click += BotonAbrirWeb1;
+            item5.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            item5.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
 
-            ObjetosVentana.menuItemMenu.Items.Add(item7);
+            ObjetosVentana.menuItemMenu.Items.Add(item5);
 
-            MenuFlyoutItem item8 = new MenuFlyoutItem
+            MenuFlyoutItem2 item6 = new MenuFlyoutItem2
+            {
+                Text = "pepeizqdeals.com",
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                RequestedTheme = ElementTheme.Dark,
+                Margin = new Thickness(-30, 0, 0, 0)
+            };
+
+            item6.Click += BotonAbrirWeb2;
+            item6.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            item6.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
+
+            ObjetosVentana.menuItemMenu.Items.Add(item6);
+
+            //--------------------------------------------------------------------
+
+            MenuFlyoutSeparator separador3 = new MenuFlyoutSeparator
+            {
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                RequestedTheme = ElementTheme.Dark,
+                Height = 30
+            };
+
+            ObjetosVentana.menuItemMenu.Items.Add(separador3);
+
+            //--------------------------------------------------------------------
+
+            MenuFlyoutItem2 item7 = new MenuFlyoutItem2
             {
                 Text = recursos.GetString("MenuExit"),
                 Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
@@ -101,103 +163,47 @@ namespace Interfaz
                 Margin = new Thickness(-30, 0, 0, 0)
             };
 
-            item8.Click += BotonCerrarApp;
+            item7.Click += BotonCerrarApp;
+            item7.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            item7.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
 
-            ObjetosVentana.menuItemMenu.Items.Add(item8);
+            ObjetosVentana.menuItemMenu.Items.Add(item7);
         }
 
-        public static void BotonAbrirSorteos(object sender, RoutedEventArgs e)
+        public async static void BotonAbrirVotar(object sender, RoutedEventArgs e)
         {
-            ResourceLoader recursos = new ResourceLoader();
-            BarraTitulo.CambiarTitulo(recursos.GetString("MenuGiveaways"));
-
-            AbrirEnlace("https://pepeizqdeals.com/giveaways/");
+            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:REVIEW?PFN=" + Package.Current.Id.FamilyName));
         }
 
-        public static void BotonAbrirSocial(object sender, RoutedEventArgs e)
+        public async static void BotonAbrirCodigoFuente(object sender, RoutedEventArgs e)
         {
-            ResourceLoader recursos = new ResourceLoader();
-            BarraTitulo.CambiarTitulo(recursos.GetString("MenuSocial"));
-
-            AbrirEnlace("https://pepeizqdeals.com/follow-the-deals/");
-        }
-
-        public static void BotonAbrirFAQ(object sender, RoutedEventArgs e)
-        {
-            ResourceLoader recursos = new ResourceLoader();
-            BarraTitulo.CambiarTitulo(recursos.GetString("MenuFAQ"));
-
-            AbrirEnlace("https://pepeizqdeals.com/faq/");
+            await Launcher.LaunchUriAsync(new Uri("https://github.com/pepeizq/Widgets-Games"));
         }
 
         public async static void BotonAbrirContactar(object sender, RoutedEventArgs e)
         {
-            ResourceLoader recursos = new ResourceLoader();
-            BarraTitulo.CambiarTitulo(recursos.GetString("MenuContact"));
-
-            AbrirEnlace("https://pepeizqdeals.com/contact/");
+            await Launcher.LaunchUriAsync(new Uri("https://pepeizqapps.com/contact/"));
         }
 
-        public static void BotonAbrirNotasParche(object sender, RoutedEventArgs e)
+        public async static void BotonAbrirNotasParche(object sender, RoutedEventArgs e)
         {
-            ResourceLoader recursos = new ResourceLoader();
-            BarraTitulo.CambiarTitulo(recursos.GetString("MenuPatchNotes"));
-
-            AbrirEnlace("https://pepeizqapps.com/patch-notes/");
+            await Launcher.LaunchUriAsync(new Uri("https://pepeizqapps.com/patch-notes/"));
         }
 
-        public static async void BotonAbrirWeb(object sender, RoutedEventArgs e)
+        public async static void BotonAbrirWeb1(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("https://pepeizqdeals.com/en/"));
+            await Launcher.LaunchUriAsync(new Uri("https://pepeizqapps.com/"));
+        }
+
+        public async static void BotonAbrirWeb2(object sender, RoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri("https://pepeizqdeals.com/"));
         }
 
         public static void BotonCerrarApp(object sender, RoutedEventArgs e)
         {
             Application app = Application.Current;
             app.Exit();
-        }
-
-        public static async void AbrirEnlace(string enlace)
-        {
-            Pestañas.Visibilidad(ObjetosVentana.gridWeb, true);
-
-            bool abierto = false;
-
-            try
-            {
-                if (ObjetosVentana.wvWeb.Source != new Uri(enlace))
-                {
-                    ObjetosVentana.wvWeb.Source = new Uri(enlace);
-                    abierto = true;
-                }
-            }
-            catch { }
-
-            if (abierto == true)
-            {
-                await Launcher.LaunchUriAsync(new Uri(enlace));
-
-                BarraTitulo.CambiarTitulo(null);
-                Pestañas.Visibilidad(ObjetosVentana.gridEntradas, true);
-            }
-        }
-
-        public static async void WvMenuNavegacionEmpieza(WebView2 sender, CoreWebView2NavigationStartingEventArgs e)
-        {
-            ObjetosVentana.gridWebCarga.Visibility = Visibility.Visible;
-
-            string javascript1 = "var div = document.getElementById('page-header'); " + Environment.NewLine +
-                                "div.remove();";
-            await sender.ExecuteScriptAsync(javascript1);
-
-            string javascript2 = "var div = document.getElementById('page-footer'); " + Environment.NewLine +
-                    "div.remove();";
-            await sender.ExecuteScriptAsync(javascript2);
-        }
-
-        public static void WvMenuNavegacionCompleta(WebView2 sender, CoreWebView2NavigationCompletedEventArgs e)
-        {
-            ObjetosVentana.gridWebCarga.Visibility = Visibility.Collapsed;
         }
     }
 }

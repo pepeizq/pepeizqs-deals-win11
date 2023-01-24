@@ -12,24 +12,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Remove="Assets\DRMs\drm_battlenet2.png" />
-		<Content Remove="Assets\DRMs\drm_bethesda2.png" />
-		<Content Remove="Assets\DRMs\drm_eaplay2.png" />
-		<Content Remove="Assets\DRMs\drm_epic2.png" />
-		<Content Remove="Assets\DRMs\drm_gog2.png" />
-		<Content Remove="Assets\DRMs\drm_microsoft2.png" />
-		<Content Remove="Assets\DRMs\drm_rockstar2.png" />
-		<Content Remove="Assets\DRMs\drm_steam2.png" />
-		<Content Remove="Assets\DRMs\drm_ubi2.png" />
-		<Content Remove="Assets\OtrasWebs\ggdeals.png" />
-		<Content Remove="Assets\OtrasWebs\isthereanydeal.png" />
-		<Content Remove="Assets\OtrasWebs\steamdb.png" />
-		<Content Remove="Assets\Reviews\review_mixed.png" />
-		<Content Remove="Assets\Reviews\review_negative.png" />
-		<Content Remove="Assets\Reviews\review_positive.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.WinUI.Notifications" Version="7.1.2" />
 		<PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
 		<PackageReference Include="FireSharp" Version="2.0.4" />

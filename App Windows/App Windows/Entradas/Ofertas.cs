@@ -55,6 +55,8 @@ namespace Entradas
         public static void Cargar()
         {
             ObjetosVentana.cbOrdenarOfertasExpandida.SelectionChanged += CambiarOrdenado;
+            ObjetosVentana.cbOrdenarOfertasExpandida.PointerEntered += Animaciones.EntraRatonComboCaja2;
+            ObjetosVentana.cbOrdenarOfertasExpandida.PointerExited += Animaciones.SaleRatonComboCaja2;
         }
 
         public static Grid GenerarEntrada(Entrada entrada)
@@ -233,7 +235,7 @@ namespace Entradas
 
                         spJuego.Children.Add(spDatos);
 
-                        Button boton = new Button
+                        Button2 boton = new Button2
                         {
                             Content = spJuego,
                             Padding = new Thickness(10, 10, 10, 10),
@@ -244,10 +246,13 @@ namespace Entradas
                             Background = new SolidColorBrush(Colors.Transparent),
                             BorderBrush = new SolidColorBrush(Colors.Transparent),
                             RequestedTheme = ElementTheme.Dark,
-                            BorderThickness = new Thickness(0)
+                            BorderThickness = new Thickness(0),
+                            CornerRadius = new CornerRadius(5)
                         };
 
                         boton.Click += BotonAbrirJuego;
+                        boton.PointerEntered += Animaciones.EntraRatonBoton2;
+                        boton.PointerExited += Animaciones.SaleRatonBoton2;
 
                         gv.Items.Add(boton);
                     }
@@ -273,7 +278,7 @@ namespace Entradas
                                 FontSize = 19
                             };
 
-                            Button botonAmpliar = new Button
+                            Button2 botonAmpliar = new Button2
                             {
                                 Content = textoAmpliar,
                                 Margin = new Thickness(10, 10, 15, 15),
@@ -282,10 +287,13 @@ namespace Entradas
                                 Background = fondoAmpliar,
                                 HorizontalAlignment = HorizontalAlignment.Center,
                                 RequestedTheme = ElementTheme.Dark,
-                                BorderThickness = new Thickness(0)
+                                BorderThickness = new Thickness(0),
+                                CornerRadius = new CornerRadius(5)
                             };
 
                             botonAmpliar.Click += BotonAbrirExpandida;
+                            botonAmpliar.PointerEntered += Animaciones.EntraRatonBoton2;
+                            botonAmpliar.PointerExited += Animaciones.SaleRatonBoton2;
 
                             spDerecha.Children.Add(botonAmpliar);
                         }
@@ -623,7 +631,7 @@ namespace Entradas
                     spDerecha.SetValue(Grid.ColumnProperty, 1);
                     gridMaestro.Children.Add(spDerecha);
 
-                    Button boton = new Button
+                    Button2 boton = new Button2
                     {
                         Content = gridMaestro,
                         Margin = new Thickness(0, 0, 0, 20),
@@ -638,6 +646,8 @@ namespace Entradas
                     };
 
                     boton.Click += BotonAbrirJuego;
+                    boton.PointerEntered += Animaciones.EntraRatonBoton2;
+                    boton.PointerExited += Animaciones.SaleRatonBoton2;
 
                     ObjetosVentana.spOfertasExpandida.Children.Add(boton);
                 }

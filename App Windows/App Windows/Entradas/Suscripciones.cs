@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.WinUI.UI.Controls;
+using Interfaz;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -138,7 +139,8 @@ namespace Entradas
                     Source = juego.imagen,
                     MaxHeight = 250,
                     MaxWidth = 400,
-                    Margin = new Thickness(10, 10, 10, 10)
+                    Margin = new Thickness(10, 10, 10, 10),
+                    CornerRadius = new CornerRadius(3)
                 };
 
                 if (json.juegos.Count == 1)
@@ -156,7 +158,7 @@ namespace Entradas
                 Opacity = 0.9
             };
 
-            Button boton = new Button
+            Button2 boton = new Button2
             {
                 Content = gv,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -166,10 +168,13 @@ namespace Entradas
                 Margin = new Thickness(10, 10, 10, 10),
                 Tag = entrada.redirect,
                 RequestedTheme = ElementTheme.Dark,
-                BorderThickness = new Thickness(0)
+                BorderThickness = new Thickness(0),
+                CornerRadius = new CornerRadius(5)
             };
 
             boton.Click += BotonAbrirSuscripcion;
+            boton.PointerEntered += Animaciones.EntraRatonBoton2;
+            boton.PointerExited += Animaciones.SaleRatonBoton2;
 
             spDerecha.Children.Add(boton);
 

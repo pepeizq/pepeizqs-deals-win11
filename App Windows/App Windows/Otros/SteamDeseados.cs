@@ -448,7 +448,7 @@ namespace Otros
 
             spJuego.Children.Add(spDatos);
 
-            Button boton = new Button
+            Button2 boton = new Button2
             {
                 Content = spJuego,
                 Padding = new Thickness(10, 10, 10, 10),
@@ -458,10 +458,13 @@ namespace Otros
                 Tag = juego.enlace,
                 Background = new SolidColorBrush(Colors.Transparent),
                 BorderBrush = new SolidColorBrush(Colors.Transparent),
-                BorderThickness = new Thickness(0, 0, 0, 0)
+                BorderThickness = new Thickness(0, 0, 0, 0),
+                CornerRadius = new CornerRadius(5)
             };
 
             boton.Click += BotonAbrirJuego;
+            boton.PointerEntered += Animaciones.EntraRatonBoton2;
+            boton.PointerExited += Animaciones.SaleRatonBoton2;
 
             spDerecha.Children.Add(boton);
 

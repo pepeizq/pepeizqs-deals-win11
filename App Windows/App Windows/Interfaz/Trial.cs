@@ -31,21 +31,20 @@ namespace Interfaz
                     {
                         ObjetosVentana.gridTrialMensaje.Visibility = Visibility.Visible;
                         ObjetosVentana.botonTrialComprar.Click += BotonAbrirCompra;
-                        ObjetosVentana.botonTrialComprar.PointerEntered += Animaciones.EntraRatonBoton;
-                        ObjetosVentana.botonTrialComprar.PointerExited += Animaciones.SaleRatonBoton;
+                        ObjetosVentana.botonTrialComprar.PointerEntered += Animaciones.EntraRatonBoton2;
+                        ObjetosVentana.botonTrialComprar.PointerExited += Animaciones.SaleRatonBoton2;
 
                         ObjetosVentana.gridTrialMensajeSteamDeseados.Visibility = Visibility.Visible;
                         ObjetosVentana.botonTrialComprarSteamDeseados.Click += BotonAbrirCompra;
-                        ObjetosVentana.botonTrialComprarSteamDeseados.PointerEntered += Animaciones.EntraRatonBoton;
-                        ObjetosVentana.botonTrialComprarSteamDeseados.PointerExited += Animaciones.SaleRatonBoton;
+                        ObjetosVentana.botonTrialComprarSteamDeseados.PointerEntered += Animaciones.EntraRatonBoton2;
+                        ObjetosVentana.botonTrialComprarSteamDeseados.PointerExited += Animaciones.SaleRatonBoton2;
                         ObjetosVentana.tbSteamDeseadosEnlaceCuenta.IsEnabled = false;
 
                         ObjetosVentana.gridTrialMensajeOpciones.Visibility = Visibility.Visible;
                         ObjetosVentana.botonTrialComprarOpciones.Click += BotonAbrirCompra;
-                        ObjetosVentana.botonTrialComprarOpciones.PointerEntered += Animaciones.EntraRatonBoton;
-                        ObjetosVentana.botonTrialComprarOpciones.PointerExited += Animaciones.SaleRatonBoton;
+                        ObjetosVentana.botonTrialComprarOpciones.PointerEntered += Animaciones.EntraRatonBoton2;
+                        ObjetosVentana.botonTrialComprarOpciones.PointerExited += Animaciones.SaleRatonBoton2;
                         ObjetosVentana.toggleOpcionesNotificaciones.IsEnabled = false;
-                        ObjetosVentana.toggleOpcionesMensajes.IsEnabled = false;
                     }           
                 }
             }
@@ -53,18 +52,6 @@ namespace Interfaz
 
         public static async void BotonAbrirCompra(object sender, RoutedEventArgs e)
         {
-            //IReadOnlyList<User> usuarios = await User.FindAllAsync();
-
-            //if (usuarios != null)
-            //{
-            //    if (usuarios.Count > 0)
-            //    {
-            //        User usuario = usuarios[0];
-            //        StoreContext contexto = StoreContext.GetForUser(usuario);
-            //        await contexto.RequestPurchaseAsync("9P7836M1TW15");
-            //    }
-            //}
-
             await Launcher.LaunchUriAsync(new Uri("ms-windows-store://pdp/?ProductId=9PFVL780F0MS"));
         }
     }
