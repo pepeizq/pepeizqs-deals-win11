@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.WinUI.UI.Controls;
 using Entradas;
+using FontAwesome6.Fonts;
 using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -20,9 +21,10 @@ namespace Principal
             CargarObjetosVentana();
             Task.Delay(500);
             Wordpress.Cargar();
-            Trial.Detectar();
+            Trial.Cargar();
             BarraTitulo.Generar(this);
             BarraTitulo.CambiarTitulo(null);
+            Cerrar.Cargar();
             Interfaz.Menu.Cargar();
             Pestañas.Cargar();
             ScrollViewers.Cargar();           
@@ -37,6 +39,8 @@ namespace Principal
             ObjetosVentana.gridTitulo = gridTitulo;
             ObjetosVentana.tbTitulo = tbTitulo;
 
+            //-------------------------------------------------------------------
+
             ObjetosVentana.nvPrincipal = nvPrincipal;
             ObjetosVentana.nvItemMenu = nvItemMenu;
             ObjetosVentana.menuItemMenu = menuItemMenu;
@@ -44,14 +48,34 @@ namespace Principal
             ObjetosVentana.nvItemSubirArriba = nvItemSubirArriba;
             ObjetosVentana.nvItemSteamDeseados = nvItemSteamDeseados;
             ObjetosVentana.nvItemOpciones = nvItemOpciones;
+            ObjetosVentana.gridCierre = gridCierre;
+
+            //-------------------------------------------------------------------
+
+            ObjetosVentana.botonCerrarAppSi = botonCerrarAppSi;
+            ObjetosVentana.botonCerrarAppNo = botonCerrarAppNo;
+            ObjetosVentana.iconoCerrarAppAzar = iconoCerrarAppAzar;
+            ObjetosVentana.tbCerrarAppAzar = tbCerrarAppAzar;
+            ObjetosVentana.botonCerrarAppAzar = botonCerrarAppAzar;
+
+            //-------------------------------------------------------------------
 
             ObjetosVentana.gridEntradas = gridEntradas;
+            ObjetosVentana.gridBuscador = gridBuscador;
+            ObjetosVentana.gridSteamDeseados = gridSteamDeseados;
+            ObjetosVentana.gridOpciones = gridOpciones;
+            ObjetosVentana.gridOfertasExpandida = gridOfertasExpandida;
+            ObjetosVentana.gridCarga = gridCarga;
+
+            //-------------------------------------------------------------------
+
             ObjetosVentana.gridTrialMensaje = gridTrialMensaje;
             ObjetosVentana.botonTrialComprar = botonTrialComprar;
             ObjetosVentana.svEntradas = svEntradas;
             ObjetosVentana.spEntradas = spEntradas;
 
-            ObjetosVentana.gridBuscador = gridBuscador;
+            //-------------------------------------------------------------------
+
             ObjetosVentana.tbBuscador = tbBuscador;
             ObjetosVentana.tbBuscadorResultado = tbBuscadorResultado;
             ObjetosVentana.svBuscador = svBuscador;
@@ -61,7 +85,8 @@ namespace Principal
             ObjetosVentana.botonBuscadorGGdeals = botonBuscadorGGdeals;
             ObjetosVentana.botonBuscadorIsthereanydeal = botonBuscadorIsthereanydeal;
 
-            ObjetosVentana.gridSteamDeseados = gridSteamDeseados;
+            //-------------------------------------------------------------------
+
             ObjetosVentana.svSteamDeseados = svSteamDeseados;
             ObjetosVentana.spSteamDeseados = spSteamDeseados;
             ObjetosVentana.gridTrialMensajeSteamDeseados = gridTrialMensajeSteamDeseados;
@@ -72,30 +97,31 @@ namespace Principal
             ObjetosVentana.tbSteamDeseadosUsuario = tbSteamDeseadosUsuario;
             ObjetosVentana.tbSteamDeseadosEnlaceCuenta = tbSteamDeseadosEnlaceCuenta;
 
-            ObjetosVentana.gridOpciones = gridOpciones;
+            //-------------------------------------------------------------------
+
+            ObjetosVentana.spOpcionesBotones = spOpcionesBotones;
             ObjetosVentana.svOpciones = svOpciones;
-            ObjetosVentana.spOpciones = spOpciones;
-            ObjetosVentana.gridTrialMensajeOpciones = gridTrialMensajeOpciones;
-            ObjetosVentana.botonTrialComprarOpciones = botonTrialComprarOpciones;
+            ObjetosVentana.spOpcionesPestañas = spOpcionesPestanas;
             ObjetosVentana.cbOpcionesIdioma = cbOpcionesIdioma;
             ObjetosVentana.toggleOpcionesNotificaciones = toggleOpcionesNotificaciones;
             ObjetosVentana.botonOpcionesActualizar = botonOpcionesActualizar;
             ObjetosVentana.cbOpcionesPantalla = cbOpcionesPantalla;
             ObjetosVentana.botonOpcionesLimpiar = botonOpcionesLimpiar;
+            ObjetosVentana.toggleOpcionesArranque = toggleOpcionesArranque;
 
-            ObjetosVentana.gridOfertasExpandida = gridOfertasExpandida;
+            //-------------------------------------------------------------------
+
             ObjetosVentana.svOfertasExpandida = svOfertasExpandida;
             ObjetosVentana.spOfertasExpandida = spOfertasExpandida;
             ObjetosVentana.cbOrdenarOfertasExpandida = cbOrdenarOfertasExpandida;
             ObjetosVentana.tbMensajeOfertasExpandida = tbMensajeOfertasExpandida;
 
-            ObjetosVentana.gridWeb = gridWeb;
-            ObjetosVentana.gridWebCarga = gridWebCarga;
-            ObjetosVentana.wvWeb = wvWeb;
+            //-------------------------------------------------------------------
 
-            ObjetosVentana.gridCarga = gridCarga;
             ObjetosVentana.spCarga = spCarga;
             ObjetosVentana.spMensajes = spMensajes;
+
+            //-------------------------------------------------------------------
 
             ObjetosVentana.gridAnuncio = gridAnuncio;
             ObjetosVentana.spAnuncio = spAnuncio;      
@@ -113,12 +139,35 @@ namespace Principal
             public static NavigationViewItem nvItemSubirArriba { get; set; }
             public static NavigationViewItem nvItemSteamDeseados { get; set; }
             public static NavigationViewItem nvItemOpciones { get; set; }
+            public static Grid gridCierre { get; set; }
+
+            //-------------------------------------------------------------------
+
+            public static Button botonCerrarAppSi { get; set; }
+            public static Button botonCerrarAppNo { get; set; }
+            public static FontAwesome iconoCerrarAppAzar { get; set; }
+            public static TextBlock tbCerrarAppAzar { get; set; }
+            public static Button botonCerrarAppAzar { get; set; }
+
+            //-------------------------------------------------------------------
+
             public static Grid gridEntradas { get; set; }
+            public static Grid gridBuscador { get; set; }
+            public static Grid gridSteamDeseados { get; set; }
+            public static Grid gridOpciones { get; set; }
+            public static Grid gridOfertasExpandida { get; set; }
+            public static Grid gridCarga { get; set; }
+            public static Grid gridAnuncio { get; set; }
+
+            //-------------------------------------------------------------------
+
             public static Grid gridTrialMensaje { get; set; }
             public static Button botonTrialComprar { get; set; }
             public static ScrollViewer svEntradas { get; set; }
             public static StackPanel spEntradas { get; set; }
-            public static Grid gridBuscador { get; set; }
+
+            //-------------------------------------------------------------------
+          
             public static TextBox tbBuscador { get; set; }
             public static TextBlock tbBuscadorResultado { get; set; }
             public static ScrollViewer svBuscador { get; set; }
@@ -127,38 +176,45 @@ namespace Principal
             public static Button botonBuscadorSteamDB { get; set; }
             public static Button botonBuscadorGGdeals { get; set; }
             public static Button botonBuscadorIsthereanydeal { get; set; }
-            public static Grid gridSteamDeseados { get; set; }           
+
+            //-------------------------------------------------------------------
+                  
             public static ScrollViewer svSteamDeseados { get; set; }
             public static StackPanel spSteamDeseados { get; set; }
             public static Grid gridTrialMensajeSteamDeseados { get; set; }
             public static Button botonTrialComprarSteamDeseados { get; set; }
             public static Microsoft.UI.Xaml.Controls.Expander expanderSteamDeseados { get; set; }
             public static ProgressRing prSteamDeseados { get; set; }
-            public static ImageEx imagenSteamDeseadosAvatar { get; set; }
+            public static Image imagenSteamDeseadosAvatar { get; set; }
             public static TextBlock tbSteamDeseadosUsuario { get; set; }
             public static TextBox tbSteamDeseadosEnlaceCuenta { get; set; }
-            public static Grid gridOpciones { get; set; }
+
+            //-------------------------------------------------------------------
+
+            public static StackPanel spOpcionesBotones { get; set; }
             public static ScrollViewer svOpciones { get; set; }
-            public static StackPanel spOpciones { get; set; }
-            public static Grid gridTrialMensajeOpciones { get; set; }
-            public static Button botonTrialComprarOpciones { get; set; }
+            public static StackPanel spOpcionesPestañas { get; set; }
             public static ComboBox cbOpcionesIdioma { get; set; }
             public static ToggleSwitch toggleOpcionesNotificaciones { get; set; }
             public static ComboBox cbOpcionesPantalla { get; set; }
             public static Button botonOpcionesActualizar { get; set; }
             public static Button botonOpcionesLimpiar { get; set; }
-            public static Grid gridOfertasExpandida { get; set; }
+            public static ToggleSwitch toggleOpcionesArranque { get; set; }
+
+            //-------------------------------------------------------------------
+
             public static ScrollViewer svOfertasExpandida { get; set; }
             public static StackPanel spOfertasExpandida { get; set; }
             public static ComboBox cbOrdenarOfertasExpandida { get; set; }
             public static TextBlock tbMensajeOfertasExpandida { get; set; }
-            public static Grid gridWeb { get; set; }
-            public static Grid gridWebCarga { get; set; }
-            public static WebView2 wvWeb { get; set; }
-            public static Grid gridCarga { get; set; }
+
+            //-------------------------------------------------------------------
+
             public static StackPanel spCarga { get; set; }
             public static StackPanel spMensajes { get; set; }
-            public static Grid gridAnuncio { get; set; }
+
+            //-------------------------------------------------------------------
+
             public static StackPanel spAnuncio { get; set; }           
         }
 

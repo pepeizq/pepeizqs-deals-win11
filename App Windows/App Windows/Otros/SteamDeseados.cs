@@ -153,7 +153,7 @@ namespace Otros
                     string htmlSteamID = await Decompiladores.CogerHtml("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=41F2D73A0B5024E9101F8D4E8D8AC21E&steamids=" + steamID);
                     SteamCuenta cuenta = System.Text.Json.JsonSerializer.Deserialize<SteamCuenta>(htmlSteamID);
 
-                    ObjetosVentana.imagenSteamDeseadosAvatar.Source = cuenta.response.players[0].avatar;
+                    ObjetosVentana.imagenSteamDeseadosAvatar.Source = new BitmapImage(new Uri(cuenta.response.players[0].avatar));
                     ObjetosVentana.tbSteamDeseadosUsuario.Text = cuenta.response.players[0].personaname;
                 }
                 catch (Exception)
@@ -336,13 +336,11 @@ namespace Otros
                 VerticalAlignment = VerticalAlignment.Center
             };
 
-            ImageEx imagenTienda = new ImageEx
+            Image imagenTienda = new Image
             {
                 MaxWidth = 180,
                 MaxHeight = 50,
-                Source = new BitmapImage(new Uri(entrada.store_logo)),
-                EnableLazyLoading = true,
-                IsCacheEnabled = true
+                Source = new BitmapImage(new Uri(entrada.store_logo))
             };
 
             spIzquierda.Children.Add(imagenTienda);
@@ -394,14 +392,11 @@ namespace Otros
                 CornerRadius = new CornerRadius(2)
             };
 
-            ImageEx imagenJuego = new ImageEx
+            Image imagenJuego = new Image
             {
                 Source = new BitmapImage(new Uri(juego.imagen)),
                 MaxWidth = 400,
-                MaxHeight = 300,          
-                EnableLazyLoading = true,
-                IsCacheEnabled = true,
-                CornerRadius = new CornerRadius(2, 2, 0, 0)
+                MaxHeight = 300
             };
 
             spJuego.Children.Add(imagenJuego);

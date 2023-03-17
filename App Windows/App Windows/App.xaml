@@ -12,7 +12,6 @@
 
             <Color x:Key="ColorFuente">#f7fcff</Color>
             <Color x:Key="ColorPrimario">#002033</Color>
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>

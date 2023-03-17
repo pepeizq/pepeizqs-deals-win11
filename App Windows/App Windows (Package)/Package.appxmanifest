@@ -11,7 +11,7 @@
   <Identity
     Name="12041pepeizq.pepeizqsdealsforWindows11"
     Publisher="CN=E6A59F16-60E0-4B88-A8A1-993C16A63CD0"
-    Version="4.1.0.0" />
+    Version="4.1.1.0" />
 
    <mp:PhoneIdentity PhoneProductId="882cd09f-c37d-481c-a1cd-233e69498d30" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 	
@@ -48,6 +48,13 @@
         <uap:SplashScreen Image="Images\Logos\SplashScreen.png" BackgroundColor="#002033"/>
         </uap:VisualElements>
 
+		<Extensions>
+			<uap5:Extension Category="windows.startupTask">
+				<uap5:StartupTask
+				  TaskId="Arranquepepeizqdeals"
+				  DisplayName="pepeizq&apos;s deals for Windows 11" />
+			</uap5:Extension>
+		</Extensions>
     </Application>
   </Applications>
 

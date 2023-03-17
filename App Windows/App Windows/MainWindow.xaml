@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
     xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals" 
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
-    xmlns:iconos="using:FontAwesome5" 
+    xmlns:iconos="using:FontAwesome6.Fonts" 
     xmlns:interfaz="using:Interfaz"
     
     mc:Ignorable="d" x:Name="ventana">
@@ -133,7 +133,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
+                        <iconos:FontAwesome Grid.Column="0" Icon="Solid_CircleExclamation" Foreground="{StaticResource ColorPrimario}"/>
                         <TextBlock x:Uid="TrialMessage" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
 
                         <interfaz:Button2 x:Name="botonTrialComprar" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12" CornerRadius="5">
@@ -172,7 +172,7 @@
                             <Button x:Name="botonBuscadorSteamDB" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12" RequestedTheme="Dark" BorderThickness="0">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal">
-                                        <controls:ImageEx Source="/Assets/OtrasWebs/steamdb.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                        <Image Source="/Assets/OtrasWebs/steamdb.png" Width="26" Height="26"/>
                                         <TextBlock Text="SteamDB" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Button.Content>
@@ -180,7 +180,7 @@
                             <Button x:Name="botonBuscadorGGdeals" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12" RequestedTheme="Dark" Margin="20,0" BorderThickness="0">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal">
-                                        <controls:ImageEx Source="/Assets/OtrasWebs/ggdeals.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                        <Image Source="/Assets/OtrasWebs/ggdeals.png" Width="26" Height="26"/>
                                         <TextBlock Text="GGdeals" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Button.Content>
@@ -188,7 +188,7 @@
                             <Button x:Name="botonBuscadorIsthereanydeal" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12" RequestedTheme="Dark" BorderThickness="0">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal">
-                                        <controls:ImageEx Source="/Assets/OtrasWebs/isthereanydeal.png" Width="26" Height="26" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                        <Image Source="/Assets/OtrasWebs/isthereanydeal.png" Width="26" Height="26"/>
                                         <TextBlock Text="Isthereanydeal" FontSize="16" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Button.Content>
@@ -237,7 +237,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <ProgressRing x:Name="prSteamDeseados" Grid.Column="0" Margin="0,0,20,0" Width="22" Height="22" Foreground="{StaticResource ColorFuente}" Visibility="Collapsed"/>
-                                <controls:ImageEx x:Name="imagenSteamDeseadosAvatar" Grid.Column="1" IsCacheEnabled="True" EnableLazyLoading="True"/>
+                                <Image x:Name="imagenSteamDeseadosAvatar" Grid.Column="1"/>
                                 <TextBlock x:Name="tbSteamDeseadosUsuario" Grid.Column="2" Foreground="{StaticResource ColorFuente}" Margin="15,0" VerticalAlignment="Center"/>
                             </Grid>
                         </Expander.Header>
@@ -264,104 +264,125 @@
                 </Grid>
 
                 <Grid x:Name="gridOpciones" Visibility="Collapsed">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                    <Grid x:Name="gridTrialMensajeOpciones" Grid.Row="0" Padding="20">
-                        <Grid.Background>
-                            <SolidColorBrush Color="{StaticResource ColorFuente}" Opacity="0.8"/>
-                        </Grid.Background>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <SymbolIcon Grid.Column="0" Symbol="Important" Foreground="{StaticResource ColorPrimario}"/>
-                        <TextBlock x:Uid="TrialMessageOptions" Grid.Column="1" Foreground="{StaticResource ColorPrimario}" FontSize="16" Margin="20,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
-
-                        <interfaz:Button2 x:Name="botonTrialComprarOpciones" Grid.Column="2" Background="{StaticResource ColorPrimario}" Padding="14,10,14,12" CornerRadius="5">
+                    <StackPanel x:Name="spOpcionesBotones" Grid.Column="0" Orientation="Vertical" Padding="40" HorizontalAlignment="Stretch" MinWidth="300">
+                        <interfaz:Button2 Background="Transparent" Padding="18,15" RequestedTheme="Light" BorderThickness="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" CornerRadius="5">
                             <interfaz:Button2.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:Uid="TrialBuyApp" Foreground="{StaticResource ColorFuente}"/>
-                                </StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <iconos:FontAwesome Icon="Solid_Computer" Grid.Column="0" Foreground="{StaticResource ColorFuente}" HorizontalAlignment="Center"/>
+                                    <TextBlock x:Uid="OptionsApp" Grid.Column="1" Foreground="{StaticResource ColorFuente}" Margin="20,0,0,0"/>
+                                </Grid>
                             </interfaz:Button2.Content>
                         </interfaz:Button2>
-                    </Grid>
+                    </StackPanel>
 
-                    <ScrollViewer x:Name="svOpciones" Grid.Row="1" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-                        <StackPanel x:Name="spOpciones" Orientation="Vertical" Padding="40">
-                            <Expander IsExpanded="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5" Margin="0,0,0,40">
-                                <Expander.Header>
-                                    <TextBlock x:Uid="OptionsLanguage" Foreground="{StaticResource ColorFuente}" Margin="10,0,0,0"/>
-                                </Expander.Header>
+                    <ScrollViewer x:Name="svOpciones" Grid.Column="1" VerticalScrollBarVisibility="Visible" Padding="0,0,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                        <StackPanel x:Name="spOpcionesPestanas" Orientation="Vertical" Padding="40">
+                            <StackPanel Orientation="Vertical" Visibility="Collapsed">
+                                <Grid Padding="30" CornerRadius="5">
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                    </Grid.Background>
 
-                                <Expander.Background>
-                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
-                                </Expander.Background>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <StackPanel Orientation="Vertical" Padding="10">
-                                    <TextBlock x:Uid="OptionsLanguageInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
-                                    <interfaz:ComboBox2 x:Name="cbOpcionesIdioma" RequestedTheme="Dark" CornerRadius="5"/>
-                                </StackPanel>
-                            </Expander>
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,20,0">
+                                        <TextBlock x:Uid="OptionsLanguageInfo" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                        <TextBlock x:Uid="OptionsLanguageInfo2" FontSize="13" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                                    </StackPanel>
 
-                            <Expander IsExpanded="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5" Margin="0,0,0,40">
-                                <Expander.Header>
-                                    <TextBlock x:Uid="OptionsNotifications" Foreground="{StaticResource ColorFuente}" Margin="10,0,0,0"/>
-                                </Expander.Header>
+                                    <interfaz:ComboBox2 x:Name="cbOpcionesIdioma" Grid.Column="1" RequestedTheme="Dark" CornerRadius="5" MinWidth="120"/>
+                                </Grid>
 
-                                <Expander.Background>
-                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
-                                </Expander.Background>
+                                <Grid Padding="30" CornerRadius="5" Margin="0,5,0,0">
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                    </Grid.Background>
 
-                                <StackPanel Orientation="Vertical" Padding="10">
-                                    <ToggleSwitch x:Name="toggleOpcionesNotificaciones" Foreground="{StaticResource ColorFuente}" RequestedTheme="Dark">
-                                        <ToggleSwitch.Header>
-                                            <TextBlock x:Uid="OptionsNotificationsInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
-                                        </ToggleSwitch.Header>
-                                        <ToggleSwitch.OnContent>
-                                            <TextBlock x:Uid="OptionsNotificationsOn" Foreground="{StaticResource ColorFuente}"/>
-                                        </ToggleSwitch.OnContent>
-                                        <ToggleSwitch.OffContent>
-                                            <TextBlock x:Uid="OptionsNotificationsOff" Foreground="{StaticResource ColorFuente}"/>
-                                        </ToggleSwitch.OffContent>
-                                    </ToggleSwitch>
-                                </StackPanel>                                
-                            </Expander>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                            <Expander IsExpanded="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5">
-                                <Expander.Header>
-                                    <TextBlock x:Uid="OptionsApp" Foreground="{StaticResource ColorFuente}" Margin="10,0,0,0"/>
-                                </Expander.Header>
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,20,0">
+                                        <TextBlock x:Uid="OptionsNotificationsInfo" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                        <TextBlock x:Uid="OptionsNotificationsInfo2" FontSize="13" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                                    </StackPanel>
 
-                                <Expander.Background>
-                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
-                                </Expander.Background>
+                                    <ToggleSwitch x:Name="toggleOpcionesNotificaciones" Grid.Column="1" Foreground="{StaticResource ColorFuente}" RequestedTheme="Dark" MinWidth="0" OffContent="" OnContent=""/>
+                                </Grid>
 
-                                <StackPanel Orientation="Vertical" Padding="10">
-                                    <TextBlock x:Uid="OptionsUpdateInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
-                                    <interfaz:Button2 x:Name="botonOpcionesActualizar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14" RequestedTheme="Light" CornerRadius="5" BorderThickness="0" Margin="0,0,0,25">
-                                        <interfaz:Button2.Content>
-                                            <StackPanel Orientation="Horizontal">
-                                                <iconos:FontAwesome Icon="Solid_Sync" Foreground="{StaticResource ColorFuente}" FontSize="15"/>
-                                                <TextBlock x:Uid="OptionsUpdateButton" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
-                                            </StackPanel>
-                                        </interfaz:Button2.Content>
-                                    </interfaz:Button2>
+                                <Grid Padding="30" CornerRadius="5" Margin="0,5,0,0">
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                    </Grid.Background>
 
-                                    <TextBlock x:Uid="OptionsAppWindowInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
-                                    <interfaz:ComboBox2 x:Name="cbOpcionesPantalla" RequestedTheme="Dark" Margin="0,0,0,25" CornerRadius="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock x:Uid="OptionsAppWindowInfo" Grid.Column="0" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                                    <interfaz:ComboBox2 x:Name="cbOpcionesPantalla" Grid.Column="1" RequestedTheme="Dark" CornerRadius="5" MinWidth="120">
                                         <TextBlock x:Uid="OptionsAppWindow1"/>
                                         <TextBlock x:Uid="OptionsAppWindow2"/>
                                         <TextBlock x:Uid="OptionsAppWindow3"/>
                                     </interfaz:ComboBox2>
+                                </Grid>
 
-                                    <TextBlock x:Uid="OptionsAppCleanInfo" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,20"/>
-                                    <interfaz:Button2 x:Name="botonOpcionesLimpiar" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14" RequestedTheme="Light" CornerRadius="5" BorderThickness="0">
+                                <Grid Padding="30" CornerRadius="5" Margin="0,5,0,0">
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                    </Grid.Background>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,20,0">
+                                        <TextBlock x:Uid="OptionsUpdateInfo" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                        <TextBlock x:Uid="OptionsUpdateInfo2" FontSize="13" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                                    </StackPanel>
+
+                                    <interfaz:Button2 x:Name="botonOpcionesActualizar" Grid.Column="1" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14" RequestedTheme="Light" CornerRadius="5" BorderThickness="0">
+                                        <interfaz:Button2.Content>
+                                            <StackPanel Orientation="Horizontal">
+                                                <iconos:FontAwesome Icon="Solid_ArrowsRotate" Foreground="{StaticResource ColorFuente}" FontSize="15"/>
+                                                <TextBlock x:Uid="OptionsUpdateButton" Foreground="{StaticResource ColorFuente}" Margin="15,0,0,0" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </interfaz:Button2.Content>
+                                    </interfaz:Button2>
+                                </Grid>
+
+                                <Grid Padding="30" CornerRadius="5" Margin="0,5,0,0">
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                    </Grid.Background>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,20,0">
+                                        <TextBlock x:Uid="OptionsAppCleanInfo" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                        <TextBlock x:Uid="OptionsAppCleanInfo2" FontSize="13" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                                    </StackPanel>
+
+                                    <interfaz:Button2 x:Name="botonOpcionesLimpiar" Grid.Column="1" Background="{StaticResource ColorPrimario}" Padding="15,12,15,14" RequestedTheme="Light" BorderThickness="0" CornerRadius="5">
                                         <interfaz:Button2.Content>
                                             <StackPanel Orientation="Horizontal">
                                                 <iconos:FontAwesome Icon="Solid_Trash" Foreground="{StaticResource ColorFuente}" FontSize="15"/>
@@ -369,8 +390,26 @@
                                             </StackPanel>
                                         </interfaz:Button2.Content>
                                     </interfaz:Button2>
-                                </StackPanel>
-                            </Expander>
+                                </Grid>
+
+                                <Grid Padding="30" CornerRadius="5" Margin="0,5,0,0">
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                    </Grid.Background>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" Margin="0,0,20,0">
+                                        <TextBlock x:Uid="OptionsStartupInfo" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                        <TextBlock x:Uid="OptionsStartupInfo2" FontSize="13" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                                    </StackPanel>
+
+                                    <ToggleSwitch x:Name="toggleOpcionesArranque" Grid.Column="1" Foreground="{StaticResource ColorFuente}" RequestedTheme="Dark" MinWidth="0" OffContent="" OnContent=""/>
+                                </Grid>
+                            </StackPanel>
                         </StackPanel> 
                     </ScrollViewer>
                 </Grid>
@@ -413,14 +452,6 @@
                         <StackPanel x:Name="spOfertasExpandida" Orientation="Vertical" Padding="20"/>
                     </ScrollViewer>
                 </Grid>
-
-                <Grid x:Name="gridWeb" Visibility="Collapsed">
-                    <WebView2 x:Name="wvWeb" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="200" MinWidth="200"/>
-
-                    <Grid x:Name="gridWebCarga" Background="{StaticResource ColorPrimario}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20" Padding="20" Visibility="Collapsed">
-                        <ProgressBar Foreground="{StaticResource ColorFuente}" IsIndeterminate="True" Width="100"/>
-                    </Grid>
-                </Grid>
             </Grid>
         </NavigationView>
 
@@ -445,6 +476,77 @@
             </Grid.Background>
 
             <StackPanel x:Name="spAnuncio" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="40"/>
+        </Grid>
+
+        <Grid x:Name="gridCierre" Grid.Row="1" Visibility="Collapsed">
+            <Grid.Background>
+                <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.95"/>
+            </Grid.Background>
+
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" CornerRadius="5" Padding="60,40" BorderThickness="2">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="1"/>
+                    </StackPanel.Background>
+
+                    <StackPanel.BorderBrush>
+                        <SolidColorBrush Color="{StaticResource ColorFuente}" Opacity="0.7"/>
+                    </StackPanel.BorderBrush>
+
+                    <TextBlock x:Uid="AppClosingQuestion" FontSize="16" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
+                        <interfaz:Button2 x:Name="botonCerrarAppSi" Background="{StaticResource ColorPrimario}" Padding="18,12" RequestedTheme="Light" BorderThickness="2" CornerRadius="5">
+                            <interfaz:Button2.BorderBrush>
+                                <SolidColorBrush Color="{StaticResource ColorFuente}" Opacity="0.7"/>
+                            </interfaz:Button2.BorderBrush>
+
+                            <interfaz:Button2.Content>
+                                <Grid>
+                                    <TextBlock x:Uid="AppClosingYes" Foreground="{StaticResource ColorFuente}"/>
+                                </Grid>
+                            </interfaz:Button2.Content>
+                        </interfaz:Button2>
+
+                        <interfaz:Button2 x:Name="botonCerrarAppNo" Background="{StaticResource ColorPrimario}" Padding="18,12" RequestedTheme="Light" BorderThickness="2" CornerRadius="5" Margin="25,0,0,0">
+                            <interfaz:Button2.BorderBrush>
+                                <SolidColorBrush Color="{StaticResource ColorFuente}" Opacity="0.7"/>
+                            </interfaz:Button2.BorderBrush>
+
+                            <interfaz:Button2.Content>
+                                <Grid>
+                                    <TextBlock x:Uid="AppClosingNo" Foreground="{StaticResource ColorFuente}"/>
+                                </Grid>
+                            </interfaz:Button2.Content>
+                        </interfaz:Button2>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" CornerRadius="5" Padding="60,40" BorderThickness="2" Margin="0,50,0,0">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="1"/>
+                    </StackPanel.Background>
+
+                    <StackPanel.BorderBrush>
+                        <SolidColorBrush Color="{StaticResource ColorFuente}" Opacity="0.7"/>
+                    </StackPanel.BorderBrush>
+
+                    <iconos:FontAwesome x:Name="iconoCerrarAppAzar" Foreground="{StaticResource ColorFuente}" FontSize="32" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="tbCerrarAppAzar" Foreground="{StaticResource ColorFuente}" TextWrapping="Wrap" MaxWidth="500" Margin="40,0" VerticalAlignment="Center"/>
+
+                    <interfaz:Button2 x:Name="botonCerrarAppAzar" Background="{StaticResource ColorPrimario}" Padding="18,12" RequestedTheme="Light" BorderThickness="2" CornerRadius="5">
+                        <interfaz:Button2.BorderBrush>
+                            <SolidColorBrush Color="{StaticResource ColorFuente}" Opacity="0.7"/>
+                        </interfaz:Button2.BorderBrush>
+
+                        <interfaz:Button2.Content>
+                            <Grid>
+                                <TextBlock x:Uid="Open" Foreground="{StaticResource ColorFuente}"/>
+                            </Grid>
+                        </interfaz:Button2.Content>
+                    </interfaz:Button2>
+                </StackPanel>
+            </StackPanel>
         </Grid>
     </Grid> 
 </Window>

@@ -123,6 +123,24 @@
   <data name="AndMoreGames" xml:space="preserve">
     <value>Y Más Juegos</value>
   </data>
+  <data name="AppClosingMessage1" xml:space="preserve">
+    <value>Esta aplicación es de código abierto y puedes consultarlo en Github, y si tienes cuenta allí te agradecería una estrella</value>
+  </data>
+  <data name="AppClosingMessage2" xml:space="preserve">
+    <value>Puedes valorar la aplicación en la Tienda de Microsoft, no te voy a decir como debes valorarme pero espero que tengáis en cuenta que soy un único desarrollador con la aplicación</value>
+  </data>
+  <data name="AppClosingMessage3" xml:space="preserve">
+    <value>Puedes consultar las últimas actualizaciones que he lanzado para esta aplicación en mi web, no esperéis kilométricas actualizaciones por que sólo dos manos trabajan en esta aplicación</value>
+  </data>
+  <data name="AppClosingNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="AppClosingQuestion.Text" xml:space="preserve">
+    <value>¿Deseas cerrar la aplicación?</value>
+  </data>
+  <data name="AppClosingYes.Text" xml:space="preserve">
+    <value>Sí</value>
+  </data>
   <data name="AppScreen1" xml:space="preserve">
     <value>Entérate de las últimas ofertas de videojuegos para PC</value>
   </data>
@@ -198,32 +216,14 @@
   <data name="NewGamesAdded" xml:space="preserve">
     <value>Nuevos Juegos Añadidos</value>
   </data>
-  <data name="Open" xml:space="preserve">
+  <data name="Open.Text" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
+  <data name="Open2" xml:space="preserve">
     <value>Abrir</value>
   </data>
   <data name="Options" xml:space="preserve">
     <value>Opciones</value>
-  </data>
-  <data name="OptionsAnnouncements.Text" xml:space="preserve">
-    <value>Anuncios</value>
-  </data>
-  <data name="OptionsAnnouncements2Info.Text" xml:space="preserve">
-    <value>Mostrar los mensajes del creador de la aplicación.</value>
-  </data>
-  <data name="OptionsAnnouncements2Off.Text" xml:space="preserve">
-    <value>Mensajes desactivados</value>
-  </data>
-  <data name="OptionsAnnouncements2On.Text" xml:space="preserve">
-    <value>Mensajes activados</value>
-  </data>
-  <data name="OptionsAnnouncementsInfo.Text" xml:space="preserve">
-    <value>Mostrar los anuncios de nuevos sorteos o grandes periodos de ofertas como verano o invierno.</value>
-  </data>
-  <data name="OptionsAnnouncementsOff.Text" xml:space="preserve">
-    <value>Anuncios desactivados</value>
-  </data>
-  <data name="OptionsAnnouncementsOn.Text" xml:space="preserve">
-    <value>Anuncios activados</value>
   </data>
   <data name="OptionsApp.Text" xml:space="preserve">
     <value>Aplicación</value>
@@ -232,7 +232,10 @@
     <value>Limpiar Datos</value>
   </data>
   <data name="OptionsAppCleanInfo.Text" xml:space="preserve">
-    <value>Pulsa el botón para limpiar todos los datos generados por la aplicación, se reiniciará la aplicación.</value>
+    <value>Limpiar Datos</value>
+  </data>
+  <data name="OptionsAppCleanInfo2.Text" xml:space="preserve">
+    <value>Todos los datos y ficheros generados por la aplicación serán eliminados, cuando termine se reiniciará la aplicación como si fuera una instalación limpia</value>
   </data>
   <data name="OptionsAppWindow1.Text" xml:space="preserve">
     <value>Defecto</value>
@@ -244,34 +247,34 @@
     <value>Superpuesta</value>
   </data>
   <data name="OptionsAppWindowInfo.Text" xml:space="preserve">
-    <value>Selecciona en que modo quieres que la aplicación se muestre en Windows:</value>
-  </data>
-  <data name="OptionsLanguage.Text" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Modo en el que se mostrará la aplicación en Windows</value>
   </data>
   <data name="OptionsLanguageInfo.Text" xml:space="preserve">
-    <value>Selecciona el idioma de la aplicación, es necesario un reinicio en la aplicación para efectuar el cambio.</value>
+    <value>Idioma de la aplicación</value>
   </data>
-  <data name="OptionsNotifications.Text" xml:space="preserve">
-    <value>Notificaciones</value>
+  <data name="OptionsLanguageInfo2.Text" xml:space="preserve">
+    <value>Es necesario un reinicio en la aplicación para efectuar el cambio</value>
   </data>
   <data name="OptionsNotificationsInfo.Text" xml:space="preserve">
-    <value>Recibe notificaciones push de nuevas ofertas mientras tengas abierta la aplicación.</value>
+    <value>Notificaciones</value>
   </data>
-  <data name="OptionsNotificationsOff.Text" xml:space="preserve">
-    <value>Notificaciones desactivadas</value>
+  <data name="OptionsNotificationsInfo2.Text" xml:space="preserve">
+    <value>Recibe notificaciones push de nuevas ofertas mientras tengas abierta la aplicación</value>
   </data>
-  <data name="OptionsNotificationsOn.Text" xml:space="preserve">
-    <value>Notificaciones activadas</value>
+  <data name="OptionsStartupInfo.Text" xml:space="preserve">
+    <value>Arranque</value>
   </data>
-  <data name="OptionsUpdate.Text" xml:space="preserve">
-    <value>Actualizar</value>
+  <data name="OptionsStartupInfo2.Text" xml:space="preserve">
+    <value>Arrancar la aplicación automáticamente cada vez que inicie Windows</value>
   </data>
   <data name="OptionsUpdateButton.Text" xml:space="preserve">
     <value>Actualizar Datos</value>
   </data>
   <data name="OptionsUpdateInfo.Text" xml:space="preserve">
-    <value>Pulsa el botón si deseas actualizar los datos de la aplicación sin cerrarla.</value>
+    <value>Actualizar</value>
+  </data>
+  <data name="OptionsUpdateInfo2.Text" xml:space="preserve">
+    <value>Actualiza los datos de la aplicación sin tener que cerrarla</value>
   </data>
   <data name="Reviews" xml:space="preserve">
     <value>Reseñas</value>

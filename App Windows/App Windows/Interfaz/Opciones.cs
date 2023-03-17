@@ -2,21 +2,27 @@
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.ApplicationModel.Resources;
-using Microsoft.Windows.AppLifecycle;
 using Otros;
 using System;
 using System.Collections.Generic;
+using Windows.ApplicationModel;
 using Windows.Globalization;
 using Windows.Storage;
 using Windows.System.UserProfile;
+using Windows.UI;
 using WinRT.Interop;
 using static Principal.MainWindow;
+using AppInstance = Microsoft.Windows.AppLifecycle.AppInstance;
+using WindowId = Microsoft.UI.WindowId;
 
 namespace Interfaz
 {
     public static class Opciones
     {
+        private static string arranqueID = "Arranquepepeizqdeals";
+
         public static void CargarPestaña()
         {
             ResourceLoader recursos = new ResourceLoader();
@@ -35,8 +41,23 @@ namespace Interfaz
             }          
         }
 
-        public static void CargarDatos()
+        public static async void CargarDatos()
         {
+            int i = 0;
+            foreach (Button2 boton in ObjetosVentana.spOpcionesBotones.Children)
+            {
+                boton.Tag = i;
+                boton.Click += CambiarPestaña;
+                boton.PointerEntered += Animaciones.EntraRatonBoton2;
+                boton.PointerExited += Animaciones.SaleRatonBoton2;
+
+                i += 1;
+            }
+
+            CambiarPestaña(i - 1);
+
+            //---------------------------------
+
             ApplicationDataContainer datos = ApplicationData.Current.LocalSettings;
 
             IReadOnlyList<string> idiomasApp = ApplicationLanguages.ManifestLanguages;
@@ -120,9 +141,58 @@ namespace Interfaz
             ObjetosVentana.botonOpcionesActualizar.PointerEntered += Animaciones.EntraRatonBoton2;
             ObjetosVentana.botonOpcionesActualizar.PointerExited += Animaciones.SaleRatonBoton2;
 
+            //---------------------------------
+
             ObjetosVentana.botonOpcionesLimpiar.Click += BotonOpcionLimpiar;
             ObjetosVentana.botonOpcionesLimpiar.PointerEntered += Animaciones.EntraRatonBoton2;
             ObjetosVentana.botonOpcionesLimpiar.PointerExited += Animaciones.SaleRatonBoton2;
+
+            //---------------------------------
+
+            StartupTask arranque = await StartupTask.GetAsync(arranqueID);
+
+            if (arranque.State == StartupTaskState.DisabledByUser)
+            {
+                ObjetosVentana.toggleOpcionesArranque.IsEnabled = false;
+            }
+
+            ObjetosVentana.toggleOpcionesArranque.Toggled += ToggleOpcionArranque;
+        }
+
+        private static void CambiarPestaña(object sender, RoutedEventArgs e)
+        {
+            Button2 botonPulsado = sender as Button2;
+            int pestañaMostrar = (int)botonPulsado.Tag;
+            CambiarPestaña(pestañaMostrar);
+        }
+
+        private static void CambiarPestaña(int botonPulsado)
+        {
+            SolidColorBrush colorPulsado = new SolidColorBrush((Color)Application.Current.Resources["ColorPrimario"]);
+            colorPulsado.Opacity = 0.6;
+
+            int i = 0;
+            foreach (Button2 boton in ObjetosVentana.spOpcionesBotones.Children)
+            {
+                if (i == botonPulsado)
+                {
+                    boton.Background = colorPulsado;
+                }
+                else
+                {
+                    boton.Background = new SolidColorBrush(Colors.Transparent);
+                }
+
+                i += 1;
+            }
+
+            foreach (StackPanel sp in ObjetosVentana.spOpcionesPestañas.Children)
+            {
+                sp.Visibility = Visibility.Collapsed;
+            }
+
+            StackPanel spMostrar = ObjetosVentana.spOpcionesPestañas.Children[botonPulsado] as StackPanel;
+            spMostrar.Visibility = Visibility.Visible;
         }
 
         public static void CbOpcionIdioma(object sender, SelectionChangedEventArgs e)
@@ -187,6 +257,28 @@ namespace Interfaz
         {
             await ApplicationData.Current.ClearAsync();
             AppInstance.Restart(null);
+        }
+
+        public static async void ToggleOpcionArranque(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch toggle = sender as ToggleSwitch;
+
+            StartupTask arranque = await StartupTask.GetAsync(arranqueID);
+
+            if (toggle.IsOn == false)
+            {
+                if (arranque.State == StartupTaskState.Enabled)
+                {
+                    arranque.Disable();
+                }
+            }
+            else
+            {
+                if (arranque.State == StartupTaskState.Disabled)
+                {
+                    await arranque.RequestEnableAsync();
+                }
+            }
         }
     }
 }

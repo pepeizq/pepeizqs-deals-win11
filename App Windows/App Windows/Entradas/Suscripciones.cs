@@ -67,13 +67,11 @@ namespace Entradas
                 VerticalAlignment = VerticalAlignment.Center
             };
 
-            ImageEx imagenTienda = new ImageEx
+            Image imagenTienda = new Image
             {
                 MaxWidth = 180,
                 MaxHeight = 50,
-                Source = new BitmapImage(new Uri(entrada.store_logo)),
-                EnableLazyLoading = true,
-                IsCacheEnabled = true
+                Source = new BitmapImage(new Uri(entrada.store_logo))
             };
 
             spIzquierda.Children.Add(imagenTienda);
@@ -132,15 +130,12 @@ namespace Entradas
 
             foreach (EntradaSuscripcionesJuego juego in json.juegos)
             {
-                ImageEx imagenJuego = new ImageEx
+                Image imagenJuego = new Image
                 {
-                    IsCacheEnabled = true,
-                    EnableLazyLoading = true,
-                    Source = juego.imagen,
+                    Source = new BitmapImage(new Uri(juego.imagen)),
                     MaxHeight = 250,
                     MaxWidth = 400,
-                    Margin = new Thickness(10, 10, 10, 10),
-                    CornerRadius = new CornerRadius(3)
+                    Margin = new Thickness(10, 10, 10, 10)
                 };
 
                 if (json.juegos.Count == 1)

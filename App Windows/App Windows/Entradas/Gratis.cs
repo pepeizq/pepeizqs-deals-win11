@@ -67,13 +67,11 @@ namespace Entradas
                 imagen = imagen.Replace("https://pepeizqdeals.com/wp-content/uploads/", null);
             }
      
-            ImageEx imagenTienda = new ImageEx
+            Image imagenTienda = new Image
             {
                 MaxWidth = 180,
                 MaxHeight = 50,
-                Source = new BitmapImage(new Uri(imagen)),
-                EnableLazyLoading = true,
-                IsCacheEnabled = true
+                Source = new BitmapImage(new Uri(imagen))
             };
             
             spIzquierda.Children.Add(imagenTienda);
@@ -114,14 +112,11 @@ namespace Entradas
                 HorizontalAlignment = HorizontalAlignment.Center
             };
 
-            ImageEx imagenJuego = new ImageEx
+            Image imagenJuego = new Image
             {
-                IsCacheEnabled = true,
-                EnableLazyLoading = true,
-                Source = json.imagen,
+                Source = new BitmapImage(new Uri(json.imagen)),
                 MaxHeight = 200,
-                MaxWidth = 400,
-                CornerRadius = new CornerRadius(5)
+                MaxWidth = 400
             };
 
             Button2 boton = new Button2

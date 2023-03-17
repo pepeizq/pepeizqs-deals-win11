@@ -1,7 +1,8 @@
-﻿using CommunityToolkit.WinUI.UI.Controls;
+﻿using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using System;
 using Windows.Storage;
 using Windows.System;
@@ -23,17 +24,14 @@ namespace Entradas
                 {
                     datos.Values[entrada.id.ToString()] = true;
 
-                    ImageEx imagenAnuncio = new ImageEx
+                    Image imagenAnuncio = new Image
                     {
-                        IsCacheEnabled = true,
-                        EnableLazyLoading = true,
-                        Source = entrada.fifu_image_url,
+                        Source = new BitmapImage(new Uri(entrada.fifu_image_url)),
                         MaxHeight = 775,
-                        MaxWidth = 2400,
-                        CornerRadius = new CornerRadius(3)
+                        MaxWidth = 2400
                     };
 
-                    Button boton = new Button()
+                    Button2 boton = new Button2()
                     {
                         Content = imagenAnuncio,
                         Padding = new Thickness(10, 10, 10, 10),
@@ -46,6 +44,8 @@ namespace Entradas
                     };
 
                     boton.Click += BotonAbrirAnuncio;
+                    boton.PointerEntered += Animaciones.EntraRatonBoton2;
+                    boton.PointerExited += Animaciones.SaleRatonBoton2;
 
                     ObjetosVentana.spAnuncio.Children.Add(boton);
 
@@ -55,7 +55,7 @@ namespace Entradas
                         Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])                     
                     };
 
-                    Button botonCerrar = new Button()
+                    Button2 botonCerrar = new Button2()
                     {
                         Content = iconoCerrar,
                         Margin = new Thickness(0, 25, 0, 0),
@@ -68,6 +68,8 @@ namespace Entradas
                     };
 
                     botonCerrar.Click += BotonCerrarAnuncio;
+                    botonCerrar.PointerEntered += Animaciones.EntraRatonBoton2;
+                    botonCerrar.PointerExited += Animaciones.SaleRatonBoton2;
 
                     ObjetosVentana.spAnuncio.Children.Add(botonCerrar);
                 }

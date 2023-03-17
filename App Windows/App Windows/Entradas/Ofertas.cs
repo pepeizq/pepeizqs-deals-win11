@@ -96,13 +96,11 @@ namespace Entradas
                 VerticalAlignment = VerticalAlignment.Center
             };
 
-            ImageEx imagenTienda = new ImageEx
+            Image imagenTienda = new Image
             {
                 MaxWidth = 180,
                 MaxHeight = 50,
-                Source = new BitmapImage(new Uri(entrada.store_logo)),
-                EnableLazyLoading = true,
-                IsCacheEnabled = true
+                Source = new BitmapImage(new Uri(entrada.store_logo))
             };
 
             spIzquierda.Children.Add(imagenTienda);
@@ -181,14 +179,11 @@ namespace Entradas
                             CornerRadius = new CornerRadius(2)
                         };
 
-                        ImageEx imagenJuego = new ImageEx
+                        Image imagenJuego = new Image
                         {
                             Source = new BitmapImage(new Uri(juego.imagen)),
                             MaxHeight = maximoAlto,
-                            MaxWidth = maximoAncho,
-                            EnableLazyLoading = true,
-                            IsCacheEnabled = true,
-                            CornerRadius = new CornerRadius(2,2,0,0)
+                            MaxWidth = maximoAncho
                         };
 
                         spJuego.Children.Add(imagenJuego);
@@ -253,7 +248,7 @@ namespace Entradas
                         boton.Click += BotonAbrirJuego;
                         boton.PointerEntered += Animaciones.EntraRatonBoton2;
                         boton.PointerExited += Animaciones.SaleRatonBoton2;
-
+                        
                         gv.Items.Add(boton);
                     }
 
@@ -428,14 +423,11 @@ namespace Entradas
                         VerticalAlignment = VerticalAlignment.Center
                     };
 
-                    ImageEx imagenJuego = new ImageEx
+                    Image imagenJuego = new Image
                     {
                         MaxWidth = 250,
                         MaxHeight = 150,
-                        Source = new BitmapImage(new Uri(juego.imagen)),
-                        EnableLazyLoading = true,
-                        IsCacheEnabled = true,
-                        CornerRadius = new CornerRadius(3)
+                        Source = new BitmapImage(new Uri(juego.imagen))
                     };
 
                     spIzquierda.Children.Add(imagenJuego);
@@ -547,10 +539,6 @@ namespace Entradas
                         {
                             stringdrm = "drm_battlenet2.png";
                         }
-                        else if (juego.drm.ToLower().Contains("bethesda"))
-                        {
-                            stringdrm = "drm_bethesda2.png";
-                        }
                         else if (juego.drm.ToLower().Contains("epic"))
                         {
                             stringdrm = "drm_epic2.png";
@@ -566,15 +554,13 @@ namespace Entradas
 
                         if (stringdrm != String.Empty)
                         {
-                            stringdrm = "/Assets/DRMs/" + stringdrm;
+                            stringdrm = "ms-appx:///Assets/DRMs/" + stringdrm;
                        
-                            ImageEx imagenDRM = new ImageEx
+                            Image imagenDRM = new Image
                             {
-                                Source = stringdrm,
+                                Source = new BitmapImage(new Uri(stringdrm)),
                                 Margin = new Thickness(20, 0, 0, 0),
                                 VerticalAlignment = VerticalAlignment.Center,
-                                EnableLazyLoading = true,
-                                IsCacheEnabled = true,
                                 MaxHeight = 30
                             };
 
@@ -588,26 +574,24 @@ namespace Entradas
                         {
                             if (juego.analisisPorcentaje != "null" && juego.analisisPorcentaje != "0")
                             {
-                                ImageEx imagenAnalisis = new ImageEx
+                                Image imagenAnalisis = new Image
                                 {
                                     MaxHeight = 30,
-                                    IsCacheEnabled = true,
-                                    EnableLazyLoading = true,
                                     Margin = new Thickness(20, 0, 0, 0),
                                     VerticalAlignment = VerticalAlignment.Center
                                 };
 
                                 if (int.Parse(juego.analisisPorcentaje) > 74)
                                 {
-                                    imagenAnalisis.Source = "/Assets/Reviews/review_positive.png";
+                                    imagenAnalisis.Source = new BitmapImage(new Uri("ms-appx:///Assets/Reviews/review_positive.png"));
                                 }
                                 else if (int.Parse(juego.analisisPorcentaje) > 49 && int.Parse(juego.analisisPorcentaje) < 75)
                                 {
-                                    imagenAnalisis.Source = "/Assets/Reviews/review_mixed.png";
+                                    imagenAnalisis.Source = new BitmapImage(new Uri("ms-appx:///Assets/Reviews/review_mixed.png"));
                                 }
                                 else if (int.Parse(juego.analisisPorcentaje) < 50)
                                 {
-                                    imagenAnalisis.Source = "/Assets/Reviews/review_negative.png";
+                                    imagenAnalisis.Source = new BitmapImage(new Uri("ms-appx:///Assets/Reviews/review_negative.png"));
                                 }
 
                                 spDatos.Children.Add(imagenAnalisis);

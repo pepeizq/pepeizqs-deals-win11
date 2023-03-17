@@ -78,7 +78,7 @@ namespace Herramientas
             {
                 ResourceLoader recursos = new ResourceLoader();
 
-                ToastButton botonAbrir = new ToastButton(recursos.GetString("Open"), enlace)
+                ToastButton botonAbrir = new ToastButton(recursos.GetString("Open2"), enlace)
                 {
                     ActivationType = ToastActivationType.Protocol
                 };

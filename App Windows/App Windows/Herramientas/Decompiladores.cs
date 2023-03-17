@@ -17,9 +17,11 @@ namespace Herramientas
             {
                 HttpResponseMessage respuesta = new HttpResponseMessage();
                 respuesta = await cliente.GetAsync(new Uri(enlace));
+                cliente.Dispose();
                 respuesta.EnsureSuccessStatusCode();
 
                 html = await respuesta.Content.ReadAsStringAsync() as string;
+                respuesta.Dispose();
             }
             catch (Exception)
             {

@@ -98,7 +98,6 @@ public static class Wordpress
         if (ObjetosVentana.spMensajes.Visibility == Visibility.Visible)
         {
             ObjetosVentana.spCarga.Visibility = Visibility.Collapsed;
-            MasCosas.TerminadaCarga();
         }
         else
         {
